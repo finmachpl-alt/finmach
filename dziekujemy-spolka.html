@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Rozmowa umówiona — FINMACH</title>
+<style>
+  :root{
+    --navy:#0d1e42;
+    --navy-soft:#16284f;
+    --gold:#c9a84c;
+    --paper:#f5f3ef;
+    --ink:#1a1814;
+    --muted:#5a5750;
+    --line:#e3ded3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:Georgia,'Times New Roman',serif;
+    background:var(--paper);
+    color:var(--ink);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    line-height:1.6;
+  }
+  .card{
+    background:#fff;
+    max-width:600px;
+    width:100%;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 24px 60px rgba(13,30,66,.12);
+    border:1px solid var(--line);
+    opacity:0;
+    transform:translateY(16px);
+    animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;
+  }
+  @keyframes rise{to{opacity:1;transform:none}}
+  .head{
+    background:linear-gradient(135deg,var(--navy),var(--navy-soft));
+    padding:40px 40px 36px;
+    text-align:center;
+    position:relative;
+  }
+  .head::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .brand{
+    color:#fff;font-size:13px;letter-spacing:3px;font-family:Arial,sans-serif;
+    font-weight:700;text-transform:uppercase;opacity:.85;margin-bottom:20px;
+  }
+  .check{
+    width:64px;height:64px;border-radius:50%;
+    background:rgba(201,168,76,.15);
+    border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 20px;
+  }
+  .check svg{width:30px;height:30px;stroke:var(--gold);stroke-width:3;fill:none}
+  .head h1{
+    color:#fff;font-size:26px;font-weight:400;letter-spacing:-.3px;
+  }
+  .body{padding:36px 40px 40px}
+  .lead{
+    font-size:17px;color:var(--ink);margin-bottom:8px;
+  }
+  .sub{font-size:15px;color:var(--muted);margin-bottom:28px}
+  .panel{
+    background:var(--paper);
+    border-left:3px solid var(--gold);
+    border-radius:8px;
+    padding:22px 24px;
+    margin-bottom:24px;
+  }
+  .panel h2{
+    font-family:Arial,sans-serif;font-size:13px;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--navy);font-weight:700;margin-bottom:14px;
+  }
+  .panel ul{list-style:none}
+  .panel li{
+    padding-left:22px;position:relative;margin-bottom:10px;font-size:15px;color:var(--ink);
+  }
+  .panel li::before{
+    content:"";position:absolute;left:0;top:9px;width:7px;height:7px;
+    background:var(--gold);border-radius:50%;
+  }
+  .panel li small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+  .callout{
+    display:flex;gap:12px;align-items:flex-start;
+    font-size:15px;color:var(--ink);
+    background:rgba(13,30,66,.04);border-radius:8px;padding:16px 18px;margin-bottom:24px;
+  }
+  .callout svg{flex-shrink:0;width:20px;height:20px;stroke:var(--navy);stroke-width:2;fill:none;margin-top:2px}
+  .contact{
+    text-align:center;font-size:14px;color:var(--muted);
+    padding-top:22px;border-top:1px solid var(--line);
+  }
+  .contact a{color:var(--navy);text-decoration:none;font-weight:bold}
+  .contact .tel{font-size:18px;color:var(--navy);font-family:Arial,sans-serif;display:block;margin:6px 0}
+  .status{font-size:13px;color:var(--muted);text-align:center;margin-top:18px;font-family:Arial,sans-serif}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <div class="brand">FINMACH</div>
+      <div class="check">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>Rozmowa umówiona</h1>
+    </div>
+    <div class="body">
+      <p class="lead">Dziękujemy — Twój termin został zarezerwowany.</p>
+      <p class="sub">Zadzwonimy do Ciebie o ustalonej godzinie. Nie musisz nigdzie dzwonić — czekaj na telefon od naszego doradcy.</p>
+
+      <div class="panel">
+        <h2>Przygotuj na rozmowę (spółka)</h2>
+        <ul>
+          <li>RZiS i Bilans za 2025 oraz za bieżący kwartał
+            <small>Rachunek zysków i strat oraz bilans — dokumenty finansowe spółki.</small>
+          </li>
+          <li>Raport BIK spółki
+            <small>Jeśli posiadasz. Alternatywnie — informacja o aktualnych kredytach i leasingach.</small>
+          </li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span>Dokumenty możesz przygotować na rozmowę lub podesłać wcześniej na <a href="mailto:kontakt@finmach.pl" style="color:var(--navy);font-weight:bold">kontakt@finmach.pl</a> — jak Ci wygodniej.</span>
+      </div>
+
+      <div class="contact">
+        Masz pytania przed rozmową?
+        <span class="tel">508 242 599</span>
+        <a href="mailto:kontakt@finmach.pl">kontakt@finmach.pl</a>
+      </div>
+
+      <p class="status" id="status">Wysyłamy potwierdzenie na Twój e-mail…</p>
+    </div>
+  </div>
+
+<script>
+  // ── Wysyłka maila #2 przez GAS ────────────────────────────────
+  // Forma prawna wynika z tego, że to strona JDG.
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbzTSipHR6YQ4HVdeAcZmC2PJBMXicQSK2nCoiyIOax-ZNur5ZlrFwOPmOd5DN4G1iiVtA/exec';
+
+  // E-mail klienta przekazujemy w URL: ...dziekujemy-spolka.html?email=jan@firma.pl&imie=Jan
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get('email') || '';
+  const imie  = params.get('imie')  || '';
+
+  const statusEl = document.getElementById('status');
+
+  if (email && email.includes('@')) {
+    const url = GAS_URL
+      + '?action=umowioneSpotkanie'
+      + '&legal_form=spolka'
+      + '&email=' + encodeURIComponent(email)
+      + '&imie='  + encodeURIComponent(imie);
+
+    fetch(url)
+      .then(r => r.json())
+      .then(d => {
+        statusEl.textContent = (d.status === 'ok')
+          ? '✓ Potwierdzenie z listą dokumentów wysłaliśmy na Twój e-mail.'
+          : 'Potwierdzenie wyślemy wkrótce. W razie pytań: kontakt@finmach.pl';
+      })
+      .catch(() => {
+        statusEl.textContent = 'Potwierdzenie wyślemy wkrótce. W razie pytań: kontakt@finmach.pl';
+      });
+  } else {
+    // Brak e-maila w URL — nie wysyłamy, ale strona i tak potwierdza umówienie
+    statusEl.textContent = 'Potwierdzenie szczegółów otrzymasz e-mailem od Koalendar.';
+  }
+</script>
+</body>
+</html>

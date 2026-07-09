@@ -1,0 +1,4146 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta name="google-site-verification" content="qhtxHheU-UXW6VTbyGkr3vH3KbuEcYwK5g5j0uTzoDI" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FINMACH.PL – Faktoring i Finansowanie dla Firm | Porównaj 20+ Instytucji | Warszawa</title>
+<meta name="description" content="FINMACH.PL – polska platforma doradztwa faktoringowego. Porównaj faktoring, mikrofaktoring i kredyt dla firmy od 20+ polskich instytucji finansowych w 2 minuty. Bezpłatna analiza. Małgorzata Bakuła, doradca z 20-letnim doświadczeniem. Warszawa.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%230d1e42'/><rect x='6' y='6' width='4' height='18' rx='2' fill='%23fff'/><rect x='6' y='6' width='11' height='4' rx='2' fill='%23fff'/><rect x='6' y='12.5' width='8.5' height='3.5' rx='1.75' fill='%23fff'/><path d='M19 9.5 L24 16 L19 22.5' fill='none' stroke='%23c9a84c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #f5f3ef;
+  --surface:  #ffffff;
+  --ink:      #1a1814;
+  --ink2:     #5a5750;
+  --border:   #e2dfd9;
+  --accent:   #1d4ed8;
+  --navy:     #173B8F;
+  --navy-l:   #eaeffa;
+  --gold:     #D9B85E;
+  --accent-l: #eff4ff;
+  --accent-d: #1239b4;
+  --ok:       #059669;
+  --warn:     #d97706;
+  --err:      #dc2626;
+  --tile-h:   #eef3ff;
+  --tile-sel: #1d4ed8;
+  --radius:   14px;
+  --shadow:   0 2px 16px rgba(0,0,0,0.07);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+/* ── LANDING PAGE ─────────────────────────── */
+#landingPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Nav */
+.nav {
+  width: 100%;
+  max-width: 1100px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+.nav-cta {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s;
+}
+.nav-cta:hover { background: var(--accent-d); transform: translateY(-1px); }
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.nav-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover { background: var(--accent-l); color: var(--accent); }
+
+@media (max-width: 640px) {
+  .nav { padding: 12px 16px; }
+  .nav-cta { font-size: 0.75rem; padding: 8px 12px; }
+  .nav-links { display: none; }
+  .nav-links.open { 
+    display: flex; 
+    flex-direction: column;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(248,247,244,0.98);
+    backdrop-filter: blur(20px);
+    padding: 12px 16px 20px;
+    border-bottom: 1px solid var(--border);
+    z-index: 900;
+    gap: 4px;
+  }
+  .nav-hamburger { display: flex !important; }
+}
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+/* Hero - nagłówek na środku, formularz bezpośrednio pod nim */
+.hero {
+  width: 100%;
+  max-width: 1100px;
+  padding: 40px 24px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy-l);
+  border: 1px solid rgba(23,59,143,0.15);
+  color: var(--navy);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 99px;
+  margin-bottom: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.hero-badge .badge-accent {
+  color: var(--accent);
+}
+
+.hero h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.4rem, 5.2vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.hero h1 span { color: var(--navy); }
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--ink2);
+  line-height: 1.65;
+  margin: 0 auto 28px;
+  max-width: 560px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 36px;
+  margin-top: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--ink2);
+  margin-top: 2px;
+}
+
+.btn-hero {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 16px 32px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-hero:hover {
+  background: var(--accent-d);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(29,78,216,0.3);
+}
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: var(--ink2);
+}
+
+.hero-wizard-box {
+  width: 100%;
+  max-width: 640px;
+  text-align: left;
+  background: #fff;
+  border: 1.5px solid rgba(29,78,216,0.15);
+  border-radius: 24px;
+  padding: 26px 22px 18px;
+  box-shadow: 0 8px 40px rgba(29,78,216,0.11), 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
+}
+.hero-wizard-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #173B8F 0%, #1d4ed8 50%, #D9B85E 100%);
+  border-radius: 24px 24px 0 0;
+}
+
+/* Zakładki w boxie hero: Wniosek / Kalkulator */
+.hero-tab {
+  border: none;
+  background: transparent;
+  border-radius: 9px;
+  padding: 9px 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--ink2);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.hero-tab-active {
+  background: #fff;
+  color: var(--navy);
+  box-shadow: 0 1px 6px rgba(13,30,66,0.12);
+}
+@media (max-width: 380px) { .hero-tab { font-size: 0.72rem; padding: 9px 2px; } }
+
+/* Headline area */
+.hero-wizard-headline {
+  margin-bottom: 14px;
+  text-align: center;
+}
+.hero-wizard-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #111827;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.hero-wizard-sub {
+  font-size: 0.78rem;
+  color: #5a5750;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* keep old label for compatibility */
+.hero-wizard-label { display: none; }
+
+.hero-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+/* Premium 2x2 układ - większe kafelki, mocniejszy hover */
+.hero-tiles-4 {
+  gap: 12px;
+}
+.hero-tiles-4 .hero-tile {
+  padding: 20px 16px;
+  text-align: center;
+}
+.hero-tiles-4 .hero-tile .hero-tile-icon {
+  font-size: 1.7rem;
+  display: block;
+  margin-bottom: 8px;
+}
+.hero-tiles-4 .hero-tile .hero-tile-label {
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.hero-tiles-4 .hero-tile .hero-tile-sub {
+  font-size: 0.74rem;
+  margin-top: 3px;
+}
+.hero-tiles-4 .hero-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(23,59,143,0.13);
+}
+
+.hero-tile {
+  background: #f9f8f6;
+  border: 1.5px solid #e8e5df;
+  border-radius: 13px;
+  padding: 13px 11px;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s, transform 0.15s, box-shadow 0.18s;
+  text-align: left;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-tile:hover {
+  border-color: #1d4ed8;
+  background: #eef3ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(29,78,216,0.14), 0 0 0 1px rgba(29,78,216,0.06);
+}
+
+.hero-tile:active {
+  transform: scale(0.97) translateY(0);
+  background: #dbeafe;
+  box-shadow: none;
+}
+
+/* "Nie wiem" tile - highlighted differently */
+.hero-tile.hero-tile-featured {
+  border-color: rgba(29,78,216,0.25);
+  background: #f5f8ff;
+}
+
+.hero-tile.hero-tile-unsure {
+  border-color: #e2dfd9;
+  background: #fefefe;
+}
+.hero-tile.hero-tile-unsure:hover {
+  border-color: #1d4ed8;
+  background: #eef3ff;
+}
+
+.hero-tile-icon {
+  font-size: 1.25rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.hero-tile-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.83rem;
+  color: #111827;
+  line-height: 1.25;
+}
+
+/* Hide sub-descriptions - reduce cognitive load */
+.hero-tile-sub {
+  display: none;
+}
+
+.hero-wizard-trust {
+  font-size: 0.72rem;
+  color: #8b93a1;
+  text-align: center;
+  padding-top: 2px;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 480px) {
+  .hero-tiles { grid-template-columns: 1fr 1fr; gap: 7px; }
+  .hero-tile { padding: 11px 10px; border-radius: 11px; }
+  .hero-tile-icon { font-size: 1.1rem; }
+  .hero-tile-label { font-size: 0.72rem; line-height: 1.3; }
+  .hero-tile-sub { font-size: 0.6rem; }
+}
+
+/* How it works */
+.section {
+  width: 100%;
+  max-width: 1100px;
+  padding: 60px 24px;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--ink2);
+  max-width: 520px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.step-card:hover {
+  box-shadow: 0 8px 32px rgba(37,99,235,0.1);
+  transform: translateY(-2px);
+}
+
+.step-num-big {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent-l);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.step-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step-card p {
+  font-size: 0.84rem;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+
+/* Partners */
+.partners-strip {
+  width: 100%;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 24px;
+}
+
+.partners-strip-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.partners-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.partners-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-chip {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--ink2);
+}
+
+/* Why us */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.why-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.why-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.why-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.why-card p {
+  font-size: 0.82rem;
+  color: var(--ink2);
+  line-height: 1.55;
+}
+
+/* Case study */
+.case-study {
+  background: linear-gradient(135deg, #1d4ed8, #1239b4);
+  border-radius: 24px;
+  padding: 40px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.case-quote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  opacity: 0.95;
+}
+
+.case-author {
+  font-size: 0.82rem;
+  opacity: 0.75;
+}
+
+.case-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-stat {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.case-stat-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.case-stat-label {
+  font-size: 0.78rem;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+/* Case study carousel */
+.case-carousel { position: relative; }
+.case-slide { display: none; }
+.case-slide.active { display: grid; animation: fadeIn 0.4s ease; }
+.case-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.case-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  padding: 0;
+}
+.case-dot.active { background: var(--accent); transform: scale(1.25); }
+.case-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  gap: 12px;
+}
+.case-arrow {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.case-arrow:hover { border-color: var(--accent); background: var(--accent-l); color: var(--accent); }
+
+/* FAQ */
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+
+.faq-item {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-q {
+  padding: 18px 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.faq-q:hover { background: var(--bg); }
+
+.faq-arrow { transition: transform 0.2s; font-size: 0.8rem; color: var(--ink2); }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+.faq-a {
+  display: none;
+  padding: 0 20px 18px;
+  font-size: 0.86rem;
+  color: var(--ink2);
+  line-height: 1.65;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+.faq-item.open .faq-a { display: block; }
+
+/* CTA bottom */
+.cta-bottom {
+  width: 100%;
+  background: #0d1e42;
+  padding: 80px 24px;
+  text-align: center;
+  color: #fff;
+}
+
+.cta-bottom h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.cta-bottom p {
+  font-size: 0.95rem;
+  opacity: 0.7;
+  margin-bottom: 32px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.btn-cta-white {
+  background: #fff;
+  color: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  padding: 18px 40px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.15s;
+}
+.btn-cta-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background: linear-gradient(135deg, #173B8F 0%, #1a4aad 100%);
+  color: rgba(255,255,255,0.6);
+  padding: 28px 24px;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+.footer a { color: rgba(255,255,255,0.5); transition: color 0.15s; }
+.footer a:hover { color: rgba(255,255,255,0.9); }
+
+.footer a { color: rgba(255,255,255,0.6); }
+
+/* ── WIZARD ───────────────────────────────── */
+#wizardPage {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px 80px;
+  background: var(--bg);
+  min-height: 100vh;
+}
+body.wizard-active {
+  overflow: hidden;
+}
+body.wizard-active #wizardPage {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 500;
+  overflow-y: auto;
+  display: flex;
+}
+body.wizard-active #landingPage {
+  display: none !important;
+}
+
+.topbar {
+  width: 100%;
+  max-width: 640px;
+  padding: 24px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 12px;
+}
+
+.topbar .logo { font-size: 1rem; }
+
+/* Przycisk Wróć na górze - POPRAWKA 4 */
+.btn-back-top {
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  padding: 9px 16px;
+  white-space: nowrap;
+  transition: background 0.15s, transform 0.12s;
+  flex-shrink: 0;
+}
+.btn-back-top:hover { background: var(--accent-d); transform: translateY(-1px); }
+
+.progress-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progress-label {
+  font-size: 0.72rem;
+  color: var(--ink2);
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.progress-label-pct { font-weight: 700; color: var(--accent); }
+
+.progress-bar {
+  height: 5px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--accent) 60%, #5b8ef5 100%);
+  border-radius: 99px;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+}
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  right: -1px; top: 50%;
+  transform: translateY(-50%);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(29,78,216,0.2);
+}
+
+/* Przycisk Wróć - duży i widoczny */
+.btn-back {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  transition: border-color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+.btn-back:hover { border-color: var(--accent); background: var(--accent-l); color: var(--accent); }
+.btn-back:disabled { opacity: 0; pointer-events: none; }
+
+.step-helper {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 11px 13px; margin-top: 14px;
+  font-size: 0.8rem; color: var(--ink2); line-height: 1.5;
+}
+.step-helper-icon { flex-shrink: 0; }
+.step-trust-msg {
+  font-size: 0.74rem; color: var(--ink2); opacity: 0.7;
+  text-align: center; margin-top: 14px; line-height: 1.5;
+}
+
+.card {
+  width: 100%;
+  max-width: 600px;
+  background: var(--surface);
+  border-radius: 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 28px rgba(0,0,0,0.07);
+  padding: 28px 26px 40px;
+  position: relative;
+  overflow: visible;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--accent) 50%, var(--gold) 100%);
+  border-radius: 18px 18px 0 0;
+}
+
+.step-num {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.step-question {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.25rem, 3.5vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.step-hint {
+  font-size: 0.85rem;
+  color: var(--ink2);
+  margin-bottom: 28px;
+  line-height: 1.55;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.tile {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 14px 13px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.18s, background 0.18s, transform 0.15s, box-shadow 0.18s;
+  position: relative;
+  user-select: none;
+  outline: none;
+}
+
+.tile:hover {
+  border-color: var(--accent);
+  background: var(--tile-h);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(29,78,216,0.1);
+}
+
+.tile:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+.tile.selected {
+  border-color: var(--accent);
+  background: var(--accent-l);
+  box-shadow: 0 0 0 3px rgba(29,78,216,0.12);
+}
+
+.tile.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 8px; right: 10px;
+  width: 18px; height: 18px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+}
+
+.tile-icon { font-size: 1.4rem; margin-bottom: 7px; display: block; }
+.tile-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700; font-size: 0.88rem;
+  color: var(--ink); line-height: 1.25;
+}
+.tile-sub { font-size: 0.73rem; color: var(--ink2); margin-top: 3px; line-height: 1.4; }
+
+.tiles-2 { grid-template-columns: 1fr 1fr; }
+
+.input-wrap { margin-bottom: 24px; }
+.input-wrap label { font-size: 0.82rem; font-weight: 500; color: var(--ink2); display: block; margin-bottom: 6px; }
+
+.inp {
+  width: 100%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.inp:focus { border-color: var(--accent); background: #fff; }
+.inp.err { border-color: var(--err); }
+
+.inp-note { font-size: 0.75rem; color: var(--ink2); margin-top: 5px; }
+
+.warn-box {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: #fff8ed; border: 1px solid #fed7aa;
+  border-radius: 10px; padding: 12px 14px; margin-bottom: 18px;
+  font-size: 0.82rem; color: #92400e; line-height: 1.5;
+}
+.warn-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+.info-box {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--accent-l); border: 1px solid #bfdbfe;
+  border-radius: 10px; padding: 12px 14px; margin-bottom: 18px;
+  font-size: 0.82rem; color: #1e40af; line-height: 1.5;
+}
+
+.btn-next {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+}
+.btn-next:hover:not(:disabled) {
+  background: var(--accent-d);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(29,78,216,0.25);
+}
+.btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+.btn-next.loading { pointer-events: none; opacity: 0.75; }
+
+.nip-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; margin-top: 6px; min-height: 20px; }
+.nip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.nip-dot.ok { background: var(--ok); }
+.nip-dot.err { background: var(--err); }
+.nip-dot.spin { border: 2px solid var(--border); border-top-color: var(--accent); animation: spin 0.7s linear infinite; }
+
+.slider-wrap { margin-bottom: 24px; }
+.slider-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--ink2); margin-top: 8px; }
+
+input[type=range] {
+  -webkit-appearance: none; width: 100%; height: 6px;
+  border-radius: 99px; background: var(--border); outline: none; cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 2px 8px rgba(29,78,216,0.3); transition: transform 0.1s;
+}
+input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.slider-value { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--accent); text-align: center; margin-bottom: 12px; }
+
+.results-header {
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); margin-bottom: 14px;
+}
+
+.result-card {
+  border: 2px solid var(--border); border-radius: var(--radius);
+  padding: 20px; margin-bottom: 12px; position: relative;
+  transition: border-color 0.15s, box-shadow 0.15s; background: #fff;
+}
+.result-card.top { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(29,78,216,0.07); }
+
+/* Multi-select partner checkbox */
+.result-card .partner-checkbox {
+  position: absolute;
+  top: 16px; left: 16px;
+  width: 22px; height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-size: 0.8rem;
+  background: #fff;
+}
+.result-card.partner-selected .partner-checkbox {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.result-card.partner-selected { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(29,78,216,0.1); }
+
+.result-badge {
+  position: absolute; top: -1px; right: 16px;
+  background: var(--accent); color: #fff;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 3px 10px; border-radius: 0 0 8px 8px;
+}
+
+.result-top-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding-left: 36px; }
+.result-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 700; }
+.result-score { background: #f0fdf4; border: 1px solid #bbf7d0; color: var(--ok); font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 99px; }
+
+.result-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.pill { font-size: 0.72rem; padding: 3px 10px; border-radius: 99px; background: var(--bg); border: 1px solid var(--border); color: var(--ink2); }
+
+.result-why { font-size: 0.8rem; color: var(--ink2); line-height: 1.5; margin-bottom: 14px; }
+
+.btn-apply {
+  display: inline-block; background: var(--accent); color: #fff; border: none;
+  border-radius: 10px; padding: 10px 20px; font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700; font-size: 0.88rem; cursor: pointer; text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-apply:hover { background: var(--accent-d); transform: scale(1.02); }
+
+/* Multi-apply bar */
+.multi-apply-bar {
+  position: sticky; bottom: 16px;
+  background: var(--accent); color: #fff;
+  border-radius: var(--radius); padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 8px 32px rgba(29,78,216,0.4);
+  margin-top: 16px;
+  animation: slideUp 0.3s ease;
+}
+.multi-apply-bar.hidden { display: none; }
+.multi-apply-info { font-size: 0.85rem; }
+.multi-apply-info strong { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; }
+.btn-multi-apply {
+  background: #fff; color: var(--accent); border: none;
+  border-radius: 10px; padding: 10px 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.88rem;
+  cursor: pointer; transition: transform 0.1s;
+}
+.btn-multi-apply:hover { transform: scale(1.03); }
+
+.results-email-capture {
+  margin-top: 18px; padding: 16px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 12px;
+}
+.results-email-label { font-size: 0.85rem; font-weight: 600; color: var(--ink); }
+
+.blocked-screen { text-align: center; padding: 12px 0; }
+.blocked-icon { font-size: 3rem; margin-bottom: 16px; }
+.blocked-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+.blocked-text { font-size: 0.88rem; color: var(--ink2); line-height: 1.6; max-width: 380px; margin: 0 auto 20px; }
+
+.trust {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-size: 0.7rem;
+  color: var(--ink2);
+  opacity: 0.65;
+  flex-wrap: wrap;
+}
+.trust span {
+  padding: 0 10px;
+  border-right: 1px solid var(--border);
+  line-height: 1;
+}
+.trust span:last-child { border-right: none; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeSlide { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.animate-in { animation: fadeSlide 0.25s cubic-bezier(0.4,0,0.2,1) both; }
+
+/* Wizard page layout */
+#wizardPage {
+  padding: 0 16px 72px;
+}
+
+/* AI analysis state */
+.ai-analyzing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--ink2);
+  padding: 12px 16px;
+  background: var(--accent-l);
+  border: 1px solid rgba(29,78,216,0.15);
+  border-radius: 10px;
+  margin-top: 14px;
+}
+.ai-analyzing-dots {
+  display: flex; gap: 4px;
+}
+.ai-analyzing-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: ai-pulse 1.2s ease infinite;
+}
+.ai-analyzing-dot:nth-child(2) { animation-delay: 0.2s; }
+.ai-analyzing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes ai-pulse {
+  0%,80%,100% { transform: scale(0.7); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* NIP status improvements */
+.nip-status { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; margin-top: 6px; min-height: 20px; }
+.nip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.nip-dot.ok   { background: var(--ok); }
+.nip-dot.err  { background: var(--err); }
+.nip-dot.spin {
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite;
+}
+
+@media (max-width: 768px) {
+  /* Hero na mobile: formularz zaraz pod nagłówkiem, zaciśnięte odstępy */
+  .hero { gap: 0; padding: 20px 20px 28px; }
+  .hero-badge { margin-bottom: 14px; padding: 7px 14px; font-size: 0.68rem; }
+  .hero h1 { margin-bottom: 12px; }
+  .hero-sub { margin-bottom: 18px; }
+  .hero-stats { margin-top: 22px; gap: 22px; }
+
+  /* w boksie chowamy duży przycisk - zostają zakładki, nagłówek i kafelki */
+  #heroTabWizard > button { display: none; }
+  #heroTabWizard > div[style*="dde3ee"] { display: none; }
+
+  .steps-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .case-study { grid-template-columns: 1fr; }
+  .pain-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .card { padding: 22px 16px 36px; border-radius: 16px; }
+  .tiles { grid-template-columns: 1fr 1fr; gap: 7px; }
+  .tile { padding: 12px 11px; border-radius: 11px; }
+  .tile-icon { font-size: 1.25rem; margin-bottom: 5px; }
+  .tile-label { font-size: 0.83rem; }
+  .tile-sub { font-size: 0.7rem; }
+  .topbar { padding: 14px 0 0; margin-bottom: 14px; }
+  .btn-next { padding: 14px; font-size: 0.9rem; }
+  .step-question { font-size: 1.1rem; }
+  .step-hint { font-size: 0.8rem; margin-bottom: 16px; }
+  #wizardPage { padding: 0 14px 60px; }
+  .btn-back-top { padding: 8px 12px; font-size: 0.76rem; }
+}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,12,20,0.7);display:flex;align-items:center;justify-content:center;z-index:1100;padding:16px;animation:fadeIn 0.2s ease}
+.modal-box{background:var(--surface);border-radius:20px;padding:32px 28px 28px;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,0.25);position:relative;max-height:92vh;overflow-y:auto}
+.modal-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:6px}
+.modal-sub{font-size:0.83rem;color:var(--ink2);margin-bottom:22px;line-height:1.55}
+.modal-partner-bar{background:var(--accent-l);border:1px solid #bfdbfe;border-radius:10px;padding:10px 14px;font-size:0.82rem;color:var(--accent);font-weight:600;margin-bottom:20px}
+.field-group{margin-bottom:14px}
+.field-group label{font-size:0.8rem;font-weight:500;color:var(--ink2);display:block;margin-bottom:5px}
+.field-inp{width:100%;border:2px solid var(--border);border-radius:10px;padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.95rem;color:var(--ink);background:var(--bg);outline:none;transition:border-color 0.15s}
+.field-inp:focus{border-color:var(--accent);background:#fff}
+.saved-tick{font-size:0.72rem;color:var(--ok);margin-top:3px;display:none}
+.saved-tick.show{display:block}
+.modal-submit{width:100%;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:15px;font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:6px;transition:background 0.15s,transform 0.12s}
+.modal-submit:hover{background:var(--accent-d);transform:translateY(-1px)}
+.modal-submit:disabled{opacity:0.45;cursor:not-allowed;transform:none}
+.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.3rem;color:var(--ink2);cursor:pointer;line-height:1}
+.modal-gdpr{font-size:0.7rem;color:var(--ink2);margin-top:10px;line-height:1.5;text-align:center}
+.advisor-box{background:linear-gradient(135deg,#eff4ff 0%,#e8f4fd 100%);border:1.5px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px;display:flex;gap:14px;align-items:center}
+.advisor-avatar{width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.advisor-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:2px}
+.advisor-desc{font-size:0.78rem;color:var(--ink2);line-height:1.4;margin-bottom:8px}
+.advisor-cta{font-size:0.8rem;font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.nip-row{display:flex;gap:10px;margin-bottom:10px}
+.nip-row .inp{flex:1}
+.btn-verify{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:0 18px;font-family:'Inter',sans-serif;font-size:0.88rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:background 0.15s}
+.btn-verify:hover{background:var(--accent-d)}
+.btn-verify:disabled{opacity:0.5;cursor:not-allowed}
+.nip-result{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:0.82rem;line-height:1.6;margin-bottom:12px;display:none}
+.nip-result.show{display:block}
+.nip-result .firma-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.95rem;color:var(--ink);margin-bottom:2px}
+.btn-skip{background:none;border:none;font-size:0.8rem;color:var(--ink2);cursor:pointer;text-decoration:underline;text-underline-offset:3px;display:block;margin:0 auto 4px}
+
+/* ── STICKY BOTTOM NAV ───────────────────────── */
+.wizard-bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 60;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(23,59,143,0.12);
+  padding: 12px 20px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 100%;
+}
+
+/* POPRAWKA 5 - kolorowy przycisk Wróć na dole */
+.wbn-back {
+  background: var(--navy);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  font-family: inherit;
+  transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+  white-space: nowrap;
+  min-width: 100px;
+  box-shadow: 0 2px 10px rgba(23,59,143,0.25);
+}
+.wbn-back:hover:not(:disabled) {
+  background: var(--accent-d);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(29,78,216,0.35);
+}
+.wbn-back:disabled {
+  background: var(--border);
+  color: var(--ink2);
+  opacity: 0.5;
+  cursor: default;
+  box-shadow: none;
+}
+
+.wbn-step {
+  font-size: 0.75rem;
+  color: var(--ink2);
+  opacity: 0.6;
+  text-align: center;
+  flex: 1;
+}
+
+/* Add bottom padding to wizard page so nav doesn't cover content */
+#wizardPage {
+  padding-bottom: 96px !important;
+}
+
+@media (max-width: 480px) {
+  .wizard-bottom-nav { padding: 10px 16px; }
+  .wbn-back { padding: 11px 18px; font-size: 0.82rem; }
+}
+
+/* Hide on landing page */
+#landingPage ~ .wizard-bottom-nav { display: none; }
+
+/* Kogo finansujemy */
+.who-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.who-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 8px 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  cursor: default;
+}
+.who-pill:hover {
+  border-color: var(--accent);
+  background: var(--accent-l);
+  color: var(--accent);
+}
+
+/* Results trust bar */
+.results-trust-bar {
+  margin-top: 16px;
+  padding: 10px 14px;
+  background: var(--accent-l);
+  border: 1px solid rgba(29,78,216,0.12);
+  border-radius: 10px;
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-align: center;
+  line-height: 1.5;
+}
+</style>
+<link rel="stylesheet" href="/chat.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FINMACH",
+  "legalName": "Pay Flow Sp. z o.o.",
+  "url": "https://finmach.pl",
+  "logo": "https://finmach.pl/logo.png",
+  "description": "Inteligentna porównywarka finansowania dla firm. Porównujemy faktoring, kredyty, hipoteki firmowe i finansowanie pod terminal z 20+ instytucji i dobieramy ofertę do profilu firmy.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Al. Jerozolimskie 85/21",
+    "postalCode": "02-001",
+    "addressLocality": "Warszawa",
+    "addressCountry": "PL"
+  },
+  "email": "kontakt@finmach.pl",
+  "telephone": "+48508242599",
+  "founder": {
+    "@type": "Person",
+    "name": "Małgorzata Bakuła"
+  },
+  "memberOf": {
+    "@type": "Organization",
+    "name": "FinTech Poland",
+    "url": "https://www.fintechpoland.com"
+  },
+  "sameAs": [
+    "https://www.instagram.com/finansowaniedlafirmy",
+    "https://www.tiktok.com/@finansowaniedlafirmy"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FINMACH",
+  "url": "https://finmach.pl",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://finmach.pl/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Czy FINMACH pobiera prowizję od klienta?","acceptedAnswer":{"@type":"Answer","text":"W większości przypadków FINMACH nie pobiera od klientów żadnych opłat - wynagrodzenie pochodzi od instytucji finansowych, więc koszt finansowania pozostaje taki sam jak przy bezpośrednim kontakcie z faktorem. Jeśli w danej sytuacji miałaby obowiązywać opłata, klient jest informowany wcześniej."}},
+    {"@type":"Question","name":"Jak szybko dostanę wyniki porównania finansowania?","acceptedAnswer":{"@type":"Answer","text":"Wyniki pojawiają się natychmiast po wypełnieniu formularza - zazwyczaj w mniej niż 2 minuty. Dopasowanie ofert następuje automatycznie po analizie profilu firmy."}},
+    {"@type":"Question","name":"Czy mogę złożyć wniosek do kilku faktorów jednocześnie?","acceptedAnswer":{"@type":"Answer","text":"Tak. Na ekranie wyników można zaznaczyć kilku partnerów i złożyć wnioski do wszystkich jednym kliknięciem. Każdy faktor przeprowadza własną ocenę niezależnie."}},
+    {"@type":"Question","name":"Moja firma ma mniej niż rok - czy mam szansę na faktoring?","acceptedAnswer":{"@type":"Answer","text":"Tak. FINMACH współpracuje z partnerami, którzy obsługują firmy już od 6 miesięcy działalności. Przy stażu poniżej 6 miesięcy opcje są ograniczone, ale nie zerowe."}},
+    {"@type":"Question","name":"Czym różni się faktoring od pożyczki?","acceptedAnswer":{"@type":"Answer","text":"Faktoring to sprzedaż wierzytelności (faktur) - faktor wypłaca z góry np. 90% wartości faktury i czeka na płatność od kontrahenta. Pożyczka to dług do spłaty. Faktoring nie zwiększa zadłużenia firmy."}},
+    {"@type":"Question","name":"Czy firma po zakończonej restrukturyzacji może dostać faktoring?","acceptedAnswer":{"@type":"Answer","text":"Tak. Część faktorów akceptuje firmy po oficjalnie zakończonej restrukturyzacji. Kluczowe jest, żeby restrukturyzacja była formalnie zamknięta."}}
+  ]
+}
+</script>
+
+<!-- ═══ ANALITYKA (GA4 + Meta Pixel) - ładowana dopiero po zgodzie cookies ═══ -->
+<script>
+(function(){
+  var loaded = false;
+  window.fmLoadTracking = function() {
+    if (loaded) return;
+    loaded = true;
+
+    /* --- Google Analytics 4 --- */
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-BZB46WM9SE';
+    document.head.appendChild(ga);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-BZB46WM9SE', { 'anonymize_ip': true });
+
+    /* --- Meta Pixel: finansowanie biznesu --- */
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '355236980833207');
+    fbq('track', 'PageView');
+  };
+  /* Jeśli zgoda już wyrażona wcześniej - ładuj od razu */
+  try {
+    var c = JSON.parse(localStorage.getItem('fm_cookie_consent') || 'null');
+    if (c && c.analytics) window.fmLoadTracking();
+  } catch(e) {}
+})();
+</script>
+</head>
+<body>
+
+<!-- ═══ LANDING PAGE ═══════════════════════════════════════════ -->
+<div id="landingPage">
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="/" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+      <svg width="32" height="32" viewBox="0 0 32 32" style="flex-shrink:0">
+        <circle cx="16" cy="16" r="16" fill="#173B8F"/>
+        <rect x="6" y="6" width="4" height="18" rx="2" fill="#fff"/>
+        <rect x="6" y="6" width="11" height="4" rx="2" fill="#fff"/>
+        <rect x="6" y="12.5" width="8.5" height="3.5" rx="1.75" fill="#fff"/>
+        <path d="M19 9.5 L24 16 L19 22.5" fill="none" stroke="#D9B85E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.03em;color:var(--navy)">FINMACH</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#jak-dziala" class="nav-link" onclick="smoothScroll('howItWorks');closeNav();return false">Jak działa</a>
+      <a href="#kalkulator" class="nav-link" onclick="smoothScroll('kalkulator');closeNav();return false">Kalkulator</a>
+      <a href="#" class="nav-link" onclick="showPage('about');closeNav();return false">O nas</a>
+      <a href="#" class="nav-link" onclick="showPage('knowledge');closeNav();return false">Baza wiedzy</a>
+      <a href="#" class="nav-link" onclick="showPage('contact');closeNav();return false">Kontakt</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="nav-cta" onclick="startWizard()">Znajdź finansowanie →</button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">Bezpłatna porównywarka finansowania dla firm · <span class="badge-accent">wynik w 2 minuty</span></div>
+    <h1>Znajdziemy najlepsze <span>finansowanie</span><br>dla Twojej firmy</h1>
+    <p class="hero-sub">Nie musisz znać produktów ani banków. Porównujemy banki, firmy faktoringowe i inwestorów prywatnych - w 2 minuty zobaczysz oferty z realną szansą dla Twojej firmy.</p>
+
+    <div class="hero-wizard-box">
+
+      <!-- Zakładki -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--bg);border-radius:12px;padding:5px;margin-bottom:16px">
+        <button type="button" id="heroTabBtnW" onclick="heroTab('wizard')" class="hero-tab hero-tab-active">🔍 Dobierz finansowanie</button>
+        <button type="button" id="heroTabBtnC" onclick="heroTab('calc')" class="hero-tab">🧮 Kalkulator</button>
+      </div>
+
+      <!-- ZAKŁADKA 1: wizard -->
+      <div id="heroTabWizard">
+      <div class="hero-wizard-headline">
+        <div class="hero-wizard-title">Dobierz najlepszą ofertę</div>
+        <div class="hero-wizard-sub">Kilka pytań, 2 minuty - system porówna 20+ instytucji i pokaże oferty dopasowane do Twojej firmy.</div>
+      </div>
+      <button onclick="startWizard()" style="width:100%;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:15px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:18px">Pokaż oferty dla mojej firmy →</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <div style="flex:1;height:1px;background:#dde3ee"></div>
+        <div style="font-size:0.74rem;color:#8b93a1;white-space:nowrap">albo od razu wybierz produkt</div>
+        <div style="flex:1;height:1px;background:#dde3ee"></div>
+      </div>
+      <div class="hero-tiles hero-tiles-4">
+        <div class="hero-tile" onclick="startWizardWith('faktoring')">
+          <span class="hero-tile-icon">📄</span>
+          <div class="hero-tile-label">Faktoring</div>
+          <div class="hero-tile-sub">Finansowanie faktur</div>
+        </div>
+        <div class="hero-tile" onclick="startWizardWith('pozyczka')">
+          <span class="hero-tile-icon">💰</span>
+          <div class="hero-tile-label">Gotówka / kredyt</div>
+          <div class="hero-tile-sub">Finansowanie obrotowe</div>
+        </div>
+        <div class="hero-tile" onclick="startWizardWith('hipoteka')">
+          <span class="hero-tile-icon">🏦</span>
+          <div class="hero-tile-label">Hipoteka firmowa</div>
+          <div class="hero-tile-sub">Pożyczka pod nieruchomość</div>
+        </div>
+        <div class="hero-tile" onclick="startWizardWith('terminal')">
+          <span class="hero-tile-icon">💳</span>
+          <div class="hero-tile-label">Terminale</div>
+          <div class="hero-tile-sub">Pod obroty kartowe</div>
+        </div>
+      </div>
+      <div class="hero-wizard-trust">✓ Bez zobowiązań &nbsp;·&nbsp; ✓ Realne dopasowanie ofert</div>
+      </div>
+
+      <!-- ZAKŁADKA 2: kompaktowy kalkulator -->
+      <div id="heroTabCalc" style="display:none">
+        <label style="display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.82rem;margin-bottom:6px">Kwota faktury (netto)</label>
+        <div style="position:relative;margin-bottom:14px">
+          <input id="hcKwota" type="text" inputmode="numeric" value="50 000" oninput="hcCalc(this)"
+            style="width:100%;border:1.5px solid var(--border);border-radius:11px;padding:11px 46px 11px 14px;font-size:1.05rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);outline:none">
+          <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--ink2);font-weight:600;font-size:0.85rem">zł</span>
+        </div>
+        <label style="display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.82rem;margin-bottom:6px">Termin płatności</label>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:16px">
+          <button type="button" onclick="hcTerm(30,this)" class="fc-term fc-term-active">30 dni</button>
+          <button type="button" onclick="hcTerm(60,this)" class="fc-term">60 dni</button>
+          <button type="button" onclick="hcTerm(90,this)" class="fc-term">90 dni</button>
+        </div>
+        <div style="background:var(--navy);border-radius:12px;padding:16px;color:#fff;margin-bottom:14px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+            <span style="font-size:0.8rem;opacity:0.8">Od ręki (nawet 24h)</span>
+            <span id="hcOdReki" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.25rem;color:var(--gold)">45 000 zł</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span style="font-size:0.8rem;opacity:0.8">Orientacyjny koszt</span>
+            <span id="hcKoszt" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.95rem">ok. 650–1 250 zł</span>
+          </div>
+          <div id="hcDzien" style="font-size:0.72rem;opacity:0.55;margin-top:6px">czyli ok. 32 zł za każdy dzień bez czekania</div>
+        </div>
+        <button onclick="try{if(window.fbq)fbq('trackCustom','CalculatorCTA',{place:'hero'})}catch(e){};startWizardWith('faktoring')"
+          style="width:100%;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:14px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">
+          Zobacz, kto sfinansuje tę fakturę →
+        </button>
+        <div style="font-size:0.66rem;color:var(--ink2);opacity:0.7;margin-top:8px;text-align:center;line-height:1.5">Wyliczenie poglądowe - faktyczne warunki poznasz bezpłatnie po analizie profilu firmy.</div>
+      </div>
+
+    </div>
+
+    <!-- AI + człowiek: wyróżnik tuż pod formularzem -->
+    <div style="display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:#fff;border:1px solid var(--border);border-radius:99px;padding:10px 22px;box-shadow:0 2px 12px rgba(13,30,66,0.06);font-size:0.85rem">
+      <span>🤖</span>
+      <span style="color:var(--ink)"><strong>AI dopasowuje oferty</strong>, <strong>człowiek</strong> czuwa nad wynikiem</span>
+      <span>🤝</span>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">20 lat</div>
+        <div class="stat-label">doświadczenia</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1000+</div>
+        <div class="stat-label">obsłużonych firm</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">porównywanych instytucji</div>
+      </div>
+    </div>
+    <div class="hero-trust">
+      <span>✓ Bez opłat dla klientów</span>
+      <span>✓ Bez zobowiązań</span>
+      <span>✓ Realne dopasowanie ofert</span>
+    </div>
+  </section>
+
+  <!-- PASEK PARTNERÓW (social proof)
+       Nazwy tekstowe - te instytucje są już publicznie wymienione na stronie.
+       Gdy masz PISEMNĄ zgodę na logo: podmień chip na
+       <img src="/logos/nazwa.svg" alt="Nazwa" style="height:26px;opacity:0.85"> -->
+  <div class="partners-strip">
+    <div class="partners-strip-inner">
+      <div class="partners-label">Porównujemy oferty m.in. od</div>
+      <div class="partners-logos">
+        <span class="partner-chip">PragmaGO</span>
+        <span class="partner-chip">Bibby Financial Services</span>
+        <span class="partner-chip">Faktoria</span>
+        <span class="partner-chip">SMEO</span>
+        <span class="partner-chip">NFG</span>
+        <span class="partner-chip">Monevia</span>
+        <span class="partner-chip" style="background:transparent;border-style:dashed;font-weight:500">+ kilkanaście innych instytucji</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ból → rozwiązanie -->
+  <section class="section" style="background:var(--navy-l);border-radius:0;padding-top:42px;padding-bottom:42px">
+    <div class="section-label">Po co FINMACH</div>
+    <div class="section-title">Finansowanie firmy nie musi być drogą przez mękę</div>
+    <p class="section-sub" style="max-width:640px">Wiemy, jak czasochłonne potrafi być szukanie finansowania - porównywanie ofert, osobne wnioski, czekanie na odpowiedzi. Dlatego zrobiliśmy to prościej: jedno zapytanie, a nasz system w 2 minuty porównuje 20+ instytucji - banków, faktorów i firm pozabankowych - i pokazuje oferty dopasowane do Twojej firmy.</p>
+    <div class="pain-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:26px auto 0">
+      <div style="background:#fff;border-radius:14px;padding:18px 16px;text-align:left">
+        <div style="font-size:0.78rem;color:#9aa3b2;text-decoration:line-through;margin-bottom:6px">Osobne wnioski do każdej instytucji</div>
+        <div style="font-weight:700;color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.95rem">✅ Jedno zapytanie, 2 minuty</div>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:18px 16px;text-align:left">
+        <div style="font-size:0.78rem;color:#9aa3b2;text-decoration:line-through;margin-bottom:6px">Godziny porównywania ofert</div>
+        <div style="font-weight:700;color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.95rem">✅ Dopasowanie z 20+ instytucji</div>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:18px 16px;text-align:left">
+        <div style="font-size:0.78rem;color:#9aa3b2;text-decoration:line-through;margin-bottom:6px">Niepewność, co wybrać</div>
+        <div style="font-weight:700;color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.95rem">✅ Ranking z uzasadnieniem, bezpłatnie</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:26px">
+      <button class="btn-hero" style="display:inline-block" onclick="startWizard()">Sprawdź oferty dla mojej firmy →</button>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section" id="howItWorks">
+    <div class="section-label">Jak to działa</div>
+    <div class="section-title">Jak działa FINMACH</div>
+    <p class="section-sub">Nie jesteśmy kolejnym formularzem. Analizujemy profil firmy i porównujemy go z wymaganiami instytucji finansowych.</p>
+    <div style="display:flex; justify-content:center; margin:8px 0 36px;">
+      <video
+        src="film.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        controls
+        style="width:100%; max-width:300px; border-radius:18px; box-shadow:0 12px 40px rgba(13,30,66,0.18); background:#0d1e42;">
+        Twoja przeglądarka nie obsługuje odtwarzania wideo.
+      </video>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num-big">01</div>
+        <h3>Analiza profilu firmy</h3>
+        <p>8 pytań o branżę, obroty i formę prawną. Zajmuje 2 minuty.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num-big">02</div>
+        <h3>Dopasowanie ofert</h3>
+        <p>Analizujemy profil firmy i porównujemy go z wymaganiami 20+ instytucji. Każda oferta dostaje ocenę dopasowania uwzględniającą branżę, obroty i priorytety.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num-big">03</div>
+        <h3>Twoje top 3 oferty</h3>
+        <p>Ranking z uzasadnieniem dlaczego dana oferta pasuje do Twojej firmy. Jeden klik - trafiasz bezpośrednio do partnera.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ KALKULATOR FAKTORINGU ═══════════════════════════════ -->
+  <section class="section" id="kalkulator" style="padding-top:0">
+    <div class="section-label">Kalkulator</div>
+    <div class="section-title">Policz, ile kosztuje Cię czekanie na przelew</div>
+    <p class="section-sub">Wpisz kwotę faktury i termin płatności. Zobaczysz, ile gotówki możesz mieć od ręki - i ile orientacyjnie to kosztuje.</p>
+
+    <div style="max-width:860px;margin:28px auto 0;background:#fff;border:1.5px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden">
+      <div style="display:grid;grid-template-columns:1fr 1fr" class="calc-grid">
+
+        <!-- LEWA: dane wejściowe -->
+        <div style="padding:28px 26px">
+          <label style="display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:8px">Kwota faktury (netto)</label>
+          <div style="position:relative;margin-bottom:22px">
+            <input id="fcKwota" type="text" inputmode="numeric" value="50 000"
+              oninput="fcFormatInput(this);fcCalc()"
+              style="width:100%;border:1.5px solid var(--border);border-radius:12px;padding:13px 52px 13px 16px;font-size:1.15rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);outline:none"
+              onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+            <span style="position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--ink2);font-weight:600;font-size:0.9rem">zł</span>
+          </div>
+
+          <label style="display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:8px">Termin płatności na fakturze</label>
+          <div id="fcTermy" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px">
+            <button type="button" onclick="fcSetTerm(14,this)" class="fc-term">14 dni</button>
+            <button type="button" onclick="fcSetTerm(30,this)" class="fc-term fc-term-active">30 dni</button>
+            <button type="button" onclick="fcSetTerm(60,this)" class="fc-term">60 dni</button>
+            <button type="button" onclick="fcSetTerm(90,this)" class="fc-term">90 dni</button>
+          </div>
+
+          <label style="display:flex;justify-content:space-between;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:8px">
+            <span>Zaliczka od faktora</span><span id="fcZalLabel" style="color:var(--accent)">90%</span>
+          </label>
+          <input id="fcZal" type="range" min="80" max="100" step="5" value="90" oninput="fcCalc()"
+            style="width:100%;accent-color:var(--accent);margin-bottom:4px">
+          <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--ink2)"><span>80%</span><span>100%</span></div>
+        </div>
+
+        <!-- PRAWA: wyniki -->
+        <div style="background:var(--navy);color:#fff;padding:28px 26px;display:flex;flex-direction:column;justify-content:center">
+          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;opacity:0.55;margin-bottom:6px">Bez faktoringu</div>
+          <div style="font-size:0.9rem;line-height:1.5;margin-bottom:18px;opacity:0.85">Czekasz <strong id="fcDniTxt">30 dni</strong> na <strong id="fcZamrozone">50 000 zł</strong>. Przez ten czas te pieniądze nie pracują w Twojej firmie.</div>
+
+          <div style="height:1px;background:rgba(255,255,255,0.15);margin-bottom:18px"></div>
+
+          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Z faktoringiem</div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
+            <span style="font-size:0.85rem;opacity:0.85">Na koncie nawet w 24h</span>
+            <span id="fcOdReki" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.5rem;color:var(--gold)">45 000 zł</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+            <span style="font-size:0.85rem;opacity:0.85">Orientacyjny koszt</span>
+            <span id="fcKoszt" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.05rem">ok. 650–1 250 zł</span>
+          </div>
+          <div id="fcDziennie" style="font-size:0.78rem;opacity:0.6;margin-bottom:18px">czyli ok. 32 zł za każdy dzień bez czekania</div>
+
+          <button onclick="try{if(window.fbq)fbq('trackCustom','CalculatorCTA')}catch(e){};startWizardWith('faktoring')"
+            style="width:100%;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:14px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">
+            Zobacz, kto sfinansuje tę fakturę →
+          </button>
+          <div style="font-size:0.68rem;opacity:0.5;margin-top:10px;text-align:center;line-height:1.5">Wyliczenie poglądowe. Faktyczne warunki zależą od instytucji, branży i profilu firmy - poznasz je bezpłatnie po analizie.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .fc-term {
+    border:1.5px solid var(--border); background:#fff; border-radius:10px; padding:10px 4px;
+    font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.82rem; color:var(--ink2);
+    cursor:pointer; transition:all 0.15s;
+  }
+  .fc-term:hover { border-color:var(--accent); color:var(--accent); }
+  .fc-term-active { background:var(--accent); border-color:var(--accent); color:#fff; }
+  @media (max-width:640px){ .calc-grid { grid-template-columns:1fr !important; } }
+  </style>
+
+  <script>
+  (function(){
+    var fcTerm = 30;
+    /* Widełki prowizji zależne od terminu (orientacyjne, % wartości faktury) */
+    var FC_RANGES = { 14:[0.9,1.7], 30:[1.3,2.5], 60:[1.9,3.2], 90:[2.5,3.9] };
+    var fcTracked = false;
+
+    function fcNum(str){ return parseInt(String(str).replace(/[^\d]/g,''),10) || 0; }
+    function fcFmt(n){ return n.toLocaleString('pl-PL').replace(/,/g,' '); }
+
+    window.fcFormatInput = function(el){
+      var v = fcNum(el.value);
+      if (v > 10000000) v = 10000000;
+      el.value = v ? fcFmt(v) : '';
+    };
+
+    window.fcSetTerm = function(d, btn){
+      fcTerm = d;
+      document.querySelectorAll('.fc-term').forEach(function(b){ b.classList.remove('fc-term-active'); });
+      btn.classList.add('fc-term-active');
+      fcCalc();
+    };
+
+    window.fcCalc = function(){
+      var kwota = fcNum(document.getElementById('fcKwota').value);
+      var zal   = parseInt(document.getElementById('fcZal').value,10);
+      document.getElementById('fcZalLabel').textContent = zal + '%';
+      if (!kwota) return;
+
+      var r = FC_RANGES[fcTerm];
+      var kMin = Math.round(kwota * r[0] / 100);
+      var kMax = Math.round(kwota * r[1] / 100);
+      var mid  = Math.round((kMin + kMax) / 2);
+
+      document.getElementById('fcDniTxt').textContent    = fcTerm + ' dni';
+      document.getElementById('fcZamrozone').textContent = fcFmt(kwota) + ' zł';
+      document.getElementById('fcOdReki').textContent    = fcFmt(Math.round(kwota * zal / 100)) + ' zł';
+      document.getElementById('fcKoszt').textContent     = 'ok. ' + fcFmt(kMin) + '–' + fcFmt(kMax) + ' zł';
+      document.getElementById('fcDziennie').textContent  = 'czyli ok. ' + fcFmt(Math.max(1, Math.round(mid / fcTerm))) + ' zł za każdy dzień bez czekania';
+
+      if (!fcTracked) { fcTracked = true; try { if (window.fbq) fbq('trackCustom','CalculatorUsed'); } catch(e){} }
+    };
+    document.addEventListener('DOMContentLoaded', fcCalc);
+
+    /* ── ZAKŁADKI HERO + mini-kalkulator ── */
+    var hcT = 30, hcTracked = false;
+
+    window.heroTab = function(which){
+      var isCalc = (which === 'calc');
+      document.getElementById('heroTabWizard').style.display = isCalc ? 'none' : 'block';
+      document.getElementById('heroTabCalc').style.display   = isCalc ? 'block' : 'none';
+      document.getElementById('heroTabBtnW').classList.toggle('hero-tab-active', !isCalc);
+      document.getElementById('heroTabBtnC').classList.toggle('hero-tab-active', isCalc);
+      if (isCalc) {
+        hcRender();
+        if (!hcTracked) { hcTracked = true; try { if (window.fbq) fbq('trackCustom','CalculatorUsed',{place:'hero'}); } catch(e){} }
+      }
+    };
+
+    window.hcTerm = function(d, btn){
+      hcT = d;
+      btn.parentNode.querySelectorAll('.fc-term').forEach(function(b){ b.classList.remove('fc-term-active'); });
+      btn.classList.add('fc-term-active');
+      hcRender();
+    };
+
+    window.hcCalc = function(el){
+      var v = fcNum(el.value);
+      if (v > 10000000) v = 10000000;
+      el.value = v ? fcFmt(v) : '';
+      hcRender();
+    };
+
+    function hcRender(){
+      var kwota = fcNum(document.getElementById('hcKwota').value);
+      if (!kwota) return;
+      var r = FC_RANGES[hcT];
+      var kMin = Math.round(kwota * r[0] / 100);
+      var kMax = Math.round(kwota * r[1] / 100);
+      var mid  = Math.round((kMin + kMax) / 2);
+      document.getElementById('hcOdReki').textContent = fcFmt(Math.round(kwota * 0.9)) + ' zł';
+      document.getElementById('hcKoszt').textContent  = 'ok. ' + fcFmt(kMin) + '–' + fcFmt(kMax) + ' zł';
+      document.getElementById('hcDzien').textContent  = 'czyli ok. ' + fcFmt(Math.max(1, Math.round(mid / hcT))) + ' zł za każdy dzień bez czekania';
+    }
+  })();
+  </script>
+
+  <!-- Why us -->
+  <section class="section" style="padding-top:0">
+    <div class="section-label">Dlaczego FINMACH</div>
+    <div class="section-title">Finansowanie dopasowane do Twojej firmy</div>
+    <p class="section-sub">Łączymy doświadczenie doradców finansowych z technologią dopasowującą oferty do profilu firmy.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <div>
+          <h3>Dopasowanie, nie reklama</h3>
+          <p>Pokazujemy tylko faktorów którzy realnie mogą Ci pomóc - na podstawie twardych danych, nie budżetu reklamowego.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔍</div>
+        <div>
+          <h3>Trudniejsze przypadki</h3>
+          <p>Krótki staż, niskie obroty, budowlanka, eksport? Mamy partnerów dla firm które standardowe banki odmawiają.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💸</div>
+        <div>
+          <h3>Bez opłat wstępnych</h3>
+          <p>Analiza profilu i porównanie ofert są bezpłatne. Warunki finansowania zależą od wybranej instytucji i profilu firmy.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div>
+          <h3>Realny doradca, nie bot</h3>
+          <p>Nie jesteśmy anonimowym formularzem. Za FINMACH stoi realny zespół doradców finansowych.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kogo finansujemy -->
+  <section class="section" style="padding-top:0">
+    <div class="section-label">Dla kogo</div>
+    <div class="section-title">Kogo finansujemy</div>
+    <p class="section-sub">Pracujemy z firmami różnej wielkości, branży i sytuacji - w tym z trudniejszymi przypadkami.</p>
+    <div class="who-grid">
+      <div class="who-pill">📦 Handel i e-commerce</div>
+      <div class="who-pill">🚛 Transport i TSL</div>
+      <div class="who-pill">🏗️ Budowlanka</div>
+      <div class="who-pill">🏭 Produkcja</div>
+      <div class="who-pill">🌍 Eksport - Niemcy i UE</div>
+      <div class="who-pill">👤 JDG</div>
+      <div class="who-pill">🏢 Spółki z o.o.</div>
+      <div class="who-pill">🌱 Firma od 6 miesięcy</div>
+      <div class="who-pill">🔄 Po zakończonej restrukturyzacji</div>
+      <div class="who-pill">📋 Kontrakty JST</div>
+      <div class="who-pill">🔇 Faktoring cichy</div>
+      <div class="who-pill">🛡️ Faktoring pełny (bez regresu)</div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--ink2);margin-top:20px;opacity:0.7">
+      Nie każdy profil kwalifikuje się do każdej oferty - oceniamy realną szansę i pokazujemy najbardziej sensowne opcje.
+    </p>
+  </section>
+
+  <!-- Case study CAROUSEL x3 -->
+  <section class="section" style="padding-top:0">
+    <div class="case-carousel" id="caseCarousel">
+
+      <!-- Slide 1 -->
+      <div class="case-study case-slide active">
+        <div>
+          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;margin-bottom:14px">Case study · Transport</div>
+          <div class="case-quote">"18 miesięcy stażu, jeden duży kontrahent w branży TSL, dwa banki powiedziały nie. FINMACH znalazł finansowanie 240 tys. zł - decyzja w 48h."</div>
+          <div class="case-author">Firma transportowa · JDG · 18 mies. stażu · dwie wcześniejsze odmowy bankowe<br><span style="opacity:0.7">Produkt: mikrofaktoring jednorazowy · Partner: NFG</span></div>
+        </div>
+        <div class="case-stats">
+          <div class="case-stat"><div class="case-stat-num">240 tys.</div><div class="case-stat-label">zł uwolnionej płynności</div></div>
+          <div class="case-stat"><div class="case-stat-num">48h</div><div class="case-stat-label">od wniosku do wypłaty</div></div>
+          <div class="case-stat"><div class="case-stat-num">20+</div><div class="case-stat-label">instytucji przeanalizowanych</div></div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="case-study case-slide">
+        <div>
+          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;margin-bottom:14px">Case study · Budowlanka</div>
+          <div class="case-quote">"Kontrakt z gminą, termin płatności 90 dni, zamrożona płynność. Potrzebowaliśmy faktoringu który akceptuje cesję z JST - FINMACH dobrał partnera w jeden dzień."</div>
+          <div class="case-author">Firma budowlana · Sp. z o.o. · kontrakt publiczny JST<br><span style="opacity:0.7">Produkt: faktoring kontraktowy · Partner: Bibby Financial</span></div>
+        </div>
+        <div class="case-stats">
+          <div class="case-stat"><div class="case-stat-num">450 tys.</div><div class="case-stat-label">zł limitu faktoringowego</div></div>
+          <div class="case-stat"><div class="case-stat-num">90 dni</div><div class="case-stat-label">DSO sfinansowane</div></div>
+          <div class="case-stat"><div class="case-stat-num">1 dzień</div><div class="case-stat-label">na dobór partnera</div></div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="case-study case-slide">
+        <div>
+          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;margin-bottom:14px">Case study · E-commerce</div>
+          <div class="case-quote">"Sklep online po 8 miesiącach działalności, bez historii kredytowej. Myśleliśmy że jesteśmy za młodzi na finansowanie. FINMACH pokazał 3 fintechy które obsługują firmy od 6 miesięcy."</div>
+          <div class="case-author">Sklep internetowy · JDG · 8 mies. stażu · bez BIK<br><span style="opacity:0.7">Produkt: faktoring online · Partner: SMEO</span></div>
+        </div>
+        <div class="case-stats">
+          <div class="case-stat"><div class="case-stat-num">120 tys.</div><div class="case-stat-label">zł pierwszego limitu</div></div>
+          <div class="case-stat"><div class="case-stat-num">24h</div><div class="case-stat-label">do decyzji</div></div>
+          <div class="case-stat"><div class="case-stat-num">6 mies.</div><div class="case-stat-label">minimalny staż u partnera</div></div>
+        </div>
+      </div>
+
+      <!-- Nawigacja -->
+      <div class="case-nav">
+        <button class="case-arrow" onclick="caseSlide(-1)">← Poprzedni</button>
+        <div class="case-dots" id="caseDots">
+          <button class="case-dot active" onclick="caseGoTo(0)"></button>
+          <button class="case-dot" onclick="caseGoTo(1)"></button>
+          <button class="case-dot" onclick="caseGoTo(2)"></button>
+        </div>
+        <button class="case-arrow" onclick="caseSlide(1)">Następny →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="padding-top:0">
+    <div class="section-label">FAQ</div>
+    <div class="section-title">Najczęstsze pytania</div>
+    <p class="section-sub" style="margin-bottom:32px">Wszystko co powinieneś wiedzieć zanim zaczniesz.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Czy FINMACH pobiera prowizję od klienta? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">W większości przypadków nie pobieramy od klientów żadnych opłat - nasze wynagrodzenie pochodzi od instytucji finansowych, więc koszt finansowania pozostaje taki sam jak przy bezpośrednim kontakcie z faktorem. Jeśli w Twojej sytuacji miałaby obowiązywać jakakolwiek opłata, poinformujemy Cię o tym wcześniej.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Jak szybko dostanę wyniki? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Wyniki pojawią się natychmiast po wypełnieniu formularza - zazwyczaj w mniej niż 2 minuty. Dopasowanie ofert pojawia się automatycznie po analizie profilu firmy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Czy mogę złożyć wniosek do kilku faktorów jednocześnie? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Tak! Na ekranie wyników możesz zaznaczyć kilku partnerów i złożyć wnioski do nich wszystkich jednym kliknięciem. Każdy faktor przeprowadza własną ocenę niezależnie.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Moja firma ma mniej niż rok - czy mam szansę? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Tak. Mamy partnerów którzy obsługują firmy od 6 miesięcy (FINEA, SMEO, NFG, PragmaGO). Przy stażu poniżej 6 miesięcy opcje są ograniczone, ale nie zerowe - skontaktuj się z nami bezpośrednio.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Czym różni się faktoring od pożyczki? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Faktoring to sprzedaż wierzytelności (faktur) - faktor wypłaca Ci z góry np. 90% wartości faktury i czeka na płatność od Twojego kontrahenta. Pożyczka to dług który musisz spłacić. Faktoring nie zwiększa Twojego zadłużenia.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Czy moje dane są bezpieczne? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Tak. Przetwarzamy dane zgodnie z RODO. NIP weryfikujemy wyłącznie w publicznych rejestrach GUS i KRZ. Dane kontaktowe przekazujemy tylko wybranemu przez Ciebie faktorowi.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Czy sprawdzacie KRZ? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Tak - Krajowy Rejestr Zadłużonych sprawdzamy automatycznie. Wpis w KRZ nie dyskwalifikuje automatycznie. Liczy się status: zamknięty, uregulowany czy aktywny. Część faktorów akceptuje firmy z zamkniętymi wpisami KRZ.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Czy firma po zakończonej restrukturyzacji może dostać faktoring? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Tak. Mamy partnerów którzy akceptują firmy po zakończonej restrukturyzacji - m.in. Bibby Financial, ABS Factoring SA i Teylor. Kluczowe jest żeby restrukturyzacja była oficjalnie zamknięta.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O nas / kto za tym stoi -->
+  <section class="section" style="padding-top:0">
+    <div class="section-label">Kto za tym stoi</div>
+    <div class="section-title">Za FINMACH stoi człowiek z rynku, nie algorytm</div>
+    <div style="display:flex;gap:28px;align-items:center;flex-wrap:wrap;max-width:880px;margin:28px auto 0;background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 2px 20px rgba(23,59,143,.05)">
+      <img src="/malgorzata-bakula.jpg" alt="Małgorzata Bakuła - broker finansowy, ekspertka ds. faktoringu i finansowania firm"
+        style="width:150px;height:150px;object-fit:cover;border-radius:16px;flex:none" loading="lazy">
+      <div style="flex:1;min-width:240px">
+        <div style="font-weight:800;font-size:1.15rem;color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif">Małgorzata Bakuła</div>
+        <div style="color:var(--ink2);font-size:0.9rem;margin-bottom:12px">broker finansowy · 20 lat w finansowaniu firm</div>
+        <p style="font-size:0.92rem;line-height:1.65;color:var(--ink);margin:0 0 14px">
+          Od ponad dwudziestu lat finansuję firmy, w tym te, których większość brokerów nie podejmuje: w trakcie restrukturyzacji, z wpisem w KRZ, po odmowie banku. Treści na FINMACH piszę z realnych transakcji, nie z folderów reklamowych faktorów.
+        </p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+          <a href="/o-nas.html" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:0.92rem">Poznaj cały zespół →</a>
+          <span style="color:var(--ink2);font-size:0.82rem">🔒 Bezpłatnie · Bez zobowiązań</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Bottom -->
+  <div class="cta-bottom">
+    <h2>Gotowy? Znajdźmy Ci finansowanie.</h2>
+    <p style="opacity:0.6">2 minuty, 8 pytań i realne dopasowanie ofert finansowania dla Twojej firmy. Bez zobowiązań.</p>
+    <button class="btn-cta-white" onclick="startWizard()">Zacznij teraz →</button>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div style="margin-bottom:6px;font-weight:600;opacity:0.85">FINMACH · bezpłatne porównanie finansowania dla firm.</div>
+    <div style="margin-bottom:12px;opacity:0.55">Warunki finansowania zależą od wybranej instytucji i sytuacji firmy. · Współpracujemy z <a href="https://www.fintechpoland.com" target="_blank" rel="noopener">FinTech Poland</a></div>
+    <div>© 2026 FINMACH / Payflow · <a href="/regulamin.html">Regulamin</a> · <a href="/polityka-prywatnosci.html">Polityka prywatności</a> · <a href="/ai.html">Informacja o AI</a> · <a href="mailto:kontakt@finmach.pl">kontakt@finmach.pl</a></div>
+  </div>
+
+</div>
+
+<!-- ═══ WIZARD PAGE ════════════════════════════════════════════ -->
+<div id="wizardPage">
+  <div class="topbar">
+    <button class="btn-back-top" id="btnBackTop" onclick="goBack()" style="display:none">← Wróć</button>
+    <a href="#" class="logo" onclick="exitWizard();return false" style="display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer">
+      <svg width="32" height="32" viewBox="0 0 32 32" style="flex-shrink:0">
+        <circle cx="16" cy="16" r="16" fill="#173B8F"/>
+        <rect x="6" y="6" width="4" height="18" rx="2" fill="#fff"/>
+        <rect x="6" y="6" width="11" height="4" rx="2" fill="#fff"/>
+        <rect x="6" y="12.5" width="8.5" height="3.5" rx="1.75" fill="#fff"/>
+        <path d="M19 9.5 L24 16 L19 22.5" fill="none" stroke="#D9B85E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.03em;color:var(--navy)">FINMACH</span>
+    </a>
+    <div class="progress-wrap">
+      <div class="progress-label" id="progressLabel">Krok 1 z 8</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:14%"></div></div>
+    </div>
+  </div>
+
+  <div class="card animate-in" id="mainCard"></div>
+
+  <div class="trust">
+    <span>🔒 Dane bezpieczne</span>
+    <span>⚡ Wynik w 2 min</span>
+    <span>🤝 Bez zobowiązań</span>
+  </div>
+
+  <!-- Sticky bottom nav - thumb friendly -->
+  <div class="wizard-bottom-nav" id="wizardBottomNav" style="display:none">
+    <button class="wbn-back" id="btnBack" onclick="goBack()" disabled>
+      ← Wróć
+    </button>
+    <div class="wbn-step" id="wbnStep"></div>
+  </div>
+
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+// PARTNER DATABASE
+// ════════════════════════════════════════════════════════════════
+const PARTNERS = [
+  { id:"pragmago",     name:"PragmaGO",           products:["factoring","full","reverse"],  min_age:6,  max_dso:90,  industries:["ecommerce","handel","uslugi_b2b","tsl","gastro","eksport"],  blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:50000,  advance:[80,100], docs:"low",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 0,9%", url:"https://online.pragmago.pl/faktoring-online/krok1?recommendation_code=952143", contact_email:null, notes:"Silny w online, faktury do 100k" },
+  { id:"bibby",        name:"Bibby Financial",    products:["factoring","contract","full"], min_age:12, max_dso:90,  industries:["budowlanka","energetyka","eksport"],                        blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:100000, advance:[80,90],  docs:"med",  speed:48, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,2%", url:"https://app.kalypso.pl/bibby/onboard/channel/promo_email/PCPR30461", contact_email:null, notes:"Kontrakty / sektor publiczny / eksport" },
+  { id:"efaktor",      name:"E Faktor",           products:["factoring","full"],           min_age:12, max_dso:90,  industries:["produkcja","handel","tsl","eksport"],                       blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:100000, advance:[80,90],  docs:"med",  speed:48, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,1%", url:"https://app.kalypso.pl/efaktor/onboard/channel/promo_sms/PCPR79004", contact_email:null, notes:"Klasyczny limit faktoringowy" },
+  { id:"finea",        name:"FINEA",              products:["factoring","micro"],          min_age:6,  max_dso:60,  industries:["uslugi_b2b","handel"],                                     blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[80,100], docs:"low",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,5%", url:"https://app.kalypso.pl/finea/onboard/channel/promo_sms/PCPR59847", contact_email:null, notes:"Mikro, do 30k PLN / faktura" },
+  { id:"smeo",         name:"SMEO Faktoring",     products:["factoring","micro","full"],   min_age:6,  max_dso:60,  industries:["uslugi_b2b","ecommerce","gastro"],                         blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[80,90],  docs:"low",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,3%", url:"https://smeo24.pl/seller?utm_source=275", contact_email:null, notes:"Szybki mikrofaktoring online" },
+  { id:"nfg",          name:"NFG",                products:["factoring","express","full"], min_age:6,  max_dso:60,  industries:["ecommerce","uslugi_b2b","handel","eksport"],                blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[80,85],  docs:"low",  speed:12, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,4%", url:"https://sof.nfg.pl/Logowanie?partnerCode=payflow_o", contact_email:null, notes:"Full online, decyzja 12h" },
+  { id:"faktoria",     name:"Faktoria",           products:["factoring","full","reverse"], min_age:12, max_dso:90,  industries:["handel","produkcja","tsl","eksport"],                      blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:100000, advance:[80,90],  docs:"med",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,0%", url:"https://oferta.faktoria.pl/payflow?hs_preview=RIrEYeAl-372309924045", contact_email:null, notes:"API, dobre procesy, faktoring odwrotny" },
+  { id:"faktorone",    name:"Faktor One",         products:["factoring","full","contract"],min_age:6,  max_dso:90,  industries:["budowlanka","tsl","gastro"],                               blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:100000, advance:[80,90],  docs:"med",  speed:36, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,1%", url:"http://payflow.faktorone.pl/", contact_email:null, notes:"Kontrakty, publiczne, elastyczny" },
+  { id:"indos-jawny",  name:"INDOS Jawny",        products:["factoring","full"],           min_age:12, max_dso:90,  industries:["handel","produkcja","tsl"],                                blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:100000, advance:[80,90],  docs:"high", speed:48, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,2%", url:"https://indos.pl/pm-faktoring-jawny/", contact_email:null, notes:"Faktoring jawny" },
+  { id:"indos-cichy",  name:"INDOS Cichy",        products:["factoring","silent"],        min_age:12, max_dso:90,  industries:["handel","produkcja","tsl"],                                blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:100000, advance:[80,90],  docs:"high", speed:48, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,3%", url:"https://indos.pl/pm-faktoring-cichy/", contact_email:null, notes:"Faktoring cichy" },
+  { id:"monevia",      name:"Monevia",            products:["factoring","full"],           min_age:6,  max_dso:90,  industries:["uslugi_b2b","handel","ecommerce","eksport"],               blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[80,90],  docs:"low",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,2%", url:"https://www.monevia.pl/faktoring-pro/", contact_email:null, notes:"Faktoring online dla MŚP" },
+  { id:"abs",          name:"ABS Factoring",      products:["factoring","full"],           min_age:12, max_dso:90,  industries:["handel","tsl","produkcja"],                                blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:100000, advance:[80,90],  docs:"med",  speed:36, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,2%", url:null, contact_email:"kontakt@finmach.pl", notes:"Kontakt przez doradcę" },
+  { id:"youlend",      name:"Youlend",            products:["terminal","loan"],            min_age:0,  max_dso:999, industries:["handel","ecommerce","gastro"],                             blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:10000,  advance:[100,100],docs:"low",  speed:24, komisja_mikro:null,      komisja_klasyk:null,      url:null, contact_email:"kontakt@finmach.pl", notes:"Finansowanie pod obroty terminala" },
+  { id:"pragma-term",  name:"Pragma Terminale",   products:["terminal"],                  min_age:0,  max_dso:999, industries:["handel","ecommerce","gastro","uslugi_b2b"],                 blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:20000,  advance:[100,100],docs:"low",  speed:24, komisja_mikro:null,      komisja_klasyk:null,      url:"https://online.pragmago.pl/faktoring-online/krok1?recommendation_code=244226", contact_email:null, notes:"Min. obrót 20k PLN/mies." },
+  { id:"wealthon",     name:"Wealthon",           products:["terminal","loan"],            min_age:0,  max_dso:999, industries:["handel","gastro","ecommerce"],                             blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:20000,  advance:[100,100],docs:"low",  speed:24, komisja_mikro:null,      komisja_klasyk:null,      url:"https://rejestracja.wealthon.com/nowy-wniosek/rejestracja?utm_source=PF_MB", contact_email:null, notes:"Finansowanie pod terminal" },
+  { id:"smeo-loan",    name:"SMEO Pożyczka",      products:["loan","credit"],             min_age:0,  max_dso:999, industries:["mikro","uslugi_b2b"],                                      blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[100,100],docs:"low",  speed:24, komisja_mikro:null,      komisja_klasyk:null,      url:"https://pozyczka.smeo24.pl/?utm_source=275", contact_email:null, notes:"Pożyczka obrotowa do 300k" },
+  { id:"novalend",     name:"NovaLend",           products:["loan","credit"],             min_age:6,  max_dso:999, industries:["handel","produkcja","uslugi_b2b"],                          blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[100,100],docs:"med",  speed:48, komisja_mikro:null,      komisja_klasyk:null,      url:"https://novalend.pl/landing-long/?id=PCPR19108&channel=KALYPSO_BROKER_MARKETING", contact_email:null, notes:"Pożyczka dla firm" },
+  { id:"indos-loan",   name:"INDOS Pożyczka",     products:["loan","credit"],             min_age:12, max_dso:999, industries:["produkcja","handel","uslugi_b2b"],                          blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:0,      advance:[100,100],docs:"high", speed:72, komisja_mikro:null,      komisja_klasyk:null,      url:"https://indos.pl/pm-pozyczka/", contact_email:null, notes:"Do 10 mln, hipoteka" },
+  { id:"finbee",       name:"Finbee",             products:["loan","credit"],             min_age:6,  max_dso:999, industries:["uslugi_b2b","handel","mikro"],                              blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[100,100],docs:"low",  speed:48, komisja_mikro:null,      komisja_klasyk:null,      url:null, contact_email:"kontakt@finmach.pl", notes:"Kontakt przez doradcę" },
+];
+
+// ════════════════════════════════════════════════════════════════
+// SCORING ENGINE
+// ════════════════════════════════════════════════════════════════
+function scorePartners(answers) {
+  const { product, legal_form, industry, age_months, monthly_rev,
+          invoice_term, priority, single_invoice } = answers;
+
+  const neededProducts =
+      product === "faktoring"  ? ["factoring","full","silent"]
+    : product === "mikro"      ? ["micro","express","factoring","full"]
+    : product === "kontrakt"   ? ["contract","full","factoring"]
+    : product === "terminal"   ? ["terminal"]
+    : product === "pozyczka"   ? ["loan","credit"]
+    : ["factoring","full","micro","express","contract","loan","credit"];
+
+  const results = [];
+
+  for (const p of PARTNERS) {
+    const hasProduct = p.products.some(pr => neededProducts.includes(pr));
+    if (!hasProduct) continue;
+    if (product === "terminal" && !p.products.includes("terminal")) continue;
+    if (product !== "terminal" && p.products.includes("terminal")) continue;
+
+    if (age_months < p.min_age) continue;
+    const formMap = { jdg:"jdg", spzoo:"spzoo", sa:"sa", inna:"spzoo" };
+    if (!p.forms.includes(formMap[legal_form] || "jdg")) continue;
+    if (p.blocked.some(b => industry && industry.includes(b))) continue;
+    if ((invoice_term || 0) > p.max_dso) continue;
+    if ((monthly_rev || 0) < p.min_rev) continue;
+
+    if (p.id === "pragma-rev") continue;
+
+    let score = 50;
+
+    if (p.industries.includes(industry)) score += 20;
+    if (industry === "eksport" && p.industries.includes("eksport")) score += 15;
+
+    if (priority === "speed") {
+      if (p.speed <= 24) score += 15;
+      else if (p.speed <= 48) score += 5;
+    }
+    if (priority === "cost") {
+      if (p.docs === "low") score += 12;
+      else if (p.docs === "med") score += 6;
+    }
+    if (priority === "limit") {
+      if (p.min_rev === 0) score += 8;
+      if (p.advance[1] >= 100) score += 6;
+    }
+    if (priority === "docs") {
+      if (p.docs === "low") score += 15;
+    }
+
+    if (product === "mikro") {
+      if (p.products.includes("micro")) score += 18;
+      if (p.products.includes("express")) score += 12;
+    }
+    if (product === "kontrakt") {
+      if (p.products.includes("contract")) score += 20;
+      if (["budowlanka","energetyka"].includes(industry)) score += 10;
+    }
+    if (product === "nie_wiem") {
+      if (p.speed <= 24) score += 8;
+      if (p.docs === "low") score += 6;
+    }
+
+    if (p.min_rev > 0 && (monthly_rev || 0) >= p.min_rev * 2) score += 8;
+    score += (p.advance[1] - 80) / 2;
+
+    const whyParts = [];
+    if (p.industries.includes(industry)) whyParts.push("branża preferowana");
+    if (p.speed <= 24) whyParts.push(`decyzja ${p.speed}h`);
+    if (p.docs === "low") whyParts.push("min. dokumenty");
+    if (product === "mikro" && p.products.includes("micro")) whyParts.push("jednorazowe faktury ✓");
+    if (product === "kontrakt" && p.products.includes("contract")) whyParts.push("specjalista od kontraktów ✓");
+
+    const rawScore = Math.round(score);
+    results.push({ ...p, score: rawScore, why: whyParts.join(" · ") || p.notes });
+  }
+
+  results.sort((a, b) => b.score - a.score);
+  const top = results.slice(0, 3);
+
+  // POPRAWKA: score 103 → ocena 10/10 (gwiazdki/punkty czytelne dla klienta)
+  // Mapujemy surowy score (zwykle 50-115) na skalę 1-10
+  top.forEach(p => {
+    let s10 = Math.round((p.score - 50) / 6.5);   // 50→0, ~115→10
+    if (s10 > 10) s10 = 10;
+    if (s10 < 6)  s10 = 6;                          // top 3 zawsze min. 6/10
+    p.score10 = s10;
+  });
+
+  return top;
+}
+
+// ════════════════════════════════════════════════════════════════
+// WIZARD STATE
+// ════════════════════════════════════════════════════════════════
+const answers = {};
+let stepIdx = 0;
+let selectedPartners = new Set();
+
+function getStepsForProduct(p) {
+  const s = [{ id:"product", render: renderProduct }];
+  const e = [{ id:"nip", render: renderNIP }, { id:"results", render: renderResults }];
+  const paths = {
+    faktoring: [
+      { id:"legal_form", render: renderLegalForm },
+      { id:"industry", render: renderIndustry },
+      { id:"age", render: renderAge },
+      { id:"revenue", render: renderRevenue },
+      { id:"kwota_finansowania", render: renderKwotaFinansowania },
+      { id:"invoice_detail", render: renderInvoiceDetail },
+      { id:"priority", render: renderPriority },
+    ],
+    mikro: [
+      { id:"legal_form", render: renderLegalForm },
+      { id:"industry", render: renderIndustry },
+      { id:"age", render: renderAge },
+      { id:"revenue", render: renderRevenue },
+      { id:"kwota_mikro", render: renderKwotaMikro },
+      { id:"termin_faktury", render: renderTerminFaktury },
+      { id:"priority_mikro", render: renderPriorityMikro },
+    ],
+    kontrakt: [
+      { id:"legal_form", render: renderLegalForm },
+      { id:"industry", render: renderIndustry },
+      { id:"age", render: renderAge },
+      { id:"revenue", render: renderRevenue },
+      { id:"kwota_finansowania", render: renderKwotaFinansowania },
+      { id:"invoice_detail", render: renderInvoiceDetail },
+      { id:"cesja", render: renderCesja },
+      { id:"priority_kontrakt", render: renderPriorityKontrakt },
+    ],
+    terminal: [
+      { id:"legal_form", render: renderLegalForm },
+      { id:"industry_terminal", render: renderIndustryTerminal },
+      { id:"age", render: renderAge },
+      { id:"revenue", render: renderRevenue },
+      { id:"kwota_finansowania", render: renderKwotaFinansowania },
+      { id:"invoice_detail", render: renderInvoiceDetail },
+      { id:"zaleglosci", render: renderZaleglosci },
+      { id:"priority_terminal", render: renderPriorityTerminal },
+    ],
+    pozyczka: [
+      { id:"legal_form", render: renderLegalForm },
+      { id:"revenue", render: renderRevenue },
+      { id:"age", render: renderAge },
+      { id:"invoice_detail", render: renderInvoiceDetail },
+      { id:"typ_fin", render: renderTypFinansowania },
+      { id:"priority_kredyt", render: renderPriorityKredyt },
+      { id:"zaleglosci", render: renderZaleglosci },
+    ],
+    hipoteka: [
+      { id:"legal_form", render: renderLegalForm },
+      { id:"revenue", render: renderRevenue },
+      { id:"age", render: renderAge },
+      { id:"kwota_hipoteka", render: renderKwotaHipoteka },
+      { id:"nieruchomosc", render: renderNieruchomosc },
+      { id:"hipoteka_czy", render: renderHipotekaCzy },
+      { id:"zaleglosci", render: renderZaleglosci },
+      { id:"priority_terminal", render: renderPriorityTerminal },
+    ],
+    nie_wiem: [
+      { id:"legal_form", render: renderLegalForm },
+      { id:"industry", render: renderIndustry },
+      { id:"age", render: renderAge },
+      { id:"revenue", render: renderRevenue },
+      { id:"invoice_detail", render: renderInvoiceDetail },
+      { id:"priority", render: renderPriority },
+    ],
+  };
+  return [...s, ...(paths[p] || paths.nie_wiem), ...e];
+}
+let STEPS = [
+  { id:"product",        render: renderProduct },
+  { id:"legal_form",     render: renderLegalForm },
+  { id:"industry",       render: renderIndustry },
+  { id:"age",            render: renderAge },
+  { id:"revenue",        render: renderRevenue },
+  { id:"invoice_detail", render: renderInvoiceDetail },
+  { id:"priority",       render: renderPriority },
+  { id:"nip",            render: renderNIP },
+  { id:"results",        render: renderResults },
+];
+
+let TOTAL_STEPS = STEPS.length - 2;
+
+function startWizard() {
+  try { if (window.fbq) fbq('track', 'InitiateCheckout', { content_name: 'wizard_start' }); } catch(e) {}
+  try { if (window.gtag) gtag('event', 'wizard_start'); } catch(e) {}
+  Object.keys(answers).forEach(k => delete answers[k]);
+  selectedPartners.clear();
+  sessionStorage.removeItem("fm_pinged");
+  document.getElementById("landingPage").style.display = "none";
+  document.getElementById("wizardPage").style.display = "flex";
+  document.body.classList.add("wizard-active");
+  const nav = document.getElementById("wizardBottomNav");
+  if (nav) nav.style.display = "flex";
+  stepIdx = 0;
+  render();
+  window.scrollTo({top: 0, behavior: "instant"});
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+window.startWizard = startWizard;
+
+function exitWizard() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  selectedPartners.clear();
+  sessionStorage.removeItem("fm_pinged");
+  sessionStorage.removeItem("finmach_progress");
+  document.body.classList.remove("wizard-active");
+  const nav = document.getElementById("wizardBottomNav");
+  if (nav) nav.style.display = "none";
+  document.getElementById("wizardPage").style.display = "none";
+  document.getElementById("landingPage").style.display = "flex";
+  stepIdx = 0;
+  window.scrollTo({top: 0, behavior: "instant"});
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+window.exitWizard = exitWizard;
+
+function startWizardWith(product) {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  selectedPartners.clear();
+  sessionStorage.removeItem("fm_pinged");
+  answers.product = product;
+  STEPS = getStepsForProduct(product);
+  TOTAL_STEPS = STEPS.length - 2;
+  document.getElementById("landingPage").style.display = "none";
+  document.getElementById("wizardPage").style.display = "flex";
+  document.body.classList.add("wizard-active");
+  const nav = document.getElementById("wizardBottomNav");
+  if (nav) nav.style.display = "flex";
+  stepIdx = 1;
+  render();
+  window.scrollTo({top: 0, behavior: "instant"});
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+window.startWizardWith = startWizardWith;
+
+function render() {
+  const step = STEPS[stepIdx];
+  const card = document.getElementById("mainCard");
+  card.innerHTML = step.render();
+  card.classList.remove("animate-in");
+  void card.offsetWidth;
+  card.classList.add("animate-in");
+
+  const pct = stepIdx === STEPS.length - 1 ? 100 : Math.round((stepIdx / TOTAL_STEPS) * 100);
+  document.getElementById("progressFill").style.width = pct + "%";
+  let progressText;
+  const pctNum = pct;
+  const timeLeft = Math.max(1, Math.round((TOTAL_STEPS - stepIdx) * 15));
+  if (stepIdx === STEPS.length - 1) progressText = "Gotowe!";
+  else if (stepIdx === STEPS.length - 2) progressText = `Ostatni krok · ~15 sek`;
+  else if (stepIdx === 0) progressText = `2 minuty do wyników`;
+  else progressText = `~${timeLeft} sek do wyników`;
+  document.getElementById("progressLabel").innerHTML =
+    `<span>${progressText}</span><span class="progress-label-pct">${pctNum}%</span>`;
+
+  // Sync oba przyciski Wróć (górny + dolny)
+  const btnBack = document.getElementById("btnBack");
+  if (btnBack) btnBack.disabled = stepIdx === 0;
+  const btnBackTop = document.getElementById("btnBackTop");
+  if (btnBackTop) btnBackTop.style.display = stepIdx === 0 ? "none" : "block";
+
+  const wbnStep = document.getElementById("wbnStep");
+  if (wbnStep) {
+    if (stepIdx === 0) wbnStep.textContent = "";
+    else if (stepIdx === STEPS.length - 1) wbnStep.textContent = "Wynik gotowy ✓";
+    else {
+      const t = Math.max(1, Math.round((TOTAL_STEPS - stepIdx) * 15));
+      wbnStep.textContent = `~${t} sek`;
+    }
+  }
+
+  bindStep(step.id);
+}
+
+function next() { stepIdx++; render(); window.scrollTo({top:0,behavior:"smooth"}); }
+function goBack() { if (stepIdx > 0) { stepIdx--; render(); window.scrollTo({top:0,behavior:"smooth"}); } }
+window.goBack = goBack;
+
+const PRODUCT_FEEDBACK = {
+  faktoring:  "Dobry wybór - mamy kilkanaście opcji faktoringu dla MŚP.",
+  mikro:      "OK - mikrofaktoring decyduje zwykle w 12-24h.",
+  kontrakt:   "Kontrakty i JST to nasza specjalność.",
+  terminal:   "Sprawdzimy Twój profil obrotów kartowych.",
+  pozyczka:   "Sprawdzimy opcje bankowe i pozabankowe dla Twojej firmy.",
+  hipoteka:   "Sprawdzimy opcje pod hipotekę - to dobra droga przy większych kwotach.",
+  nie_wiem:   "Kilka pytań i AI dobierze najlepszą opcję.",
+};
+
+function selectAndNext(field, value) {
+  answers[field] = value;
+  progressiveSave();
+  if (field === "industry" && value === "b2c") {
+    showBlocked("Niestety, obsługujemy wyłącznie firmy B2B",
+      "Faktoring i finansowanie faktur działa tylko przy sprzedaży między przedsiębiorcami.");
+    return;
+  }
+  if (field === "product") {
+    STEPS = getStepsForProduct(value);
+    TOTAL_STEPS = STEPS.length - 2;
+  }
+  if (field === "product" && PRODUCT_FEEDBACK[value]) {
+    const card = document.getElementById("mainCard");
+    const fb = document.createElement("div");
+    fb.className = "step-helper";
+    fb.style.cssText = "background:var(--accent-l);border-color:rgba(29,78,216,0.2);color:var(--accent);margin-top:14px;animation:fadeIn 0.3s ease";
+    fb.innerHTML = `<span class="step-helper-icon">👌</span><span>${PRODUCT_FEEDBACK[value]}</span>`;
+    card.appendChild(fb);
+    setTimeout(() => next(), 700);
+    return;
+  }
+  next();
+}
+window.selectAndNext = selectAndNext;
+
+function progressiveSave() {
+  const data = {
+    product: answers.product || "", legal_form: answers.legal_form || "",
+    industry: answers.industry || "", age: answers.age_months || "",
+    obroty: answers.monthly_rev || "", priorytet: answers.priority || "",
+    ts: new Date().toISOString(),
+  };
+  sessionStorage.setItem("finmach_progress", JSON.stringify(data));
+  if (answers.priority && !sessionStorage.getItem("fm_pinged")) {
+    sessionStorage.setItem("fm_pinged", "1");
+    const p = new URLSearchParams({ action:"anonPing", ...data });
+    fetch(GAS_URL + "?" + p).catch(()=>{});
+  }
+}
+
+function showBlocked(title, text) {
+  document.getElementById("mainCard").innerHTML = `
+    <div class="blocked-screen">
+      <div class="blocked-icon">🚫</div>
+      <div class="blocked-title">${title}</div>
+      <p class="blocked-text">${text}</p>
+      <button class="btn-next" style="max-width:280px;margin:0 auto" onclick="stepIdx=0;render()">← Zacznij od nowa</button>
+    </div>`;
+}
+
+// ════════════════════════════════════════════════════════════════
+// STEP RENDERERS
+// ════════════════════════════════════════════════════════════════
+
+function renderProduct() {
+  return `
+    <div class="step-num">Krok 1 z ${TOTAL_STEPS}</div>
+    <div class="step-question">Znajdź odpowiednie finansowanie dla swojej firmy</div>
+    <p class="step-hint">Opisz swoją potrzebę - dopasujemy najlepszą ścieżkę.</p>
+    <div class="tiles">
+      ${tile("📄","Mam wystawione faktury i czekam na płatność","Stała współpraca, wiele faktur","faktoring","product")}
+      ${tile("📃","Mam jedną dużą fakturę","Chcę ją sfinansować szybko","mikro","product")}
+      ${tile("📋","Mam kontrakt i potrzebuję środków","Budowlanka, JST, kontrakt publiczny","kontrakt","product")}
+      ${tile("💳","Sprzedaję przez terminal, sklep lub Allegro","Terminal, Allegro, Stripe, PayPal","terminal","product")}
+      ${tile("🏦","Potrzebuję finansowania dla firmy","Kredyt, pożyczka obrotowa","pozyczka","product")}
+      ${tile("🏠","Mam nieruchomość i potrzebuję finansowania","Pożyczka hipoteczna pod firmę","hipoteka","product")}
+    </div>
+    <div class="step-trust-msg">FINMACH analizuje Twój profil i dobiera ofertę z najwyższą szansą akceptacji</div>`;
+}
+
+function renderLegalForm() {
+  return `
+    <div class="step-num">Krok 2 z ${TOTAL_STEPS}</div>
+    <div class="step-question">Forma prawna firmy?</div>
+    <div class="tiles tiles-2">
+      ${tile("👤","JDG","Jednoosobowa działalność","jdg","legal_form")}
+      ${tile("🏢","Sp. z o.o.","Spółka z ograniczoną odpowiedzialnością","spzoo","legal_form")}
+      ${tile("📈","S.A.","Spółka akcyjna","sa","legal_form")}
+      ${tile("🤝","Inna","Spółka jawna, komandytowa…","inna","legal_form")}
+    </div>`;
+}
+
+function renderIndustry() {
+  return `
+    <div class="step-num">Krok 3 z ${TOTAL_STEPS}</div>
+    <div class="step-question">Branża firmy?</div>
+    <div class="tiles">
+      ${tile("🛒","Handel","Sprzedaż hurtowa i detaliczna","handel","industry")}
+      ${tile("🏗️","Budowlanka","Budownictwo, remonty, instalacje","budowlanka","industry")}
+      ${tile("🚛","Transport / TSL","Spedycja, logistyka, kurierzy","tsl","industry")}
+      ${tile("🖥️","E-commerce","Sklepy online, marketplace","ecommerce","industry")}
+      ${tile("⚙️","Produkcja","Wytwarzanie, przetwórstwo","produkcja","industry")}
+      ${tile("💼","Usługi B2B","IT, doradztwo, marketing, inne","uslugi_b2b","industry")}
+      ${tile("⚡","Energetyka","OZE, dostawcy energii","energetyka","industry")}
+      ${tile("🌍","Eksport / Import","Handel zagraniczny, faktury w EUR/USD","eksport","industry")}
+      ${tile("🛍️","Sklep / Gastro","Płacę terminalem, szukam MCA","gastro","industry")}
+      ${tile("🔧","Inna branża","Nie ma mojej branży na liście","inne","industry")}
+    </div>`;
+}
+
+function renderAge() {
+  const sel = answers.age_months;
+  const buckets = [
+    { label:"Mniej niż 6 mies.", val:3,  icon:"🌱" },
+    { label:"6–12 miesięcy",     val:9,  icon:"📅" },
+    { label:"1–2 lata",          val:18, icon:"🏃" },
+    { label:"Ponad 2 lata",      val:30, icon:"🏆" },
+  ];
+  const warn = (sel !== undefined && sel < 6)
+    ? `<div class="warn-box"><span class="warn-icon">⚠️</span><span>Firmy poniżej 6 miesięcy mają bardzo ograniczone opcje. Możemy sprawdzić FINEA lub mikrofaktoring jednorazowy.</span></div>`
+    : "";
+  const helper = (sel !== undefined && sel >= 6)
+    ? `<div class="step-helper"><span class="step-helper-icon">💡</span><span>Fintechy często akceptują firmy od 6 miesięcy - bez długiej historii i bez BIK.</span></div>`
+    : "";
+  return `
+    <div class="step-num">Krok 4 z ${TOTAL_STEPS}</div>
+    <div class="step-question">Staż firmy?</div>
+    ${warn}${helper}
+    <div class="tiles tiles-2">
+      ${buckets.map(b => `
+        <div class="tile${sel===b.val?' selected':''}" onclick="answers.age_months=${b.val};progressiveSave();next()">
+          <span class="tile-icon">${b.icon}</span>
+          <div class="tile-label">${b.label}</div>
+        </div>`).join("")}
+    </div>`;
+}
+
+function renderRevenue() {
+  const sel = answers.monthly_rev;
+  const bands = [
+    { label:"do 50 tys. PLN",      val:30000,   icon:"💶" },
+    { label:"50–100 tys. PLN",     val:75000,   icon:"💷" },
+    { label:"100–300 tys. PLN",    val:200000,  icon:"💴" },
+    { label:"300–700 tys. PLN",    val:500000,  icon:"💵" },
+    { label:"700 tys. – 3 mln",    val:1500000, icon:"💰" },
+    { label:"Ponad 3 mln PLN",     val:4000000, icon:"🏦" },
+  ];
+  const warn = (sel !== undefined && sel < 50000 && answers.product === "faktoring")
+    ? `<div class="warn-box"><span class="warn-icon">⚠️</span><span>Przy obrotach poniżej 50k większość faktorów odpada. Zostają mikroprodukty (FINEA, SMEO, NFG).</span></div>`
+    : "";
+  return `
+    <div class="step-num">Krok 5 z ${TOTAL_STEPS}</div>
+    <div class="step-question">Miesięczne obroty?</div>
+    <p class="step-hint">Przybliżona wartość wystarczy - to główny parametr scoringowy.</p>
+    ${warn}
+    <div class="tiles">
+      ${bands.map(b => `
+        <div class="tile${sel===b.val?' selected':''}" onclick="answers.monthly_rev=${b.val};progressiveSave();next()">
+          <span class="tile-icon">${b.icon}</span>
+          <div class="tile-label">${b.label}</div>
+        </div>`).join("")}
+    </div>`;
+}
+
+function renderInvoiceDetail() {
+  const prod = answers.product;
+
+  if (prod === "terminal") {
+    const bands = [
+      { label:"10–20 tys. PLN",  val:15000,  icon:"📊" },
+      { label:"20–50 tys. PLN",  val:35000,  icon:"📈" },
+      { label:"50–100 tys. PLN", val:75000,  icon:"💹" },
+      { label:"Ponad 100 tys.",  val:150000, icon:"🚀" },
+    ];
+    const sel = answers.card_turnover;
+    return `
+      <div class="step-num">Krok 6 z ${TOTAL_STEPS}</div>
+      <div class="step-question">Miesięczny obrót z kart lub bramki płatniczej?</div>
+      <p class="step-hint">Kwota płacona kartą przez Twoich klientów miesięcznie.</p>
+      <div class="tiles tiles-2">
+        ${bands.map(b => `
+          <div class="tile${sel===b.val?' selected':''}" onclick="answers.card_turnover=${b.val};next()">
+            <span class="tile-icon">${b.icon}</span>
+            <div class="tile-label">${b.label}</div>
+          </div>`).join("")}
+      </div>
+      `;
+  }
+
+  if (prod === "pozyczka" || prod === "nie_wiem") {
+    answers.invoice_term = answers.invoice_term ?? 30;
+    answers.single_invoice = false;
+    const amounts = [
+      { label:"50–100 tys.",    val:75000,   icon:"💶" },
+      { label:"100–200 tys.",   val:150000,  icon:"💷" },
+      { label:"200–500 tys.",   val:350000,  icon:"💴" },
+      { label:"Powyżej 500 tys.",val:800000, icon:"💵" },
+    ];
+    const sel = answers.loan_amount;
+    return `
+      <div class="step-num">Krok 6 z ${TOTAL_STEPS}</div>
+      <div class="step-question">Jakiej kwoty potrzebujesz?</div>
+      <p class="step-hint">Orientacyjna kwota finansowania.</p>
+      <div class="tiles tiles-2">
+        ${amounts.map(a => `
+          <div class="tile${sel===a.val?' selected':''}" onclick="answers.loan_amount=${a.val};next()">
+            <span class="tile-icon">${a.icon}</span>
+            <div class="tile-label">${a.label}</div>
+          </div>`).join("")}
+      </div>
+      `;
+  }
+
+  if (prod === "mikro") {
+    answers.single_invoice = true;
+    const selTerm = answers.invoice_term;
+    const terms = [
+      { label:"do 14 dni",    val:14, icon:"⚡" },
+      { label:"15–30 dni",    val:30, icon:"📆" },
+      { label:"31–60 dni",    val:60, icon:"🗓️" },
+      { label:"Ponad 60 dni", val:90, icon:"📋" },
+    ];
+    return `
+      <div class="step-num">Krok 6 z ${TOTAL_STEPS}</div>
+      <div class="step-question">Termin płatności na fakturze?</div>
+      <p class="step-hint">Ile dni ma kontrahent na zapłatę?</p>
+      <div class="tiles tiles-2">
+        ${terms.map(t => `
+          <div class="tile${selTerm===t.val?' selected':''}" onclick="answers.invoice_term=${t.val};next()">
+            <span class="tile-icon">${t.icon}</span>
+            <div class="tile-label">${t.label}</div>
+          </div>`).join("")}
+      </div>
+      `;
+  }
+
+  if (prod === "kontrakt") {
+    answers.single_invoice = false;
+    const selCesja = answers.has_assignment_consent;
+    const selTerm  = answers.invoice_term;
+    const terms = [
+      { label:"do 30 dni",    val:30,  icon:"📆" },
+      { label:"31–60 dni",    val:60,  icon:"🗓️" },
+      { label:"61–90 dni",    val:90,  icon:"📋" },
+      { label:"Ponad 90 dni", val:120, icon:"⏳" },
+    ];
+    return `
+      <div class="step-num">Krok 6 z ${TOTAL_STEPS}</div>
+      <div class="step-question">Szczegóły kontraktu</div>
+      <p class="step-hint">Dwa pytania - decydują o dostępnych partnerach.</p>
+      <p style="font-size:.82rem;font-weight:600;color:var(--ink2);margin-bottom:10px">Termin płatności w kontrakcie</p>
+      <div class="tiles" style="margin-bottom:20px">
+        ${terms.map(t => `
+          <div class="tile${selTerm===t.val?' selected':''}" onclick="answers.invoice_term=${t.val};next()">
+            <span class="tile-icon">${t.icon}</span>
+            <div class="tile-label">${t.label}</div>
+          </div>`).join("")}
+      </div>
+      <p style="font-size:.82rem;font-weight:600;color:var(--ink2);margin-bottom:10px">Czy kontrakt dopuszcza cesję wierzytelności?</p>
+      <div class="tiles tiles-2" style="margin-bottom:24px">
+        <div class="tile${selCesja==='yes'?' selected':''}" onclick="answers.has_assignment_consent='yes';render()">
+          <span class="tile-icon">✅</span><div class="tile-label">Tak, dopuszcza</div>
+        </div>
+        <div class="tile${selCesja==='no'?' selected':''}" onclick="answers.has_assignment_consent='no';render()">
+          <span class="tile-icon">🚫</span><div class="tile-label">Nie / nie wiem</div>
+        </div>
+      </div>
+      ${selCesja==='no' ? `<div class="warn-box"><span class="warn-icon">⚠️</span><span>Zakaz cesji ogranicza opcje - zostają partnerzy z faktoringiem cichym lub pożyczką.</span></div>` : ""}
+      `;
+  }
+
+  // ─── FAKTORING ─── POPRAWKA 1: brak wymuszonego domyślnego zaznaczenia
+  // Charakter współpracy jest OPCJONALNY. Jeśli klient nic nie wybierze,
+  // przy "Dalej" ustawiamy domyślnie "stała współpraca" (false) po cichu,
+  // ale wizualnie NIC nie jest zaznaczone na starcie.
+  const selTerm   = answers.invoice_term;
+  const selSingle = answers.single_invoice;   // undefined = nic nie zaznaczone
+  const terms = [
+    { label:"do 14 dni",    val:14,  icon:"⚡" },
+    { label:"15–30 dni",    val:30,  icon:"📆" },
+    { label:"31–60 dni",    val:60,  icon:"🗓️" },
+    { label:"61–90 dni",    val:90,  icon:"📋" },
+    { label:"Ponad 90 dni", val:120, icon:"⏳" },
+  ];
+  return `
+    <div class="step-num">Krok 6 z ${TOTAL_STEPS}</div>
+    <div class="step-question">Szczegóły Twoich faktur</div>
+    <p class="step-hint">Termin płatności i charakter współpracy.</p>
+    <p style="font-size:.82rem;font-weight:600;color:var(--ink2);margin-bottom:10px">Termin płatności na fakturze</p>
+    <div class="tiles" style="margin-bottom:${selTerm===30||selTerm===14?'8px':'14px'}">
+      ${terms.map(t => `
+        <div class="tile${selTerm===t.val?' selected':''}" onclick="answers.invoice_term=${t.val};next()">
+          <span class="tile-icon">${t.icon}</span>
+          <div class="tile-label">${t.label}</div>
+        </div>`).join("")}
+    </div>
+    ${(selTerm===14||selTerm===30) ? '<div class="step-helper"><span class="step-helper-icon">💡</span><span>Przy 15-30 dniach płatności masz dostęp do największej liczby partnerów i najkorzystniejszych prowizji.</span></div>' : ''}
+    ${selTerm===120 ? '<div class="step-helper"><span class="step-helper-icon">⚠️</span><span>Terminy powyżej 90 dni wymagają indywidualnej analizy - część faktorów nie finansuje tak długich DSO.</span></div>' : ''}
+    <p style="font-size:.82rem;font-weight:600;color:var(--ink2);margin:14px 0 10px">Charakter współpracy <span style="font-weight:400;color:var(--ink2);opacity:0.7">(opcjonalnie)</span></p>
+    <div class="tiles tiles-2" style="margin-bottom:24px">
+      <div class="tile${selSingle===false?' selected':''}" onclick="answers.single_invoice=false;next()">
+        <span class="tile-icon">📚</span><div class="tile-label">Stała współpraca</div><div class="tile-sub">Limit faktoringowy</div>
+      </div>
+      <div class="tile${selSingle===true?' selected':''}" onclick="answers.single_invoice=true;next()">
+        <span class="tile-icon">📄</span><div class="tile-label">Jednorazowo</div><div class="tile-sub">1–3 faktury</div>
+      </div>
+    </div>
+    <div style="display:none"><button class="btn-next" onclick="next()">
+      Dalej →
+    </button></div>
+    <div class="step-trust-msg" style="margin-top:12px">Możesz zmienić odpowiedzi w dowolnym momencie</div>`;
+}
+
+function togglePriority(val) {
+  if (!answers.priorities) answers.priorities = [];
+  const MAX = 2;
+  const idx = answers.priorities.indexOf(val);
+  if (idx > -1) {
+    answers.priorities.splice(idx, 1);
+  } else if (answers.priorities.length < MAX) {
+    answers.priorities.push(val);
+  }
+  answers.priority = answers.priorities[0] || "";
+  progressiveSave();
+  render();
+}
+window.togglePriority = togglePriority;
+
+function renderPriority() {
+  const selected = answers.priorities || [];
+  const opts = [
+    { icon:"⚡", label:"Szybkość",        sub:"Pieniądze jak najszybciej", val:"speed" },
+    { icon:"💰", label:"Najniższy koszt", sub:"Minimalna prowizja",        val:"cost" },
+    { icon:"📋", label:"Mało formalności",sub:"Minimum dokumentów",        val:"docs" },
+    { icon:"🔒", label:"Faktoring cichy", sub:"Bez informowania kontrahenta", val:"silent" },
+    { icon:"🛡️", label:"Faktoring pełny", sub:"Bez regresu, z ubezpieczeniem", val:"full" },
+    { icon:"🏦", label:"Wysoki limit",    sub:"Jak największe finansowanie",   val:"limit" },
+  ];
+  const tilesHtml = opts.map(o => {
+    const isSel = selected.includes(o.val);
+    const sel = isSel ? ' selected' : '';
+    return '<div class="tile' + sel + '" onclick="togglePriority(\'' + o.val + '\')">' +
+      '<span class="tile-icon">' + o.icon + '</span>' +
+      '<div class="tile-label">' + o.label + '</div>' +
+      '<div class="tile-sub" style="display:block;font-size:0.72rem;color:var(--ink2);margin-top:2px">' + o.sub + '</div>' +
+      '</div>';
+  }).join('');
+
+  const canContinue = selected.length >= 1;
+  const disabled = canContinue ? '' : ' disabled';
+
+  return '<div class="step-num">Krok 7 z ' + TOTAL_STEPS + '</div>' +
+    '<div class="step-question">Twój priorytet?</div>' +
+    '<p class="step-hint">Wybierz 1 lub 2 - pomaga nam uszeregować oferty.</p>' +
+    '<div class="tiles">' + tilesHtml + '</div>' +
+    '<button class="btn-next" onclick="next()"' + disabled + '>Dalej →</button>' +
+    (canContinue ? '' : '<div class="step-trust-msg" style="margin-top:10px">Zaznacz przynajmniej jeden priorytet</div>');
+}
+
+
+// ── NOWE RENDER FUNCTIONS (MATCHING ENGINE v1) ──────────────────────
+
+function renderIndustryTerminal() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Branża firmy?</div>
+    <div class="tiles tiles-2">
+      ${tile("🍽️","Gastronomia","Restauracje, bary, kawiarnie","gastro","industry")}
+      ${tile("📦","E-commerce","Sklepy online, marketplace","ecommerce","industry")}
+      ${tile("🛍️","Sklep stacjonarny","Handel detaliczny","handel","industry")}
+      ${tile("💼","Usługi","Usługi B2B i B2C","uslugi_b2b","industry")}
+    </div>`;
+}
+
+function renderZaleglosci() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Czy Twoja firma ma zaległości w spłacie kredytów?</div>
+    <p class="step-hint">Opóźnienia powyżej 30 dni.</p>
+    <div class="tiles">
+      <div class="tile" onclick="answers.zaleglosci='nie';next()">
+        <span class="tile-icon">✅</span>
+        <div class="tile-label">NIE MA</div>
+        <div class="tile-sub">Wszystko spłacane terminowo</div>
+      </div>
+      <div class="tile" onclick="answers.zaleglosci='tak';next()">
+        <span class="tile-icon">⚠️</span>
+        <div class="tile-label">MA</div>
+        <div class="tile-sub">Są opóźnienia pow. 30 dni</div>
+      </div>
+      <div class="tile" onclick="answers.zaleglosci='nie_wiem';next()">
+        <span class="tile-icon">❓</span>
+        <div class="tile-label">NIE WIEM</div>
+        <div class="tile-sub">Sprawdzimy to razem</div>
+      </div>
+    </div>`;
+}
+
+function renderTypFinansowania() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Jaki typ finansowania?</div>
+    <p class="step-hint">Bankowy to dłuższy okres, pozabankowy to szybsza decyzja.</p>
+    <div class="tiles tiles-2">
+      <div class="tile" onclick="answers.typ_fin='bankowy';next()">
+        <span class="tile-icon">🏦</span>
+        <div class="tile-label">Bankowy</div>
+        <div class="tile-sub">12-120 m-cy, niższa rata</div>
+      </div>
+      <div class="tile" onclick="answers.typ_fin='pozabankowy';next()">
+        <span class="tile-icon">💼</span>
+        <div class="tile-label">Pozabankowy</div>
+        <div class="tile-sub">Do 12 m-cy, szybka decyzja</div>
+      </div>
+    </div>`;
+}
+
+function renderPriorityKredyt() {
+  const selected = answers.priorities || [];
+  const opts = [
+    { icon:"⚡", label:"Szybka decyzja", sub:"Pieniądze jak najszybciej", val:"speed" },
+    { icon:"💰", label:"Najwyższa kwota", sub:"Maksymalne finansowanie", val:"limit" },
+    { icon:"📋", label:"Minimum formalności", sub:"Minimum dokumentów", val:"docs" },
+    { icon:"📉", label:"Najniższa rata", sub:"Rozłożone na jak najdłużej", val:"cost" },
+  ];
+  const tilesHtml = opts.map(o => {
+    const isSel = selected.includes(o.val);
+    return '<div class="tile' + (isSel ? ' selected' : '') + '" onclick="togglePriority(\'' + o.val + '\')">' +
+      '<span class="tile-icon">' + o.icon + '</span>' +
+      '<div class="tile-label">' + o.label + '</div>' +
+      '<div class="tile-sub" style="display:block;font-size:0.72rem;color:var(--ink2);margin-top:2px">' + o.sub + '</div></div>';
+  }).join('');
+  const canContinue = selected.length >= 1;
+  return '<div class="step-num">Krok ' + (stepIdx+1) + ' z ' + TOTAL_STEPS + '</div>' +
+    '<div class="step-question">Twój priorytet?</div>' +
+    '<p class="step-hint">Wybierz 1 lub 2.</p>' +
+    '<div class="tiles tiles-2">' + tilesHtml + '</div>' +
+    '<button class="btn-next" onclick="next()"' + (canContinue ? '' : ' disabled') + '>Dalej →</button>';
+}
+
+function renderPriorityMikro() {
+  const selected = answers.priorities || [];
+  const opts = [
+    { icon:"⚡", label:"Szybkość", sub:"Pieniądze jak najszybciej", val:"speed" },
+    { icon:"💰", label:"Niski koszt", sub:"Minimalna prowizja", val:"cost" },
+    { icon:"📋", label:"Mało formalności", sub:"Minimum dokumentów", val:"docs" },
+    { icon:"✋", label:"Jednorazowa bez umowy", sub:"Bez stałej współpracy", val:"oneoff" },
+  ];
+  const tilesHtml = opts.map(o => {
+    const isSel = selected.includes(o.val);
+    return '<div class="tile' + (isSel ? ' selected' : '') + '" onclick="togglePriority(\'' + o.val + '\')">' +
+      '<span class="tile-icon">' + o.icon + '</span>' +
+      '<div class="tile-label">' + o.label + '</div>' +
+      '<div class="tile-sub" style="display:block;font-size:0.72rem;color:var(--ink2);margin-top:2px">' + o.sub + '</div></div>';
+  }).join('');
+  const canContinue = selected.length >= 1;
+  return '<div class="step-num">Krok ' + (stepIdx+1) + ' z ' + TOTAL_STEPS + '</div>' +
+    '<div class="step-question">Twój priorytet?</div>' +
+    '<p class="step-hint">Wybierz 1 lub 2.</p>' +
+    '<div class="tiles tiles-2">' + tilesHtml + '</div>' +
+    '<button class="btn-next" onclick="next()"' + (canContinue ? '' : ' disabled') + '>Dalej →</button>';
+}
+
+function renderPriorityKontrakt() {
+  const selected = answers.priorities || [];
+  const opts = [
+    { icon:"⚡", label:"Szybkość", sub:"Pieniądze jak najszybciej", val:"speed" },
+    { icon:"💰", label:"Niski koszt", sub:"Minimalna prowizja", val:"cost" },
+    { icon:"🏦", label:"Wysoki limit", sub:"Jak największe finansowanie", val:"limit" },
+    { icon:"📋", label:"Mało formalności", sub:"Minimum dokumentów", val:"docs" },
+  ];
+  const tilesHtml = opts.map(o => {
+    const isSel = selected.includes(o.val);
+    return '<div class="tile' + (isSel ? ' selected' : '') + '" onclick="togglePriority(\'' + o.val + '\')">' +
+      '<span class="tile-icon">' + o.icon + '</span>' +
+      '<div class="tile-label">' + o.label + '</div>' +
+      '<div class="tile-sub" style="display:block;font-size:0.72rem;color:var(--ink2);margin-top:2px">' + o.sub + '</div></div>';
+  }).join('');
+  const canContinue = selected.length >= 1;
+  return '<div class="step-num">Krok ' + (stepIdx+1) + ' z ' + TOTAL_STEPS + '</div>' +
+    '<div class="step-question">Twój priorytet?</div>' +
+    '<p class="step-hint">Wybierz 1 lub 2.</p>' +
+    '<div class="tiles tiles-2">' + tilesHtml + '</div>' +
+    '<button class="btn-next" onclick="next()"' + (canContinue ? '' : ' disabled') + '>Dalej →</button>';
+}
+
+function renderPriorityTerminal() {
+  const selected = answers.priorities || [];
+  const opts = [
+    { icon:"⚡", label:"Szybkość", sub:"Pieniądze jak najszybciej", val:"speed" },
+    { icon:"💰", label:"Niski koszt", sub:"Minimalna prowizja", val:"cost" },
+    { icon:"📋", label:"Mało formalności", sub:"Minimum dokumentów", val:"docs" },
+    { icon:"💵", label:"Wysoka kwota", sub:"Maksymalne finansowanie", val:"limit" },
+  ];
+  const tilesHtml = opts.map(o => {
+    const isSel = selected.includes(o.val);
+    return '<div class="tile' + (isSel ? ' selected' : '') + '" onclick="togglePriority(\'' + o.val + '\')">' +
+      '<span class="tile-icon">' + o.icon + '</span>' +
+      '<div class="tile-label">' + o.label + '</div>' +
+      '<div class="tile-sub" style="display:block;font-size:0.72rem;color:var(--ink2);margin-top:2px">' + o.sub + '</div></div>';
+  }).join('');
+  const canContinue = selected.length >= 1;
+  return '<div class="step-num">Krok ' + (stepIdx+1) + ' z ' + TOTAL_STEPS + '</div>' +
+    '<div class="step-question">Twój priorytet?</div>' +
+    '<p class="step-hint">Wybierz 1 lub 2.</p>' +
+    '<div class="tiles tiles-2">' + tilesHtml + '</div>' +
+    '<button class="btn-next" onclick="next()"' + (canContinue ? '' : ' disabled') + '>Dalej →</button>';
+}
+
+
+function renderCesja() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Czy kontrakt dopuszcza cesję wierzytelności?</div>
+    <p class="step-hint">Cesja to przeniesienie prawa do zapłaty. Nie zawsze jest wymagana.</p>
+    <div class="tiles tiles-2">
+      <div class="tile" onclick="answers.has_assignment_consent='yes';next()">
+        <span class="tile-icon">✅</span>
+        <div class="tile-label">Tak, dopuszcza</div>
+      </div>
+      <div class="tile" onclick="answers.has_assignment_consent='no';next()">
+        <span class="tile-icon">🚫</span>
+        <div class="tile-label">Nie / nie wiem</div>
+        <div class="tile-sub">Sprawdzimy inne opcje</div>
+      </div>
+    </div>`;
+}
+
+function renderNieruchomosc() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Wartość nieruchomości?</div>
+    <p class="step-hint">Szacunkowa wartość rynkowa.</p>
+    <div class="tiles tiles-2">
+      <div class="tile" onclick="answers.wartosc_nieruchomosci=400000;next()">
+        <span class="tile-icon">🏠</span>
+        <div class="tile-label">Do 500 000 PLN</div>
+      </div>
+      <div class="tile" onclick="answers.wartosc_nieruchomosci=750000;next()">
+        <span class="tile-icon">🏡</span>
+        <div class="tile-label">500 tys. - 1 mln PLN</div>
+      </div>
+      <div class="tile" onclick="answers.wartosc_nieruchomosci=1500000;next()">
+        <span class="tile-icon">🏘️</span>
+        <div class="tile-label">1 mln - 2 mln PLN</div>
+      </div>
+      <div class="tile" onclick="answers.wartosc_nieruchomosci=3000000;next()">
+        <span class="tile-icon">🏰</span>
+        <div class="tile-label">Powyżej 2 mln PLN</div>
+      </div>
+    </div>`;
+}
+
+function renderHipotekaCzy() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Czy nieruchomość jest obecnie obciążona kredytem?</div>
+    <p class="step-hint">Np. spłacasz kredyt hipoteczny i bank ma wpis w księdze wieczystej.</p>
+    <div class="tiles tiles-2">
+      <div class="tile" onclick="answers.hipoteka_istniejaca='tak';next()">
+        <span class="tile-icon">🏦</span>
+        <div class="tile-label">TAK, jest obciążona</div>
+        <div class="tile-sub">Ma wpis hipoteczny / spłacam kredyt</div>
+      </div>
+      <div class="tile" onclick="answers.hipoteka_istniejaca='nie';next()">
+        <span class="tile-icon">✅</span>
+        <div class="tile-label">NIE, jest wolna</div>
+        <div class="tile-sub">Brak obciążeń w KW</div>
+      </div>
+    </div>`;
+}
+
+function renderKwotaFinansowania() {
+  // Progi zależne od produktu: terminale (niższe), faktoring (średnie), kontrakty (wyższe)
+  var prod = answers.product;
+  var opcje;
+  if (prod === "terminal") {
+    opcje = [
+      {v:100000, l:"do 100 tys. PLN", i:"💶"},
+      {v:500000, l:"100–500 tys. PLN", i:"💷"},
+      {v:1000000, l:"500 tys. – 1 mln PLN", i:"💴"},
+      {v:3000000, l:"1–3 mln PLN", i:"💵"},
+      {v:3000001, l:"powyżej 3 mln PLN", i:"🏦"},
+    ];
+  } else if (prod === "kontrakt") {
+    opcje = [
+      {v:500000, l:"do 500 tys. PLN", i:"💶"},
+      {v:2000000, l:"500 tys. – 2 mln PLN", i:"💷"},
+      {v:10000000, l:"2–10 mln PLN", i:"💴"},
+      {v:10000001, l:"powyżej 10 mln PLN", i:"🏦"},
+    ];
+  } else {
+    // faktoring (i domyślnie)
+    opcje = [
+      {v:100000, l:"do 100 tys. PLN", i:"💶"},
+      {v:250000, l:"100–250 tys. PLN", i:"💶"},
+      {v:1000000, l:"250 tys. – 1 mln PLN", i:"💷"},
+      {v:5000000, l:"1–5 mln PLN", i:"💴"},
+      {v:5000001, l:"powyżej 5 mln PLN", i:"🏦"},
+    ];
+  }
+  var tiles = opcje.map(function(o){
+    return '<div class="tile" onclick="answers.kwota_finansowania=' + o.v + ';progressiveSave();next()">' +
+      '<span class="tile-icon">' + o.i + '</span>' +
+      '<div class="tile-label">' + o.l + '</div></div>';
+  }).join("");
+  return '' +
+    '<div class="step-num">Krok ' + (stepIdx+1) + ' z ' + TOTAL_STEPS + '</div>' +
+    '<div class="step-question">Jakiej kwoty finansowania potrzebujesz?</div>' +
+    '<p class="step-hint" style="margin-bottom:14px">Orientacyjnie - pomoże nam dobrać partnerów o odpowiednim limicie.</p>' +
+    '<div class="tiles tiles-2">' + tiles + '</div>';
+}
+
+function renderKwotaMikro() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Jaką kwotę chcesz sfinansować?</div>
+    <div class="tiles tiles-2">
+      <div class="tile" onclick="answers.kwota_mikro=35000;next()">
+        <span class="tile-icon">💶</span>
+        <div class="tile-label">20–50 tys. PLN</div>
+      </div>
+      <div class="tile" onclick="answers.kwota_mikro=75000;next()">
+        <span class="tile-icon">💷</span>
+        <div class="tile-label">50–100 tys. PLN</div>
+      </div>
+      <div class="tile" onclick="answers.kwota_mikro=100000;next()">
+        <span class="tile-icon">💴</span>
+        <div class="tile-label">100 tys. PLN</div>
+      </div>
+      <div class="tile" onclick="answers.kwota_mikro=150000;next()">
+        <span class="tile-icon">💵</span>
+        <div class="tile-label">101 tys. i więcej</div>
+      </div>
+    </div>`;
+}
+
+function renderTerminFaktury() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Czy termin zapłaty faktury jeszcze nie minął?</div>
+    <div class="tiles tiles-2">
+      <div class="tile" onclick="answers.termin_minal='nie';next()">
+        <span class="tile-icon">✅</span>
+        <div class="tile-label">TAK, termin aktualny</div>
+        <div class="tile-sub">Faktura nie jest przeterminowana</div>
+      </div>
+      <div class="tile" onclick="answers.termin_minal='tak';next()">
+        <span class="tile-icon">❌</span>
+        <div class="tile-label">NIE, termin minął</div>
+        <div class="tile-sub">Faktura jest przeterminowana</div>
+      </div>
+    </div>`;
+}
+
+function renderKwotaHipoteka() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Jaką kwotę potrzebujesz?</div>
+    <div class="tiles tiles-2">
+      <div class="tile" onclick="answers.kwota_hipoteka=400000;next()">
+        <span class="tile-icon">🏠</span>
+        <div class="tile-label">Do 500 000 PLN</div>
+      </div>
+      <div class="tile" onclick="answers.kwota_hipoteka=750000;next()">
+        <span class="tile-icon">🏡</span>
+        <div class="tile-label">500 tys. - 1 mln PLN</div>
+      </div>
+      <div class="tile" onclick="answers.kwota_hipoteka=1500000;next()">
+        <span class="tile-icon">🏘️</span>
+        <div class="tile-label">1 mln - 2 mln PLN</div>
+      </div>
+      <div class="tile" onclick="answers.kwota_hipoteka=3000000;next()">
+        <span class="tile-icon">🏰</span>
+        <div class="tile-label">Powyżej 2 mln PLN</div>
+      </div>
+    </div>`;
+}
+
+
+function renderNIP() {
+  const nipVal = answers.nip || "";
+  return `
+    <div class="step-question">NIP firmy <span style="font-weight:400;font-size:0.85em;color:var(--ink2)">(opcjonalnie)</span></div>
+    <p class="step-hint" style="margin-bottom:16px">Podaj NIP żeby zobaczyć dane firmy. Możesz też pominąć.</p>
+    <div class="nip-row">
+      <input class="inp" id="nipInput" type="text" inputmode="numeric" maxlength="13"
+        placeholder="np. 5272647926" value="${nipVal}"
+        oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+        onkeydown="if(event.key==='Enter')verifyNIP()">
+      <button class="btn-verify" id="btnVerify" onclick="verifyNIP()">Weryfikuj →</button>
+    </div>
+    <div class="nip-result" id="nipResult">
+      <div class="firma-name" id="firmaNazwa"></div>
+      <div id="firmaAdres" style="color:var(--ink2)"></div>
+      <div id="firmaDetale" style="margin-top:8px;font-size:0.82rem;color:var(--navy);font-weight:600"></div>
+      <div id="firmaKorekta" style="margin-top:4px;font-size:0.72rem;color:var(--ok)"></div>
+      <div id="krz-flag" style="margin-top:6px"></div>
+    </div>
+    <div class="warn-box" id="nipErr" style="display:none">
+      <span class="warn-icon">⚠️</span><span id="nipErrTxt">Nie znaleziono firmy o tym NIP.</span>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;padding:12px 14px;background:var(--bg);border-radius:10px;border:1px solid var(--border)">
+      <input type="checkbox" id="rodoCheck" style="margin-top:3px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent)"
+        onchange="document.getElementById('btnNipNext').disabled = !this.checked">
+      <label for="rodoCheck" style="font-size:0.75rem;color:var(--ink2);line-height:1.5;cursor:pointer">
+        Wyrażam zgodę na przetwarzanie danych osobowych przez FINMACH / Payflow w celu analizy profilu firmy i przedstawienia ofert finansowania. <a href="/polityka-prywatnosci.html" style="color:var(--accent)">Polityka prywatności</a>.
+      </label>
+    </div>
+    <button class="btn-next" id="btnNipNext" onclick="next()" style="margin-bottom:10px" disabled>
+      Pokaż moje oferty →
+    </button>
+    <button class="btn-skip" onclick="document.getElementById('rodoCheck').checked ? (answers.nip='',next()) : alert('Zaznacz zgodę RODO, aby zobaczyć oferty.')">Pomiń NIP - pokaż oferty</button>`;
+}
+
+async function verifyNIP() {
+  const nip = document.getElementById("nipInput").value.replace(/[^0-9]/g,"");
+  if (nip.length !== 10) {
+    document.getElementById("nipErr").style.display="flex";
+    document.getElementById("nipErrTxt").textContent="NIP musi mieć 10 cyfr.";
+    return;
+  }
+  answers.nip = nip;
+  const btn = document.getElementById("btnVerify");
+  btn.disabled = true; btn.textContent = "Sprawdzam…";
+  document.getElementById("nipErr").style.display="none";
+  document.getElementById("nipResult").classList.remove("show");
+  try {
+    const res  = await fetch(`https://finmach.pl/nip.php?nip=${nip}`);
+    const data = await res.json();
+    if (data && (data.nazwa || data.name)) {
+      const nazwa = data.nazwa || data.name || "";
+      const adres = data.adres || data.address || "";
+      answers.firma_name = nazwa;
+      answers.firma_adres = adres;
+      document.getElementById("firmaNazwa").textContent = nazwa;
+      document.getElementById("firmaAdres").textContent = adres;
+
+      // ── FINTECH: dane z rejestrów (KRS / biała lista) ──
+      const detale = [];
+      const korekty = [];
+      if (data.forma) detale.push("🏢 " + data.forma);
+      if (data.dataStart) {
+        const d = new Date(data.dataStart);
+        if (!isNaN(d)) {
+          const mies = data.wiekMiesiecy;
+          const lata = mies != null ? Math.floor(mies / 12) : null;
+          const wiekTxt = mies == null ? "" :
+            (lata >= 2 ? ` (${lata} lat)` : mies >= 12 ? " (1-2 lata)" : ` (${mies} mies.)`);
+          const zrodlo = data.zrodloDaty === "KRS" ? "" : " wg rej. VAT";
+          detale.push("📅 działa od " + String(d.getMonth()+1).padStart(2,"0") + "." + d.getFullYear() + wiekTxt + zrodlo);
+        }
+      }
+      document.getElementById("firmaDetale").textContent = detale.join("  ·  ");
+
+      // korekta formy prawnej na podstawie rejestru
+      if (data.legalForm && answers.legal_form && data.legalForm !== answers.legal_form) {
+        answers.legal_form = data.legalForm;
+        korekty.push("formę prawną");
+      } else if (data.legalForm && !answers.legal_form) {
+        answers.legal_form = data.legalForm;
+      }
+      // korekta stażu: mapowanie miesięcy na progi wizarda (3 / 9 / 18 / 30)
+      if (data.wiekMiesiecy != null) {
+        const m = data.wiekMiesiecy;
+        const bracket = m < 6 ? 3 : m < 12 ? 9 : m < 24 ? 18 : 30;
+        if (answers.age_months && answers.age_months !== bracket) korekty.push("staż firmy");
+        answers.age_months = bracket;
+        answers.wiek_miesiecy_rejestr = m;
+      }
+      if (data.dataStart) answers.data_start = data.dataStart;
+      if (data.krs) answers.krs = data.krs;
+      document.getElementById("firmaKorekta").textContent =
+        korekty.length ? "✓ Zaktualizowaliśmy " + korekty.join(" i ") + " na podstawie rejestrów - oferty będą trafniejsze" : "";
+
+      document.getElementById("nipResult").classList.add("show");
+      checkKRZ(nip);
+      const p = new URLSearchParams({ action:"updateNIP", nip, nazwa, adres,
+        forma: data.forma || "", dataStart: data.dataStart || "", krs: data.krs || "" });
+      fetch(GAS_URL + "?" + p).catch(()=>{});
+      document.getElementById("btnNipNext").disabled = !(document.getElementById("rodoCheck")?.checked);
+    } else { throw new Error("brak danych"); }
+  } catch(e) {
+    document.getElementById("nipErr").style.display="flex";
+    document.getElementById("nipErrTxt").textContent="Nie znaleziono firmy. Sprawdź NIP lub pomiń ten krok.";
+    document.getElementById("btnNipNext").disabled = !(document.getElementById("rodoCheck")?.checked);
+  }
+  btn.disabled = false; btn.textContent = "Weryfikuj →";
+}
+window.verifyNIP = verifyNIP;
+
+async function checkKRZ(nip) {
+  try {
+    const res  = await fetch(GAS_URL + "?action=checkKRZ&nip=" + nip);
+    const data = await res.json();
+    const el   = document.getElementById("krz-flag");
+    if (data && data.krz === true) {
+      el.innerHTML = '<span style="color:var(--err);font-weight:600">⚠️ Firma figuruje w KRZ - liczba dostępnych partnerów może być ograniczona</span>';
+      answers.krz_flag = true;
+    } else {
+      el.innerHTML = '<span style="color:var(--ok)">✓ Brak wpisów KRZ</span>';
+      answers.krz_flag = false;
+    }
+  } catch(e) {}
+}
+
+function renderResults() {
+  selectedPartners = new Set();
+  
+  // Najpierw pokaż loading, potem fetch z GAS
+  setTimeout(() => fetchGASOffers(), 200);
+  
+  return `
+    <div class="step-num" style="color:var(--ok)">Analizuję Twój profil...</div>
+    <div class="step-question">Szukam najlepszych ofert</div>
+    <div style="text-align:center;padding:40px 0">
+      <div style="display:flex;justify-content:center;gap:6px;margin-bottom:16px">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);animation:ai-pulse 1.2s ease infinite"></span>
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);animation:ai-pulse 1.2s 0.2s ease infinite"></span>
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);animation:ai-pulse 1.2s 0.4s ease infinite"></span>
+      </div>
+      <p style="color:var(--ink2);font-size:0.9rem;line-height:1.6;max-width:440px;margin:0 auto">Bez obaw - nic się jeszcze nie dzieje po Twojej stronie. Analizujemy tylko dostępne opcje finansowania dla Twojej firmy. Za chwilę je zobaczysz i sam decydujesz, czy chcesz iść dalej. Nikt nie dzwoni bez Twojej wiedzy.</p>
+    </div>
+    <div id="gasResultsContainer"></div>
+  `;
+}
+
+
+async function enhanceWithAI(offers) {
+  try {
+    const product = answers.product || "";
+    const legalForm = answers.legal_form || "";
+    const industry = answers.industry || "";
+    const priority = (answers.priorities || [])[0] || answers.priority || "";
+    
+    const offerList = offers.slice(0, 3).map((o, i) => 
+      `${i+1}. ${o.name}: ${(o.reasons||[]).join(", ")}`
+    ).join("\n");
+    
+    const prompt = `Jesteś ekspertem finansowym FINMACH. Klient szuka: ${product}. Forma prawna: ${legalForm}. Branża: ${industry||"nieznana"}. Priorytet: ${priority||"nieznany"}.
+
+Oto dopasowane oferty:
+${offerList}
+
+Dla każdej z ${Math.min(3, offers.length)} ofert napisz JEDNO krótkie zdanie (max 100 znaków) - konkretne uzasadnienie dlaczego jest dobra dla tego klienta. Pisz po polsku, naturalnie jak ekspert.
+Odpowiedz TYLKO w JSON: {"reasons": ["zdanie1", "zdanie2", "zdanie3"]}`;
+
+    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + OPENROUTER_KEY,
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://finmach.pl"
+      },
+      body: JSON.stringify({
+        model: "meta-llama/llama-3.3-70b-instruct:free",
+        messages: [{ role: "user", content: prompt }],
+        max_tokens: 300,
+        temperature: 0.3
+      })
+    });
+    
+    const data = await res.json();
+    const content = data?.choices?.[0]?.message?.content || "";
+    const jsonMatch = content.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) return;
+    
+    const parsed = JSON.parse(jsonMatch[0]);
+    const aiReasons = parsed.reasons || [];
+    
+    // Podmień opisy pod kartami AI opisem
+    offers.slice(0, 3).forEach((offer, i) => {
+      if (aiReasons[i]) {
+        const card = document.getElementById("card-" + offer.id);
+        if (card) {
+          const reasonDiv = card.querySelector("div[style*='f8f9ff']");
+          if (reasonDiv) {
+            reasonDiv.innerHTML = "🤖 " + aiReasons[i];
+          }
+        }
+      }
+    });
+    
+    console.log("✅ AI opisy załadowane!");
+  } catch(e) {
+    console.log("AI opisy skip:", e.message);
+  }
+}
+
+async function fetchGASOffers() {
+  try {
+    const params = new URLSearchParams({
+      action: "getOffers",
+      product: answers.product || "",
+      legal_form: answers.legal_form || "",
+      industry: answers.industry || "",
+      age_months: answers.age_months || "",
+      monthly_rev: answers.monthly_rev || "",
+      priority: answers.priority || answers.priorities?.[0] || "",
+      typ_fin: answers.typ_fin || "",
+      kontrahent_typ: answers.kontrahent_typ || "",
+      hipoteka_istniejaca: answers.hipoteka_istniejaca || "",
+      zaleglosci: answers.zaleglosci || "",
+      termin_minal: answers.termin_minal || "",
+      kwota_mikro: answers.kwota_mikro || "",
+      kwota_finansowania: answers.kwota_finansowania || "",
+      has_assignment_consent: answers.has_assignment_consent || ""
+    });
+    
+    const fetchUrl = GAS_URL + "?" + params;
+    console.log("FINMACH: fetching", fetchUrl);
+    const res = await fetch(fetchUrl);
+    console.log("FINMACH: response status", res.status);
+    const data = await res.json();
+    console.log("FINMACH: data", JSON.stringify(data));
+    
+    if (data.blocked) {
+      document.getElementById("mainCard").innerHTML = `
+        <div class="blocked-screen">
+          <div class="blocked-icon">🚫</div>
+          <div class="blocked-title">Brak pasujących ofert</div>
+          <p class="blocked-text">${data.blocked_reason || "Na podstawie Twojego profilu nie znaleziono dopasowanych partnerów."}</p>
+          <a href="mailto:kontakt@finmach.pl" class="btn-next" style="display:block;max-width:280px;margin:0 auto;text-align:center;text-decoration:none">✉️ Skontaktuj się z nami</a>
+          <button class="btn-next" style="max-width:280px;margin:12px auto 0;background:var(--navy-l);color:var(--navy)" onclick="stepIdx=0;render()">← Zacznij od nowa</button>
+        </div>`;
+      return;
+    }
+    
+    const offers = data.offers || [];
+    if (offers.length === 0) {
+      document.getElementById("mainCard").innerHTML = `
+        <div class="blocked-screen">
+          <div class="blocked-icon">🔍</div>
+          <div class="blocked-title">Brak pasujących ofert</div>
+          <p class="blocked-text">Skontaktuj się z nami - znajdziemy rozwiązanie indywidualnie.</p>
+          <a href="mailto:kontakt@finmach.pl" class="btn-next" style="display:block;max-width:280px;margin:0 auto;text-align:center;text-decoration:none">✉️ Napisz do nas</a>
+        </div>`;
+      return;
+    }
+    
+    // Mapuj score na /10
+    const maxScore = Math.max(...offers.map(o => o.score), 1);
+    
+    const productLabel = {
+      faktoring:"Faktoring", mikro:"Pojedyncza faktura", kontrakt:"Kontrakty",
+      terminal:"Terminale", pozyczka:"Pożyczka/Kredyt", hipoteka:"Hipoteka"
+    }[answers.product] || "Finansowanie";
+    
+    let cardsHtml = offers.map((p, i) => {
+      const score10 = Math.min(10, Math.max(7, Math.round((p.score / maxScore) * 10)));
+      const reasonsHtml = (p.reasons && p.reasons.length > 0) 
+        ? '<div style="font-size:0.8rem;color:var(--ink2);line-height:1.6;padding:8px 10px;background:#f8f9ff;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;margin-top:8px">💡 ' + p.reasons.join(" · ") + '</div>'
+        : '';
+      const hidden = i >= 3 ? ' style="display:none" class="result-card extra-offer"' : '';
+      const cardClass = i === 0 ? 'result-card top' : (i >= 3 ? 'result-card extra-offer' : 'result-card');
+      const hiddenStyle = i >= 3 ? 'display:none;' : '';
+      
+      // Przycisk negocjacji z ekspertem: tylko faktoring + kwota finansowania powyżej 500 tys.
+      var kwota = parseFloat(answers.kwota_finansowania) || 0;
+      var trudnaSprawa = (answers.product === "faktoring") && (kwota >= 500000);
+      var ekspertBtn = trudnaSprawa
+        ? '<button onclick="event.stopPropagation();umowSpotkanie()" style="flex:none;padding:10px 14px;background:#fff;color:#173B8F;border:1.5px solid #c7d5f5;border-radius:10px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:inherit">📞 Negocjuj z ekspertem</button>'
+        : '';
+
+      return '<div class="' + cardClass + '" id="card-' + p.id + '" style="' + hiddenStyle + '" onclick="togglePartner(\'' + p.id + '\', event)">' +
+          '<div class="partner-checkbox" id="chk-' + p.id + '"></div>' +
+          (i===0 ? '<div class="result-badge">⭐ Najlepsze dopasowanie</div>' : '') +
+          '<div class="result-top-row">' +
+            '<div class="result-name">' + p.name + '</div>' +
+            '<div class="result-score" title="Ocena dopasowania">⭐ ' + score10 + '/10</div>' +
+          '</div>' +
+          reasonsHtml +
+          '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">' +
+            '<button onclick="event.stopPropagation();selectAndApply(\'' + p.id + '\')" style="flex:1;min-width:140px;padding:11px 14px;background:#173B8F;color:#fff;border:none;border-radius:10px;font-size:0.85rem;font-weight:700;cursor:pointer;font-family:inherit">📄 Złóż wniosek</button>' +
+            ekspertBtn +
+          '</div>' +
+        '</div>';
+    }).join("");
+    
+    // Dodaj przycisk "Zobacz więcej" jeśli są dodatkowe oferty
+    if (offers.length > 3) {
+      cardsHtml += '<div style="text-align:center;margin:20px 0 0;padding:16px 20px;background:#f0f4ff;border:1px solid #c7d5f5;border-radius:12px;font-size:0.85rem;color:#173B8F">Sprawdziliśmy również <strong>' + (offers.length - 3) + ' innych instytucji</strong> finansowych.</div>';
+      cardsHtml += '<button id="showMoreBtn" onclick="document.querySelectorAll(\'.extra-offer\').forEach(function(e){e.style.display=\'block\'});document.getElementById(\'altLabel\').style.display=\'block\';this.style.display=\'none\';" style="width:100%;padding:14px 20px;margin-top:12px;background:#1d4ed8;color:#fff;border:none;border-radius:12px;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:inherit;transition:background 0.15s">🔍 Pokaż alternatywne rozwiązania</button>';
+      cardsHtml += '<div id="altLabel" style="display:none;margin:16px 0 8px;font-size:0.8rem;font-weight:600;color:#5a5750;text-transform:uppercase;letter-spacing:0.05em">Alternatywne rozwiązania</div>';
+    }
+    
+    document.getElementById("mainCard").innerHTML = `
+      <div class="step-num" style="color:var(--ok)">✓ Wynik gotowy</div>
+      <div class="step-question">Twoje top ${offers.length} oferty</div>
+      <p class="step-hint" style="margin-bottom:8px">Posortowane według dopasowania do Twojego profilu. Zaznacz oferty które Cię interesują.</p>
+      <div class="info-box" style="margin-bottom:16px;font-size:0.8rem">
+        <span>☝️</span><span>Możesz wybrać kilku partnerów i złożyć wnioski jednocześnie.</span>
+      </div>
+      <div class="results-header">Dopasowane oferty · ${productLabel}</div>
+      
+      <div style="background:#f0faf4;border-left:4px solid #22c55e;padding:14px 16px;margin:12px 0 16px;border-radius:0 10px 10px 0;font-size:0.82rem;color:#1a3a1a;line-height:1.6">
+        <strong>Bez ściemy i bez spamu:</strong> Nie prosimy Cię o e-mail ani telefon, żeby pokazać Ci oferty. To dopasowanie bazuje w 100% na Twoich odpowiedziach.<br>
+        <em style="color:#555;font-size:0.78rem">Jak zarabiamy? Jeśli klikniesz w ofertę partnera, otrzymamy prowizję - dla Ciebie koszt pozostaje taki sam lub niższy.</em>
+      </div>
+      
+      ${(answers.product === "pozyczka" || answers.product === "hipoteka") ? '<div class="advisor-box"><div class="advisor-avatar">MG</div><div><div class="advisor-name">Małgorzata - doradca FINMACH</div><div class="advisor-desc">Specjalizuję się w finansowaniu dla firm. Pomogę dobrać najlepszą opcję.</div><a class="advisor-cta" href="mailto:kontakt@finmach.pl">✉ Napisz do mnie →</a></div></div>' : ""}
+      
+      ${cardsHtml}
+      
+      <div class="multi-apply-bar hidden" id="multiApplyBar">
+        <div class="multi-apply-info"><strong id="multiApplyCount">0 ofert</strong> wybranych</div>
+        <button class="btn-multi-apply" onclick="submitMultiApply()">Złóż wnioski →</button>
+      </div>
+      
+      <div class="results-trust-bar">✓ Porównanie ofert jest bezpłatne · bez zobowiązań</div>
+      <div style="text-align:center;margin-top:12px">
+        <button onclick="stepIdx=0;render()" style="background:none;border:none;font-size:.78rem;color:var(--ink2);cursor:pointer;text-decoration:underline;opacity:0.6">← Zmień odpowiedzi</button>
+      </div>
+    `;
+    
+    // Zapisz dane dla submitMultiApply
+    window._gasOffers = offers;
+    
+    // AI opisy z OpenRouter (async - nie blokuje wyświetlania)
+    setTimeout(() => enhanceWithAI(offers), 100);
+    
+  } catch(e) {
+    console.error("FINMACH GAS fetch error:", e.message, e);
+    // Fallback - pokaż kontakt zamiast pustego ekranu
+    const top3 = scorePartners(answers);
+    if (top3.length === 0) {
+      document.getElementById("mainCard").innerHTML = '<div class="blocked-screen"><div class="blocked-icon">⚠️</div><div class="blocked-title">Błąd połączenia</div><p class="blocked-text">Nie udało się pobrać ofert. Spróbuj ponownie.</p><button class="btn-next" onclick="render()" style="max-width:280px;margin:0 auto">🔄 Spróbuj ponownie</button></div>';
+    }
+  }
+}
+
+  
+// Partner selection
+function togglePartner(id, event) {
+  if (event && (event.target.classList.contains('btn-apply') || event.target.closest('.btn-apply'))) return;
+  if (selectedPartners.has(id)) {
+    selectedPartners.delete(id);
+    document.getElementById("card-" + id).classList.remove("partner-selected");
+    document.getElementById("chk-" + id).textContent = "";
+  } else {
+    selectedPartners.add(id);
+    document.getElementById("card-" + id).classList.add("partner-selected");
+    document.getElementById("chk-" + id).textContent = "✓";
+  }
+  const bar = document.getElementById("multiApplyBar");
+  if (selectedPartners.size > 0) {
+    bar.classList.remove("hidden");
+    document.getElementById("multiApplyCount").textContent =
+      selectedPartners.size + (selectedPartners.size === 1 ? " oferta" : " oferty");
+  } else {
+    bar.classList.add("hidden");
+  }
+}
+window.togglePartner = togglePartner;
+
+// POPRAWKA 3 - odporne na chat.js, z try/catch
+function submitMultiApply() {
+  try {
+    const top3 = window._gasOffers || scorePartners(answers);
+    const chosen = top3.filter(p => selectedPartners.has(String(p.id)));
+    if (chosen.length === 0) {
+      alert("Najpierw zaznacz przynajmniej jedną ofertę (kliknij w kartę oferty).");
+      return;
+    }
+    openModal(chosen[0], chosen.slice(1));
+  } catch (e) {
+    console.error("submitMultiApply error:", e);
+    alert("Coś poszło nie tak przy otwieraniu formularza. Odśwież stronę i spróbuj ponownie.");
+  }
+}
+window.submitMultiApply = submitMultiApply;
+
+// Złóż wniosek bezpośrednio z karty: zaznacz ofertę i otwórz formularz
+function selectAndApply(id) {
+  try {
+    if (!selectedPartners.has(id)) {
+      selectedPartners.add(id);
+      var card = document.getElementById("card-" + id);
+      var chk = document.getElementById("chk-" + id);
+      if (card) card.classList.add("partner-selected");
+      if (chk) chk.textContent = "✓";
+      var bar = document.getElementById("multiApplyBar");
+      if (bar) {
+        bar.classList.remove("hidden");
+        var cnt = document.getElementById("multiApplyCount");
+        if (cnt) cnt.textContent = selectedPartners.size + (selectedPartners.size === 1 ? " oferta" : " oferty");
+      }
+    }
+    const top3 = window._gasOffers || scorePartners(answers);
+    const chosen = top3.filter(p => selectedPartners.has(String(p.id)));
+    if (chosen.length === 0) { alert("Nie udało się wybrać oferty. Spróbuj ponownie."); return; }
+    // główną zrób tę klikniętą, reszta jako dodatkowe
+    const main = chosen.find(p => String(p.id) === String(id)) || chosen[0];
+    const others = chosen.filter(p => String(p.id) !== String(main.id));
+    openModal(main, others);
+  } catch (e) {
+    console.error("selectAndApply error:", e);
+    alert("Coś poszło nie tak przy otwieraniu formularza. Odśwież stronę i spróbuj ponownie.");
+  }
+}
+window.selectAndApply = selectAndApply;
+
+// ════════════════════════════════════════════════════════════════
+// AI UZASADNIENIA przez GAS
+// ════════════════════════════════════════════════════════════════
+async function fetchReasoningsFromGAS(offers, answers) {
+  // Mapowanie nazw branż na czytelne dla AI
+  const branzaLabel = {
+    handel:"handel", budowlanka:"budownictwo", tsl:"transport/TSL",
+    ecommerce:"e-commerce", produkcja:"produkcja", uslugi_b2b:"usługi B2B",
+    energetyka:"energetyka", eksport:"eksport/import", gastro:"gastronomia/handel", inne:"inna"
+  }[answers.industry] || answers.industry || "";
+  const stazLabel = {
+    3:"poniżej 6 miesięcy", 9:"6-12 miesięcy", 18:"1-2 lata", 30:"ponad 2 lata"
+  }[answers.age_months] || "";
+
+  try {
+    // Wysyłamy DOKŁADNIE te oferty które strona pokazuje (offersJSON)
+    const offersPayload = offers.map(o => ({
+      nazwa: o.name,
+      czas:  o.speed,
+      advance: o.advance ? o.advance[1] : 90
+    }));
+    const params = new URLSearchParams({
+      action:     "reasonsFor",
+      offersJSON: JSON.stringify(offersPayload),
+      branza:     branzaLabel,
+      obroty:     answers.monthly_rev || "",
+      dso:        answers.invoice_term || 30,
+      legal_form: answers.legal_form   || "",
+      staz:       stazLabel,
+      priorytet:  answers.priority     || "",
+      produkt:    answers.product      || "",
+    });
+    const res  = await fetch(GAS_URL + "?" + params);
+    const data = await res.json();
+
+    if (data.reasons && data.reasons.length) {
+      // Przypinamy po KOLEJNOŚCI (index), nie po id - zawsze trafia
+      offers.forEach((p, i) => {
+        const el = document.getElementById("why-" + p.id);
+        if (el && data.reasons[i]) {
+          el.innerHTML = '<div style="font-size:0.8rem;color:var(--ink2);line-height:1.6;padding:8px 10px;background:#f8f9ff;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;margin-top:4px">💡 ' + data.reasons[i] + '</div>';
+        } else if (el) {
+          el.innerHTML = '<div style="font-size:0.8rem;color:var(--ink2);line-height:1.6;padding:8px 10px;background:#f8f9ff;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;margin-top:4px">💡 ' + (p.why || p.notes || "") + '</div>';
+        }
+      });
+    } else {
+      offers.forEach(p => {
+        const el = document.getElementById("why-" + p.id);
+        if (el) el.innerHTML = '<div style="font-size:0.8rem;color:var(--ink2);line-height:1.6;padding:8px 10px;background:#f8f9ff;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;margin-top:4px">💡 ' + (p.why || p.notes || "") + '</div>';
+      });
+    }
+  } catch(e) {
+    offers.forEach(p => {
+      const el = document.getElementById("why-" + p.id);
+      if (el) el.innerHTML = '<div style="font-size:0.8rem;color:var(--ink2);line-height:1.6;padding:8px 10px;background:#f8f9ff;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;margin-top:4px">💡 ' + (p.why || p.notes || "") + '</div>';
+    });
+  }
+}
+
+async function sendResultsEmail() {
+  const email = document.getElementById("resultsEmail")?.value.trim() || "";
+  if (!email || !email.includes("@")) {
+    document.getElementById("resultsEmail").style.borderColor = "var(--err)";
+    return;
+  }
+  const lead = buildLead();
+  const p = new URLSearchParams({ action:"progressiveContact", email, source:"results_email", ...lead });
+  fetch(GAS_URL + "?" + p).catch(()=>{});
+  const cap = document.getElementById("resultsEmailCapture");
+  if (cap) cap.innerHTML = '<div style="text-align:center;padding:12px;font-size:0.85rem;color:var(--ok);font-weight:600">✓ Wysłano! Sprawdź skrzynkę.</div>';
+}
+window.sendResultsEmail = sendResultsEmail;
+
+// ════════════════════════════════════════════════════════════════
+// MODAL - POPRAWKA 3
+// ════════════════════════════════════════════════════════════════
+let _pendingPartner = null;
+let _additionalPartners = [];
+
+function openModal(partner, additionals = []) {
+  _pendingPartner = partner;
+  _additionalPartners = additionals;
+
+  const additionalInfo = additionals.length > 0
+    ? '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:10px 14px;font-size:0.8rem;color:#065f46;margin-bottom:16px">' +
+      '✓ Złożysz też wnioski do: ' + additionals.map(p => p.name).join(", ") +
+      '</div>' : "";
+
+  const html = `
+    <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-title">Prawie gotowe!</div>
+        <div class="modal-sub">Zostawiasz wniosek do <strong>${partner.name}</strong>.</div>
+        <div class="modal-partner-bar">📋 ${partner.name} · ⭐ ${partner.score10 || ""}/10</div>
+        ${additionalInfo}
+        <div class="field-group">
+          <label>Imię</label>
+          <input class="field-inp" id="m_imie" type="text" placeholder="np. Marta" value="" onblur="progressiveSaveContact()">
+          <div class="saved-tick" id="tick_imie">✓ Zapisano</div>
+        </div>
+        <div class="field-group">
+          <label>E-mail *</label>
+          <input class="field-inp" id="m_email" type="email" placeholder="twoj@email.pl" value="" onblur="progressiveSaveContact()">
+          <div class="saved-tick" id="tick_email">✓ Zapisano</div>
+        </div>
+        <div class="field-group">
+          <label>Telefon <span style="font-weight:400;color:var(--ink2)">(opcjonalnie)</span></label>
+          <input class="field-inp" id="m_tel" type="tel" placeholder="+48 600 000 000" onblur="progressiveSaveContact()">
+          <div class="saved-tick" id="tick_tel">✓ Zapisano</div>
+        </div>
+        ${(answers.product === "faktoring" && (parseFloat(answers.kwota_finansowania)||0) >= 500000) ? `
+        <div class="field-group">
+          <label>Opisz swoją sytuację <span style="font-weight:400;color:var(--ink2)">(opcjonalnie)</span></label>
+          <textarea class="field-inp" id="m_opis" rows="3" placeholder="np. potrzebuję wyższego limitu, mam nietypowych kontrahentów, zależy mi na negocjacji prowizji..." style="resize:vertical;font-family:inherit"></textarea>
+        </div>` : ""}
+        ${answers.nip ? "" : `
+        <div class="field-group">
+          <label>NIP firmy <span style="font-weight:400;color:var(--ink2)">(opcjonalnie)</span></label>
+          <input class="field-inp" id="m_nip" type="text" inputmode="numeric" maxlength="13" placeholder="10 cyfr">
+        </div>`}
+        <div style="display:flex;align-items:flex-start;gap:10px;margin:6px 0 12px;padding:12px 14px;background:var(--bg);border-radius:10px;border:1px solid var(--border)">
+          <input type="checkbox" id="m_rodo" style="margin-top:2px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent);flex:none"
+            onchange="document.getElementById('modalSubmit').disabled = !this.checked">
+          <label for="m_rodo" style="font-size:0.72rem;color:var(--ink2);line-height:1.5;cursor:pointer">
+            Wyrażam zgodę na przekazanie moich danych wybranym partnerom finansowym w celu przedstawienia oferty oraz na ich przetwarzanie przez FINMACH / Pay Flow Sp. z o.o. <a href="/polityka-prywatnosci.html" style="color:var(--accent)">Polityka prywatności</a>.
+          </label>
+        </div>
+        <button class="modal-submit" id="modalSubmit" onclick="submitModal()" disabled>
+          Złóż wniosek${additionals.length > 0 ? 'i' : ''} i przejdź do ${partner.name} →
+        </button>
+      </div>
+    </div>`;
+
+  document.body.insertAdjacentHTML("beforeend", html);
+  if (answers.early_name)  { const el = document.getElementById("m_imie");  if(el) { el.value = answers.early_name;  showTick("imie"); } }
+  if (answers.early_email) { const el = document.getElementById("m_email"); if(el) { el.value = answers.early_email; showTick("email"); } }
+}
+window.openModal = openModal;
+
+function closeModal() {
+  const el = document.getElementById("modalOverlay");
+  if (el) el.remove();
+}
+window.closeModal = closeModal;
+
+function progressiveSaveContact() {
+  const imie  = document.getElementById("m_imie")?.value.trim()  || "";
+  const email = document.getElementById("m_email")?.value.trim() || "";
+  const tel   = document.getElementById("m_tel")?.value.trim()   || "";
+  if (imie)  showTick("imie");
+  if (email && email.includes("@")) {
+    showTick("email");
+    const lead = buildLead();
+    const p = new URLSearchParams({
+      action:"progressiveContact", email, imie, tel,
+      nip: answers.nip || "",
+      ...lead,
+      partnerID:    _pendingPartner?.id    || "",
+      partnerNazwa: _pendingPartner?.name  || "",
+      score:        _pendingPartner?.score || "",
+    });
+    fetch(GAS_URL + "?" + p).catch(()=>{});
+  }
+  if (tel) showTick("tel");
+}
+window.progressiveSaveContact = progressiveSaveContact;
+
+function showTick(field) {
+  const el = document.getElementById("tick_" + field);
+  if (el) el.classList.add("show");
+}
+
+async function submitModal() {
+  const rodo = document.getElementById("m_rodo");
+  if (rodo && !rodo.checked) {
+    alert("Zaznacz zgodę na przetwarzanie danych, aby złożyć wniosek.");
+    return;
+  }
+  const imie  = document.getElementById("m_imie")?.value.trim()  || "";
+  const email = document.getElementById("m_email")?.value.trim() || "";
+  const tel   = document.getElementById("m_tel")?.value.trim()   || "";
+  const opis  = document.getElementById("m_opis")?.value.trim()  || "";
+  const nip   = document.getElementById("m_nip")?.value.trim()   || answers.nip || "";
+
+  if (!email || !email.includes("@")) {
+    document.getElementById("m_email").style.borderColor = "var(--err)";
+    document.getElementById("m_email").focus();
+    return;
+  }
+
+  const btn = document.getElementById("modalSubmit");
+  btn.disabled = true; btn.textContent = "Wysyłam…";
+
+  // ── KLUCZOWE: otwieramy główną stronę partnera NATYCHMIAST,
+  // póki przeglądarka widzi to jako efekt kliknięcia (przed await fetch).
+  // Inaczej Chrome/Safari blokują pop-up jako "skryptowy".
+  let mainTab = null;
+  if (_pendingPartner?.url) {
+    mainTab = window.open(_pendingPartner.url, "_blank");
+  }
+
+  const lead = buildLead();
+
+  // Wszyscy wybrani partnerzy w JEDNEJ liście (główny pierwszy)
+  const allChosen = [_pendingPartner, ..._additionalPartners].filter(Boolean);
+  const partnersPayload = allChosen.map(pt => ({
+    id: pt.id || "",
+    nazwa: pt.name || "",
+    url: pt.url || "",
+    score: pt.score10 || pt.score || ""
+  }));
+
+  // JEDNO wywołanie - GAS zapisze wszystkich i wyśle JEDEN mail do klienta
+  const p = new URLSearchParams({
+    action:"submitWniosek", imie, email, tel,
+    nip: nip || lead.nip,
+    firma: answers.firma_name || "",
+    partnersJSON: JSON.stringify(partnersPayload),
+    opis: opis,
+    sendClientEmail: "1",
+    ...lead,
+  });
+  try { await fetch(GAS_URL + "?" + p); } catch(e) {}
+
+  // ── Zdarzenia konwersji: Meta Pixel "Lead" + GA4 "generate_lead" ──
+  try { if (window.fbq) fbq('track', 'Lead', { content_name: 'wizard_wniosek' }); } catch(e) {}
+  try { if (window.gtag) gtag('event', 'generate_lead', { method: 'wizard' }); } catch(e) {}
+
+  // Dodatkowych kart NIE otwieramy automatycznie (przeglądarki blokują seryjne
+  // pop-upy) - klient kliknie je ręcznie z listy na ekranie potwierdzenia.
+
+  closeModal();
+  showConfirmation(imie, _pendingPartner, _additionalPartners, !!mainTab);
+}
+window.submitModal = submitModal;
+
+// ── Umów rozmowę z ekspertem (Koalendar) ──────────────────────────
+// Zapisujemy formę prawną + e-mail w przeglądarce, żeby strona
+// "dziękujemy" po powrocie z Koalendar wysłała właściwą listę dokumentów.
+function umowSpotkanie() {
+  try {
+    var dane = {
+      legal_form: answers.legal_form || "jdg",
+      email: answers.early_email || "",
+      imie: answers.early_name || "",
+      ts: Date.now()
+    };
+    localStorage.setItem("fm_spotkanie", JSON.stringify(dane));
+  } catch(e) {}
+  // Doklejamy e-mail do linku, żeby Koalendar mógł go przekazać dalej (prefill)
+  var url = "https://koalendar.com/e/bezplatna-rozmowa-o-finansowaniu-firmy";
+  var em = answers.early_email || "";
+  var nm = answers.early_name || "";
+  if (em) url += "?email=" + encodeURIComponent(em) + (nm ? "&name=" + encodeURIComponent(nm) : "");
+  window.open(url, "_blank");
+}
+window.umowSpotkanie = umowSpotkanie;
+
+
+function showConfirmation(imie, mainPartner, additionals = [], mainTabOpened = false) {
+  const partnerName = mainPartner?.name || "wybranego partnera";
+
+  // Lista WSZYSTKICH partnerów do których klient składa wniosek
+  const allPartners = [mainPartner, ...additionals].filter(Boolean);
+
+  // Duże klikalne przyciski - pewny sposób przejścia (gdy pop-up zablokowany)
+  const partnerButtons = allPartners.map((p, i) => {
+    if (p.url) {
+      return `<a href="${p.url}" target="_blank" rel="noopener"
+        style="display:flex;align-items:center;justify-content:space-between;gap:10px;
+        background:${i===0?'var(--accent)':'#fff'};color:${i===0?'#fff':'var(--accent)'};
+        border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:10px;
+        font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.92rem;
+        text-decoration:none;transition:transform 0.1s,box-shadow 0.15s"
+        onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 14px rgba(29,78,216,0.25)'"
+        onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <span>Przejdź do ${p.name}</span><span style="font-size:1.1rem">→</span>
+      </a>`;
+    }
+    // Partner bez URL = kontakt przez doradcę
+    return `<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;
+      background:#f5f3ef;color:var(--ink2);border:1.5px solid var(--border);border-radius:12px;
+      padding:14px 18px;margin-bottom:10px;font-size:0.88rem">
+      <span><strong>${p.name}</strong> - skontaktujemy się z Tobą</span><span>✓</span>
+    </div>`;
+  }).join("");
+
+  document.getElementById("mainCard").innerHTML = `
+    <div style="text-align:center;padding:8px 0 4px">
+      <div style="font-size:2.6rem;margin-bottom:12px">🎉</div>
+      <div class="blocked-title" style="margin-bottom:8px">Wnioski przyjęte!</div>
+      <p style="font-size:0.9rem;color:var(--ink2);line-height:1.6;max-width:400px;margin:0 auto 6px">
+        ${imie ? `Hej ${imie.split(" ")[0]}! ` : ""}Dane wysłaliśmy do ${allPartners.length === 1 ? "partnera" : allPartners.length + " partnerów"}.
+        ${mainTabOpened ? `Strona <strong>${partnerName}</strong> otworzyła się w nowej karcie.` : ""}
+      </p>
+    </div>
+
+    <div style="background:var(--accent-l);border:1px solid rgba(29,78,216,0.15);border-radius:12px;padding:12px 16px;margin:18px 0;font-size:0.84rem;color:var(--accent);text-align:center;line-height:1.5">
+      👇 Kliknij, aby dokończyć wniosek u każdego partnera
+    </div>
+
+    ${partnerButtons}
+
+    <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px 16px;margin:16px 0;font-size:0.84rem;color:#065f46;line-height:1.55;text-align:center">
+      📬 Na Twój e-mail wysłaliśmy potwierdzenie z linkami do wszystkich ofert - możesz dokończyć też później.
+    </div>
+
+    <div style="text-align:center;margin-top:18px;border-top:1px solid var(--border);padding-top:16px">
+      <p style="font-size:0.82rem;color:var(--ink2);margin-bottom:14px">Masz pytania? Napisz:
+        <a href="mailto:kontakt@finmach.pl" style="color:var(--accent)">kontakt@finmach.pl</a></p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button onclick="exitWizard()"
+          style="background:var(--accent);color:#fff;border:none;border-radius:10px;padding:11px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;transition:background 0.15s,transform 0.12s"
+          onmouseover="this.style.background='var(--accent-d)';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--accent)';this.style.transform=''">
+          🏠 Strona główna
+        </button>
+        <button onclick="stepIdx=0;Object.keys(answers).forEach(k=>delete answers[k]);selectedPartners.clear();sessionStorage.removeItem('finmach_progress');sessionStorage.removeItem('fm_pinged');render()"
+          style="background:none;border:1.5px solid var(--border);border-radius:10px;padding:11px 22px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--ink2);cursor:pointer;transition:border-color 0.15s"
+          onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          Sprawdź kolejny produkt
+        </button>
+      </div>
+    </div>`;
+}
+
+function buildLead() {
+  return {
+    product:    answers.product     || "",
+    legal_form: answers.legal_form  || "",
+    industry:   answers.industry    || "",
+    age:        answers.age_months  || "",
+    obroty:     answers.monthly_rev || "",
+    priorytet:  answers.priority    || "",
+    nip:        answers.nip         || "",
+    firma:      answers.firma_name  || "",
+    krz:        answers.krz_flag    || false,
+    dso:        answers.invoice_term || "",
+    ts:         new Date().toISOString(),
+  };
+}
+
+// ════════════════════════════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════════════════════════════
+function tile(icon, label, sub, value, field) {
+  const sel = answers[field] === value ? " selected" : "";
+  return `<div class="tile${sel}" onclick="selectAndNext('${field}','${value}')">
+    <span class="tile-icon">${icon}</span>
+    <div class="tile-label">${label}</div>
+    <div class="tile-sub">${sub}</div>
+  </div>`;
+}
+
+function bindStep(id) {}
+
+function toggleFaq(el) {
+  el.closest('.faq-item').classList.toggle('open');
+}
+
+// CASE STUDY CAROUSEL
+let _caseIdx = 0;
+function caseRender() {
+  const slides = document.querySelectorAll('.case-slide');
+  const dots = document.querySelectorAll('.case-dot');
+  slides.forEach((s, i) => s.classList.toggle('active', i === _caseIdx));
+  dots.forEach((d, i) => d.classList.toggle('active', i === _caseIdx));
+}
+function caseSlide(dir) {
+  const slides = document.querySelectorAll('.case-slide');
+  _caseIdx = (_caseIdx + dir + slides.length) % slides.length;
+  caseRender();
+}
+function caseGoTo(i) { _caseIdx = i; caseRender(); }
+window.caseSlide = caseSlide;
+window.caseGoTo = caseGoTo;
+
+const OPENROUTER_KEY = "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";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbyaasM9qm0_uUCDPaM6ZZT9-8tyeCbIVmF9HlflyYEADEDzDq9tdhN-Q6th63aM-ao/exec";
+
+// ════════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════════
+document.querySelectorAll('.faq-q').forEach(q => {
+  if (!q._faqBound) {
+    q.addEventListener('click', () => toggleFaq(q));
+    q._faqBound = true;
+  }
+});
+
+function toggleNav() {
+  const nl = document.getElementById("navLinks");
+  if (nl) nl.classList.toggle("open");
+}
+window.toggleNav = toggleNav;
+
+function closeNav() {
+  document.getElementById("navLinks")?.classList.remove("open");
+}
+window.closeNav = closeNav;
+
+// Auto-rotacja carouselu co 7s (zatrzymuje się gdy wizard aktywny)
+setInterval(() => {
+  if (!document.body.classList.contains('wizard-active') &&
+      document.getElementById('caseCarousel') &&
+      document.querySelectorAll('.case-slide').length) {
+    caseSlide(1);
+  }
+}, 7000);
+
+if (window.location.search.includes("start=1")) startWizard();
+</script>
+
+<!-- SUB-PAGES OVERLAY -->
+<div id="subPage" style="display:none;position:fixed;inset:0;background:#fff;z-index:1000;overflow-y:auto;">
+  <div style="max-width:800px;margin:0 auto;padding:32px 24px 80px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;">
+      <div class="logo" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:0.06em;color:#1d4ed8;">FINMACH</div>
+      <button onclick="closeSubPage()" style="background:none;border:1.5px solid #e2dfd9;border-radius:10px;padding:8px 16px;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;">← Wróć</button>
+    </div>
+    <div id="subPageContent"></div>
+  </div>
+</div>
+
+<script>
+const SUBPAGES = {
+  about: {
+    title: "O nas",
+    content: `
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:800;margin-bottom:16px">Kim jesteśmy?</h1>
+      <p style="font-size:1rem;color:#5a5750;line-height:1.7;margin-bottom:24px">FINMACH to projekt prowadzony przez <strong>Pay Flow Sp. z o.o.</strong> Łączymy małe i średnie firmy z faktorami, funduszami i instytucjami finansującymi w Polsce - dobierając finansowanie do konkretnej sytuacji firmy, zamiast oferować jeden produkt.</p>
+      <p style="font-size:1rem;color:#5a5750;line-height:1.7;margin-bottom:24px">Twarzą FINMACH jest <strong>Małgorzata Bakuła</strong>, ekspertka z ponad dwudziestoletnim doświadczeniem w faktoringu, leasingu i kredytach dla firm. Odpowiada za merytorykę i relacje z klientami. Za doradztwem stoi jednak szerszy zespół: doradcy finansowi, analitycy i osoby obsługujące wnioski po stronie operacyjnej - dzięki temu każda sprawa trafia do kogoś, kto zna temat od środka.</p>
+      <p style="font-size:1rem;color:#5a5750;line-height:1.7;margin-bottom:24px">Nie jesteśmy dużą korporacją. Jesteśmy małym, wyspecjalizowanym zespołem, który dokładnie z tego powodu może podejmować transakcje, których duże instytucje nie ruszają. Elastyczność, szybka analiza i bezpośredni kontakt z osobą decyzyjną to nasze realne przewagi.</p>
+      <div style="background:#eff4ff;border:1.5px solid #bfdbfe;border-radius:16px;padding:24px;margin-bottom:24px;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:8px">Jak działamy</div>
+        <ul style="font-size:0.9rem;color:#5a5750;line-height:1.8;padding-left:20px;">
+          <li>Poznajemy profil Twojej firmy (2 minuty)</li>
+          <li>Dopasowujemy oferty spośród 20+ instytucji finansowych</li>
+          <li>Przygotowujemy spersonalizowane uzasadnienie dopasowania</li>
+          <li>Łączymy Cię z wybranym partnerem finansującym</li>
+          <li>Specjalizujemy się w trudniejszych przypadkach: restrukturyzacja, KRZ, krótki staż, odmowa banku, kontrakty publiczne</li>
+        </ul>
+      </div>
+      <p style="font-size:0.85rem;color:#5a5750;line-height:1.7">Kontakt: <a href="mailto:kontakt@finmach.pl" style="color:#1d4ed8">kontakt@finmach.pl</a> · <a href="https://finmach.pl" style="color:#1d4ed8">finmach.pl</a></p>
+    `
+  },
+  knowledge: {
+    title: "Baza wiedzy",
+    content: `
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:800;margin-bottom:16px">Baza wiedzy</h1>
+      <p style="font-size:1rem;color:#5a5750;line-height:1.7;margin-bottom:32px">Wszystko co musisz wiedzieć o faktoringu i finansowaniu dla firm.</p>
+      ${[
+        ["📄 Co to jest faktoring?", "Faktoring to usługa finansowa polegająca na wykupie przez faktora Twoich należności (faktur) przed terminem ich płatności. Faktor wypłaca Ci z góry zazwyczaj 80–100% wartości faktury, a następnie czeka na płatność od Twojego kontrahenta. To nie jest kredyt - nie zwiększa Twojego zadłużenia."],
+        ["📃 Faktoring jawny vs cichy", "W faktoringu jawnym kontrahent jest powiadamiany o cesji wierzytelności. W faktoringu cichym kontrahent nie wie, że korzystasz z faktoringu - płaci na Twoje konto, a Ty rozliczasz się z faktorem. Faktoring cichy jest droższy ale dyskretniejszy."],
+        ["🏃 Dla kogo mikrofaktoring?", "Mikrofaktoring (jednorazowy) to idealne rozwiązanie gdy masz 1–3 duże faktury z długim terminem płatności i potrzebujesz szybko gotówki. Nie wymaga stałej umowy - płacisz prowizję od każdej faktury osobno."],
+        ["💳 Czym jest finansowanie terminala (MCA)?", "Merchant Cash Advance to finansowanie pod obroty z terminala płatniczego. Faktor wypłaca Ci zaliczkę, którą spłacasz automatycznie jako procent od każdej transakcji kartą. Idealne dla sklepów, restauracji i gastro."],
+        ["⏱️ Jak szybko dostanę pieniądze?", "NFG decyduje w 12h, PragmaGO i SMEO w 24h. Po pozytywnej decyzji środki wpływają zazwyczaj tego samego lub następnego dnia roboczego. Przy faktoringu limitowym (stała umowa) kolejne faktury są finansowane niemal natychmiast."],
+        ["📊 Co to jest DSO?", "DSO (Days Sales Outstanding) to termin płatności na fakturze - ile dni ma kontrahent na zapłatę. To jeden z kluczowych parametrów scoringowych. Większość faktorów obsługuje DSO do 60–90 dni. Terminy powyżej 90 dni wymagają indywidualnych negocjacji."],
+      ].map(([t,d]) => `
+        <div style="border:1.5px solid #e2dfd9;border-radius:14px;padding:20px 22px;margin-bottom:12px;">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px">${t}</div>
+          <p style="font-size:0.86rem;color:#5a5750;line-height:1.65">${d}</p>
+        </div>`).join("")}
+    `
+  },
+  contact: {
+    title: "Kontakt",
+    content: `
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:800;margin-bottom:16px">Kontakt</h1>
+      <p style="font-size:1rem;color:#5a5750;line-height:1.7;margin-bottom:32px">Masz pytania? Napisz do nas - odpiszemy w ciągu 24 godzin w dni robocze.</p>
+      <div style="display:grid;gap:16px;margin-bottom:32px;">
+        <div style="background:#f5f3ef;border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:center;">
+          <div style="font-size:1.5rem">✉️</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:4px">E-mail</div>
+            <a href="mailto:kontakt@finmach.pl" style="color:#1d4ed8;font-size:0.9rem">kontakt@finmach.pl</a>
+          </div>
+        </div>
+        <div style="background:#f5f3ef;border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:center;">
+          <div style="font-size:1.5rem">📞</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:4px">Telefon</div>
+            <a href="tel:+48508242599" style="color:#1d4ed8;font-size:0.9rem">+48 508 242 599</a>
+          </div>
+        </div>
+        <div style="background:#f5f3ef;border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:center;">
+          <div style="font-size:1.5rem">📱</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:4px">Social media</div>
+            <a href="https://instagram.com/finansowaniedlafirmy" target="_blank" style="color:#1d4ed8;font-size:0.9rem">@finansowaniedlafirmy</a>
+          </div>
+        </div>
+        <div style="background:#f5f3ef;border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:center;">
+          <div style="font-size:1.5rem">📍</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:4px">Lokalizacja</div>
+            <span style="color:#5a5750;font-size:0.9rem">Warszawa, Polska</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:#eff4ff;border:1.5px solid #bfdbfe;border-radius:16px;padding:24px;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;margin-bottom:8px">Wolisz porozmawiać?</div>
+        <p style="font-size:0.86rem;color:#5a5750;line-height:1.6;margin-bottom:16px">Umów bezpłatną konsultację z Małgorzatą - doradcą FINMACH. Omówimy Twoją sytuację i dobierzemy najlepsze opcje finansowania.</p>
+        <a href="mailto:kontakt@finmach.pl?subject=Prośba o konsultację FINMACH" style="display:inline-block;background:#1d4ed8;color:#fff;border-radius:10px;padding:10px 22px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.88rem;text-decoration:none;">Umów konsultację →</a>
+      </div>
+    `
+  }
+};
+
+function showPage(id) {
+  const page = SUBPAGES[id];
+  if (!page) return;
+  document.getElementById("subPageContent").innerHTML = page.content;
+  document.getElementById("subPage").style.display = "block";
+  window.scrollTo(0,0);
+}
+window.showPage = showPage;
+
+function closeSubPage() {
+  document.getElementById("subPage").style.display = "none";
+}
+window.closeSubPage = closeSubPage;
+
+function smoothScroll(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+window.smoothScroll = smoothScroll;
+</script>
+
+<!-- COOKIE CONSENT - z ustawieniami zgody (RODO) -->
+<div id="fmCookie" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(13,30,66,0.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.08);padding:16px 20px;box-shadow:0 -8px 30px rgba(0,0,0,0.25);font-family:'Inter',-apple-system,sans-serif">
+  <div style="max-width:1000px;margin:0 auto">
+
+    <!-- WIDOK GŁÓWNY -->
+    <div id="fmCookieMain" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div style="flex:1;min-width:240px;color:rgba(230,235,245,0.92);font-size:0.82rem;line-height:1.55">
+        🍪 Używamy plików cookies, aby strona działała poprawnie i abyśmy mogli analizować ruch. Możesz zaakceptować wszystkie lub wybrać własne ustawienia.
+        <a href="/polityka-prywatnosci.html" style="color:#9db8ff;text-decoration:underline">Polityka prywatności</a>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button onclick="fmCookieSettings()" style="background:transparent;color:rgba(200,210,230,0.9);border:1px solid rgba(255,255,255,0.18);border-radius:8px;padding:9px 16px;font-family:inherit;font-size:0.78rem;font-weight:500;cursor:pointer">Ustawienia</button>
+        <button onclick="fmCookieAcceptNecessary()" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:9px 16px;font-family:inherit;font-size:0.78rem;font-weight:600;cursor:pointer">Tylko niezbędne</button>
+        <button onclick="fmCookieAcceptAll()" style="background:#1d4ed8;color:#fff;border:none;border-radius:8px;padding:9px 20px;font-family:inherit;font-size:0.78rem;font-weight:700;cursor:pointer">Akceptuję wszystkie</button>
+      </div>
+    </div>
+
+    <!-- WIDOK USTAWIEŃ -->
+    <div id="fmCookiePanel" style="display:none">
+      <div style="color:#fff;font-weight:700;font-size:0.95rem;margin-bottom:12px;font-family:'Plus Jakarta Sans',sans-serif">Ustawienia plików cookies</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.08)">
+        <div style="flex:1">
+          <div style="color:#fff;font-weight:600;font-size:0.84rem">Niezbędne</div>
+          <div style="color:rgba(200,210,230,0.7);font-size:0.74rem;line-height:1.4;margin-top:2px">Konieczne do działania strony. Zawsze włączone.</div>
+        </div>
+        <div style="background:#1d4ed8;border-radius:999px;width:42px;height:24px;position:relative;flex:none;opacity:0.6">
+          <div style="position:absolute;top:3px;right:3px;width:18px;height:18px;background:#fff;border-radius:50%"></div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 0">
+        <div style="flex:1">
+          <div style="color:#fff;font-weight:600;font-size:0.84rem">Analityczne</div>
+          <div style="color:rgba(200,210,230,0.7);font-size:0.74rem;line-height:1.4;margin-top:2px">Pomagają nam zrozumieć, jak korzystasz ze strony (np. Google Analytics).</div>
+        </div>
+        <div id="fmToggleAnalytics" onclick="fmCookieToggle()" style="background:rgba(255,255,255,0.2);border-radius:999px;width:42px;height:24px;position:relative;flex:none;cursor:pointer;transition:background 0.2s">
+          <div id="fmToggleKnob" style="position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:left 0.2s"></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px;flex-wrap:wrap">
+        <button onclick="fmCookieBack()" style="background:transparent;color:rgba(200,210,230,0.9);border:1px solid rgba(255,255,255,0.18);border-radius:8px;padding:9px 16px;font-family:inherit;font-size:0.78rem;cursor:pointer">Wstecz</button>
+        <button onclick="fmCookieSaveSettings()" style="background:#1d4ed8;color:#fff;border:none;border-radius:8px;padding:9px 20px;font-family:inherit;font-size:0.78rem;font-weight:700;cursor:pointer">Zapisz wybór</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+(function() {
+  var analyticsOn = false;
+  function show()  { document.getElementById('fmCookie').style.display = 'block'; }
+  function hide()  { document.getElementById('fmCookie').style.display = 'none'; }
+  function save(v) { try { localStorage.setItem('fm_cookie_consent', JSON.stringify(v)); } catch(e){} }
+  try { if (!localStorage.getItem('fm_cookie_consent')) show(); } catch(e) { show(); }
+  window.fmCookieAcceptAll = function() { save({ necessary:true, analytics:true, ts:Date.now() }); hide(); if (window.fmLoadTracking) window.fmLoadTracking(); };
+  window.fmCookieAcceptNecessary = function() { save({ necessary:true, analytics:false, ts:Date.now() }); hide(); };
+  window.fmCookieSettings = function() { document.getElementById('fmCookieMain').style.display='none'; document.getElementById('fmCookiePanel').style.display='block'; };
+  window.fmCookieBack = function() { document.getElementById('fmCookiePanel').style.display='none'; document.getElementById('fmCookieMain').style.display='flex'; };
+  window.fmCookieToggle = function() {
+    analyticsOn = !analyticsOn;
+    var t = document.getElementById('fmToggleAnalytics'); var k = document.getElementById('fmToggleKnob');
+    if (analyticsOn) { t.style.background='#1d4ed8'; k.style.left='21px'; } else { t.style.background='rgba(255,255,255,0.2)'; k.style.left='3px'; }
+  };
+  window.fmCookieSaveSettings = function() { save({ necessary:true, analytics:analyticsOn, ts:Date.now() }); hide(); if (analyticsOn && window.fmLoadTracking) window.fmLoadTracking(); };
+})();
+</script>
+<script src="/chat.js"></script>
+
+<footer style="background:#0d1e42;color:#a0aec0;text-align:center;padding:24px 16px;font-size:0.75rem;margin-top:32px;line-height:1.8">
+  <strong style="color:#fff">Pay Flow Sp. z o.o.</strong> - operator serwisu FINMACH.PL<br>
+  Aleje Jerozolimskie 85/21, 02-001 Warszawa &nbsp;·&nbsp; NIP: 7011230351 &nbsp;·&nbsp; KRS: 0001135230<br>
+  <a href="mailto:kontakt@finmach.pl" style="color:#c9a84c;text-decoration:none">kontakt@finmach.pl</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.fintechpoland.com" target="_blank" rel="noopener" style="color:#c9a84c;text-decoration:none">Współpracujemy z FinTech Poland</a>
+  &nbsp;·&nbsp;
+  <a href="/regulamin.html" style="color:#a0aec0;text-decoration:none">Regulamin</a> · <a href="/polityka-prywatnosci.html" style="color:#a0aec0;text-decoration:none">Polityka prywatności</a> · <a href="/ai.html" style="color:#a0aec0;text-decoration:none">Informacja o AI</a><br>
+  <span style="font-size:0.7rem;opacity:0.6;margin-top:8px;display:block">W większości przypadków nie pobieramy od klientów opłat - wynagrodzenie pochodzi od instytucji finansowych w formie prowizji. Jeśli w danej sytuacji miałaby obowiązywać opłata, informujemy o tym wcześniej.</span>
+</footer>
+</body>
+</html>

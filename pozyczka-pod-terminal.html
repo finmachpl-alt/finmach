@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pożyczka pod obroty z terminala - finansowanie bez cesji i bez weryfikacji celu | FINMACH</title>
+<meta name="description" content="Pożyczka pod obroty z terminala płatniczego i bramki online. Limity od 100 do 500 tys. zł, decyzja do 48h, spłata automatyczna z obrotów. Dla firm przyjmujących płatności kartą. Sprawdź warunki.">
+<meta name="author" content="Małgorzata Bakuła">
+<link rel="canonical" href="https://finmach.pl/pozyczka-pod-terminal.html">
+<meta property="og:title" content="Pożyczka pod obroty z terminala - finansowanie bez cesji">
+<meta property="og:description" content="Finansowanie pod obroty z terminala i bramki płatniczej. Limity do 500 tys. zł, decyzja do 48h, spłata z bieżącej sprzedaży kartą.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://finmach.pl/pozyczka-pod-terminal.html">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#173B8F; --navy-l:#eaeffa; --gold:#D9B85E; --gold-d:#c9a84c;
+    --ink:#1a1d24; --ink2:#5a6172; --bg:#f7f8fb; --border:#e4e8f0; --accent:#1d4ed8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;color:var(--ink);line-height:1.7;background:#fff;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);line-height:1.25}
+
+  .nav{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:50}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .logo{display:flex;align-items:center;gap:9px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.15rem;color:var(--navy);text-decoration:none}
+  .logo-mark{width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+  .nav-cta{background:var(--accent);color:#fff;text-decoration:none;padding:9px 18px;border-radius:9px;font-size:0.85rem;font-weight:700}
+
+  .hero{background:linear-gradient(180deg,var(--navy-l),#fff);padding:46px 0 30px}
+  .crumb{font-size:0.78rem;color:var(--ink2);margin-bottom:14px}
+  .crumb a{color:var(--accent);text-decoration:none}
+  .hero h1{font-size:2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+  .hero p.lead{font-size:1.08rem;color:var(--ink2)}
+  .byline{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:0.84rem;color:var(--ink2)}
+  .byline .av{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif}
+  .byline b{color:var(--ink)}
+
+  /* Highlight badges */
+  .badges{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 6px}
+  .badge-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+  .badge-card .b-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:var(--navy);font-size:1.05rem;margin-bottom:2px}
+  .badge-card .b-lbl{font-size:0.76rem;color:var(--ink2);line-height:1.4}
+
+  article{padding:28px 0 10px}
+  article h2{font-size:1.4rem;font-weight:700;margin:34px 0 12px}
+  article h3{font-size:1.1rem;font-weight:700;margin:24px 0 8px;color:var(--ink)}
+  article p{margin-bottom:14px}
+  article ul{margin:0 0 16px 0;padding-left:0;list-style:none}
+  article ul li{position:relative;padding-left:24px;margin-bottom:9px}
+  article ul li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  article strong{color:var(--ink)}
+
+  .tldr{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:12px;padding:20px 24px;margin:6px 0 10px}
+  .tldr h2{font-size:0.8rem!important;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 10px 0!important;color:var(--navy)}
+  .tldr p{margin:0;font-size:0.97rem}
+
+  .callout{background:var(--navy-l);border-radius:12px;padding:18px 22px;margin:20px 0;font-size:0.96rem}
+  .callout b{color:var(--navy)}
+
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:0.9rem}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:var(--bg);color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.82rem}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+  .step{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 16px}
+  .step .s-num{width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:10px}
+  .step h3{margin:0 0 4px;font-size:0.95rem;color:var(--navy)}
+  .step p{margin:0;font-size:0.85rem;color:var(--ink2)}
+
+  .faq{margin:18px 0}
+  .faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;background:#fff}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:16px 18px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:0.98rem;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq-q:hover{background:var(--bg)}
+  .faq-q .ico{flex:none;transition:transform .25s;color:var(--gold-d);font-size:1.1rem}
+  .faq-item.open .faq-q .ico{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 18px}
+  .faq-item.open .faq-a{max-height:600px;padding:0 18px 16px}
+  .faq-a p{margin:0;font-size:0.95rem;color:var(--ink2)}
+
+  .cta{background:linear-gradient(135deg,var(--navy),#1d4ed8);border-radius:16px;padding:32px;text-align:center;margin:36px 0;color:#fff}
+  .cta h2{color:#fff;font-size:1.35rem;margin-bottom:8px}
+  .cta p{opacity:.85;margin-bottom:20px;font-size:0.98rem}
+  .cta a{display:inline-block;background:#fff;color:var(--navy);text-decoration:none;padding:13px 30px;border-radius:10px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif}
+
+  .related{border-top:1px solid var(--border);padding:28px 0}
+  .related h2{font-size:1.1rem;margin-bottom:14px}
+  .related a{display:block;color:var(--accent);text-decoration:none;padding:7px 0;font-size:0.95rem}
+  .related a:hover{text-decoration:underline}
+
+  .disclaimer{font-size:0.8rem;color:var(--ink2);background:var(--bg);border-radius:10px;padding:16px 18px;margin:10px 0 30px;line-height:1.6}
+
+  footer{background:#0d1e42;color:#9fb0cc;text-align:center;padding:26px 20px;font-size:0.78rem;line-height:1.9}
+  footer a{color:#9fb0cc}
+
+  @media(max-width:600px){
+    .hero h1{font-size:1.6rem}article h2{font-size:1.25rem}
+    .badges{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+  }
+
+/* === POPRAWKA MOBILE (10.06.2026) - tekst nie wystaje === */
+html,body{max-width:100%;overflow-x:hidden}
+img,table,pre{max-width:100%}
+*{overflow-wrap:break-word;word-wrap:break-word}
+@media(max-width:600px){table{display:block;width:100%;overflow-x:auto}}
+</style>
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZB46WM9SE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BZB46WM9SE');
+</script>
+<!-- End Google Analytics -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '355236980833207');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=355236980833207&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="/" class="logo"><span class="logo-mark">F</span> FINMACH</a>
+    <a href="/#wizard" class="nav-cta">Sprawdź finansowanie →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/">Strona główna</a> › Pożyczka pod obroty z terminala</div>
+    <h1>Pożyczka pod obroty z terminala - gotówka pod Twoją sprzedaż kartą</h1>
+    <p class="lead">Jeśli Twoja firma przyjmuje płatności kartą lub online, możesz dostać finansowanie liczone od obrotów na terminalu - bez cesji i bez weryfikacji celu. Spłata pobiera się automatycznie z bieżącej sprzedaży.</p>
+    <div class="byline">
+      <div class="av">MB</div>
+      <div>Autor: <b>Małgorzata Bakuła</b> · broker finansowy, 20 lat w finansowaniu firm</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="badges">
+    <div class="badge-card"><div class="b-num">100-500 tys. zł</div><div class="b-lbl">orientacyjne limity finansowania</div></div>
+    <div class="badge-card"><div class="b-num">do 48 godzin</div><div class="b-lbl">decyzja po złożeniu wniosku</div></div>
+    <div class="badge-card"><div class="b-num">bez cesji</div><div class="b-lbl">i bez weryfikacji celu</div></div>
+  </div>
+
+<article>
+
+  <div class="tldr">
+    <h2>W skrócie</h2>
+    <p>Pożyczka pod obroty z terminala to finansowanie, w którym kwota i spłata zależą od Twojej sprzedaży kartą - a nie od twardych zabezpieczeń. Firma dostaje środki z góry, a rata pobierana jest automatycznie z bieżących obrotów na terminalu lub bramce płatniczej. To rozwiązanie dla firm z regularną sprzedażą bezgotówkową, które cenią szybkość i minimum formalności.</p>
+  </div>
+
+  <h2>Na czym polega pożyczka pod obroty z terminala</h2>
+  <p>To finansowanie oparte na Twojej historii wpływów z terminala płatniczego lub bramki online. Zamiast analizować pełne sprawozdania i twarde zabezpieczenia, instytucja patrzy przede wszystkim na to, ile i jak regularnie sprzedajesz kartą. Na tej podstawie wylicza dostępną kwotę i raty.</p>
+  <p>W praktyce dostajesz środki z góry na konto, a spłata pobiera się sama - jako ustalony procent z każdej transakcji albo stała rata dzienna/tygodniowa pobierana z obrotów. Nie musisz pamiętać o przelewach ani pilnować terminów.</p>
+
+  <h2>Dla kogo to rozwiązanie</h2>
+  <ul>
+    <li><strong>Spółki i jednoosobowe działalności gospodarcze</strong>, które przyjmują płatności kartą lub online.</li>
+    <li><strong>Firmy z regularną sprzedażą bezgotówkową</strong> - gastronomia, handel detaliczny, usługi, e-commerce, stacje, salony.</li>
+    <li><strong>Firmy, które cenią szybkość</strong> i nie chcą przechodzić przez pełną procedurę kredytu bankowego.</li>
+  </ul>
+
+  <h2>Najważniejsze cechy</h2>
+  <table>
+    <tr><th>Cecha</th><th>Jak to działa</th></tr>
+    <tr><td>Podstawa finansowania</td><td>Obroty z terminala / bramki płatniczej</td></tr>
+    <tr><td>Limity</td><td>Orientacyjnie od 100 do 500 tys. zł (zależnie od obrotów)</td></tr>
+    <tr><td>Decyzja</td><td>Zwykle do 48 godzin od kompletnego wniosku</td></tr>
+    <tr><td>Spłata</td><td>Automatyczna - z obrotów na terminalu (raty dzienne, tygodniowe lub % od transakcji)</td></tr>
+    <tr><td>Zabezpieczenie</td><td>Bez cesji; często wystarczy polecenie zapłaty</td></tr>
+    <tr><td>Cel</td><td>Bieżąca działalność - bez weryfikacji celu</td></tr>
+  </table>
+
+  <h2>Ile to kosztuje</h2>
+  <p>Koszt zależy od operatora płatności, wysokości obrotów i wybranego wariantu spłaty. Orientacyjnie spotyka się oferty w przedziale od kilkunastu do około 40% w skali roku - część liczona od salda pozostającego do spłaty, część z góry od kwoty finansowania. To finansowanie wygodne i szybkie, ale zwykle droższe od klasycznego kredytu - dlatego warto porównać warianty, zamiast brać pierwszą ofertę.</p>
+
+  <div class="callout">
+    <b>Z praktyki brokera:</b> ten produkt sprawdza się tam, gdzie liczy się tempo i przewidywalna sprzedaż kartą - np. gastronomia czy handel. Mniej opłaca się przy nieregularnych obrotach. Zanim wybierzesz wariant, policz realny koszt całkowity (nie samo „oprocentowanie") i porównaj go z faktoringiem czy limitem w koncie. Często dobieram klientowi tańsze rozwiązanie, gdy profil firmy na to pozwala.
+  </div>
+
+  <h2>Warianty - zależnie od operatora płatności</h2>
+  <p>Dostępność i warunki zależą od tego, z jakiego terminala lub bramki korzysta firma. W obiegu są m.in. tacy operatorzy jak E-Service, Polskie ePłatności, PolCard (Fiserv), PayTel, Przelewy24, PayU, Stripe, PayPal, Allegro Finance, Elavon czy ING. Każdy wariant ma swój sposób naliczania kosztu (z góry albo od salda) i rytm spłaty (dzienny lub tygodniowy) - i dlatego warto je porównać.</p>
+
+  <h2>Jak przebiega proces</h2>
+  <div class="steps">
+    <div class="step"><div class="s-num">1</div><h3>Zgłoszenie</h3><p>Zostawiasz dane i informację o obrotach z terminala. My dobieramy wariant.</p></div>
+    <div class="step"><div class="s-num">2</div><h3>Wniosek</h3><p>Pomagamy skompletować wniosek. Minimum formalności, zdalnie.</p></div>
+    <div class="step"><div class="s-num">3</div><h3>Decyzja i wypłata</h3><p>Decyzja zwykle do 48h, środki na konto, spłata rusza z obrotów.</p></div>
+  </div>
+
+  <div class="cta">
+    <h2>Sprawdź, ile możesz dostać pod swój terminal</h2>
+    <p>Odpowiedz na kilka pytań - dobiorę wariant pod Twojego operatora i obroty. Bezpłatnie i bez zobowiązań.</p>
+    <a href="/#wizard">Sprawdź finansowanie →</a>
+  </div>
+
+  <h2>Najczęstsze pytania</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-q" type="button">Czy potrzebuję zabezpieczenia? <span class="ico">+</span></button>
+      <div class="faq-a"><p>Zwykle nie w klasycznym sensie - nie ma cesji wierzytelności. Najczęściej wystarczy polecenie zapłaty, a podstawą finansowania są Twoje obroty z terminala.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Jak liczona jest dostępna kwota? <span class="ico">+</span></button>
+      <div class="faq-a"><p>Na podstawie średnich miesięcznych obrotów na terminalu lub bramce. Im wyższa i bardziej regularna sprzedaż kartą, tym wyższy możliwy limit. Orientacyjnie spotyka się kwoty od 100 do 500 tys. zł.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Jak wygląda spłata? <span class="ico">+</span></button>
+      <div class="faq-a"><p>Automatycznie - rata pobierana jest z bieżących obrotów na terminalu (dziennie lub tygodniowo) albo jako ustalony procent od każdej transakcji. Nie musisz robić przelewów ani pilnować terminów.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Na co mogę przeznaczyć środki? <span class="ico">+</span></button>
+      <div class="faq-a"><p>Na bieżącą działalność firmy. W tym produkcie zwykle nie ma weryfikacji celu finansowania - środki możesz przeznaczyć na to, czego firma akurat potrzebuje.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Jak szybko dostanę decyzję? <span class="ico">+</span></button>
+      <div class="faq-a"><p>Zwykle do 48 godzin od złożenia kompletnego wniosku. Cały proces da się przejść zdalnie, przy minimum formalności.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Czy to to samo co kredyt firmowy? <span class="ico">+</span></button>
+      <div class="faq-a"><p>Nie. W kredycie bankowym liczą się głównie sprawozdania i scoring. Tu największą rolę gra realny obrót kartą. Jest szybciej i prościej, ale zwykle drożej - dlatego warto porównać z innymi opcjami, np. faktoringiem.</p></div>
+    </div>
+  </div>
+
+</article>
+
+<div class="related">
+  <h2>Powiązane tematy</h2>
+  <a href="/ranking-faktoringu.html">Ranking faktoringu - jak wybrać faktora →</a>
+  <a href="/mikrofaktoring-online.html">Mikrofaktoring online - finansowanie pojedynczych faktur →</a>
+  <a href="/faktoring-dla-jdg.html">Faktoring dla JDG →</a>
+  <a href="/faktoring-dla-spolek.html">Faktoring dla spółek →</a>
+</div>
+
+<div class="disclaimer">
+  Materiał ma charakter informacyjny i nie stanowi oferty w rozumieniu Kodeksu cywilnego ani porady finansowej. Limity, koszty i warunki zależą od operatora płatności oraz indywidualnej oceny instytucji finansującej i mogą się różnić od podanych orientacyjnie. FINMACH (Pay Flow Sp. z o.o.) działa jako pośrednik i pomaga dobrać finansowanie do sytuacji firmy.
+</div>
+
+</div>
+
+<footer>
+  <div>FINMACH · Pay Flow Sp. z o.o. · Al. Jerozolimskie 85/21, 02-001 Warszawa · NIP 7011230351</div>
+  <div><a href="/regulamin.html">Regulamin</a> · <a href="/polityka-prywatnosci.html">Polityka prywatności</a> · <a href="/ai.html">Zasady AI</a> · <a href="mailto:kontakt@finmach.pl">kontakt@finmach.pl</a></div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); });
+});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy potrzebuję zabezpieczenia przy pożyczce pod obroty z terminala?","acceptedAnswer":{"@type":"Answer","text":"Zwykle nie w klasycznym sensie - nie ma cesji wierzytelności. Najczęściej wystarczy polecenie zapłaty, a podstawą finansowania są obroty z terminala."}},
+    {"@type":"Question","name":"Jak liczona jest dostępna kwota?","acceptedAnswer":{"@type":"Answer","text":"Na podstawie średnich miesięcznych obrotów na terminalu lub bramce. Im wyższa i bardziej regularna sprzedaż kartą, tym wyższy możliwy limit. Orientacyjnie od 100 do 500 tys. zł."}},
+    {"@type":"Question","name":"Jak wygląda spłata?","acceptedAnswer":{"@type":"Answer","text":"Automatycznie - rata pobierana jest z bieżących obrotów na terminalu, dziennie lub tygodniowo, albo jako ustalony procent od każdej transakcji. Bez przelewów i pilnowania terminów."}},
+    {"@type":"Question","name":"Na co mogę przeznaczyć środki?","acceptedAnswer":{"@type":"Answer","text":"Na bieżącą działalność firmy. W tym produkcie zwykle nie ma weryfikacji celu finansowania."}},
+    {"@type":"Question","name":"Jak szybko dostanę decyzję?","acceptedAnswer":{"@type":"Answer","text":"Zwykle do 48 godzin od złożenia kompletnego wniosku. Proces można przejść zdalnie przy minimum formalności."}},
+    {"@type":"Question","name":"Czy to to samo co kredyt firmowy?","acceptedAnswer":{"@type":"Answer","text":"Nie. W kredycie bankowym liczą się głównie sprawozdania i scoring. Tu największą rolę gra realny obrót kartą. Jest szybciej i prościej, ale zwykle drożej."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Pożyczka pod obroty z terminala - finansowanie bez cesji i bez weryfikacji celu",
+  "author":{"@type":"Person","name":"Małgorzata Bakuła"},
+  "publisher":{"@type":"Organization","name":"FINMACH","legalName":"Pay Flow Sp. z o.o."},
+  "mainEntityOfPage":"https://finmach.pl/pozyczka-pod-terminal.html",
+  "inLanguage":"pl-PL"
+}
+</script>
+
+</body>
+</html>

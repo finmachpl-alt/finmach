@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faktoring cichy - kiedy ma sens i dla kogo jest dostępny | FINMACH</title>
+<meta name="description" content="Faktoring cichy: finansowanie faktur bez informowania kontrahenta. Kiedy faktor się zgodzi, dlaczego zwykle wymaga zabezpieczenia i dla jakich firm jest realnie dostępny. Praktyczny przewodnik brokera.">
+<meta name="author" content="Małgorzata Bakuła">
+<link rel="canonical" href="https://finmach.pl/faktoring-cichy.html">
+<meta property="og:title" content="Faktoring cichy - kiedy ma sens i dla kogo jest dostępny">
+<meta property="og:description" content="Finansowanie faktur bez wiedzy kontrahenta. Kiedy realnie się uda, a kiedy faktor zaproponuje jawny. Z praktyki brokera.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://finmach.pl/faktoring-cichy.html">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#173B8F; --navy-l:#eaeffa; --gold:#D9B85E; --gold-d:#c9a84c;
+    --ink:#1a1d24; --ink2:#5a6172; --bg:#f7f8fb; --border:#e4e8f0; --accent:#1d4ed8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;color:var(--ink);line-height:1.7;background:#fff;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);line-height:1.25}
+
+  /* Nav */
+  .nav{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:50}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .logo{display:flex;align-items:center;gap:9px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.15rem;color:var(--navy);text-decoration:none}
+  .logo-mark{width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+  .nav-cta{background:var(--accent);color:#fff;text-decoration:none;padding:9px 18px;border-radius:9px;font-size:0.85rem;font-weight:700}
+
+  /* Hero */
+  .hero{background:linear-gradient(180deg,var(--navy-l),#fff);padding:46px 0 30px}
+  .crumb{font-size:0.78rem;color:var(--ink2);margin-bottom:14px}
+  .crumb a{color:var(--accent);text-decoration:none}
+  .hero h1{font-size:2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+  .hero p.lead{font-size:1.08rem;color:var(--ink2)}
+  .byline{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:0.84rem;color:var(--ink2)}
+  .byline .av{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif}
+  .byline b{color:var(--ink)}
+
+  /* Body */
+  article{padding:34px 0 10px}
+  article h2{font-size:1.4rem;font-weight:700;margin:34px 0 12px}
+  article h3{font-size:1.1rem;font-weight:700;margin:24px 0 8px;color:var(--ink)}
+  article p{margin-bottom:14px}
+  article ul{margin:0 0 16px 0;padding-left:0;list-style:none}
+  article ul li{position:relative;padding-left:24px;margin-bottom:9px}
+  article ul li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  article strong{color:var(--ink)}
+
+  .tldr{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:12px;padding:20px 24px;margin:6px 0 10px}
+  .tldr h2{font-size:0.8rem!important;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 10px 0!important;color:var(--navy)}
+  .tldr p{margin:0;font-size:0.97rem}
+
+  .callout{background:var(--navy-l);border-radius:12px;padding:18px 22px;margin:20px 0;font-size:0.96rem}
+  .callout b{color:var(--navy)}
+
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:0.92rem}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border)}
+  th{background:var(--bg);color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.82rem}
+
+  /* FAQ */
+  .faq{margin:18px 0}
+  .faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;background:#fff}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:16px 18px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:0.98rem;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq-q:hover{background:var(--bg)}
+  .faq-q .ico{flex:none;transition:transform .25s;color:var(--gold-d);font-size:1.1rem}
+  .faq-item.open .faq-q .ico{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 18px}
+  .faq-item.open .faq-a{max-height:500px;padding:0 18px 16px}
+  .faq-a p{margin:0;font-size:0.95rem;color:var(--ink2)}
+
+  /* CTA */
+  .cta{background:linear-gradient(135deg,var(--navy),#1d4ed8);border-radius:16px;padding:32px;text-align:center;margin:36px 0;color:#fff}
+  .cta h2{color:#fff;font-size:1.35rem;margin-bottom:8px}
+  .cta p{opacity:.85;margin-bottom:20px;font-size:0.98rem}
+  .cta a{display:inline-block;background:#fff;color:var(--navy);text-decoration:none;padding:13px 30px;border-radius:10px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif}
+
+  .related{border-top:1px solid var(--border);padding:28px 0}
+  .related h2{font-size:1.1rem;margin-bottom:14px}
+  .related a{display:block;color:var(--accent);text-decoration:none;padding:7px 0;font-size:0.95rem}
+  .related a:hover{text-decoration:underline}
+
+  .disclaimer{font-size:0.8rem;color:var(--ink2);background:var(--bg);border-radius:10px;padding:16px 18px;margin:10px 0 30px;line-height:1.6}
+
+  footer{background:#0d1e42;color:#9fb0cc;text-align:center;padding:26px 20px;font-size:0.78rem;line-height:1.9}
+  footer a{color:#9fb0cc}
+
+  @media(max-width:600px){.hero h1{font-size:1.6rem}article h2{font-size:1.25rem}}
+
+/* === POPRAWKA MOBILE (10.06.2026) - tekst nie wystaje === */
+html,body{max-width:100%;overflow-x:hidden}
+img,table,pre{max-width:100%}
+*{overflow-wrap:break-word;word-wrap:break-word}
+@media(max-width:600px){table{display:block;width:100%;overflow-x:auto}}
+</style>
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZB46WM9SE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BZB46WM9SE');
+</script>
+<!-- End Google Analytics -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '355236980833207');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=355236980833207&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script type="application/ld+json" data-static-breadcrumb>
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Strona główna",
+   "item": "https://finmach.pl/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Faktoring cichy",
+   "item": "https://finmach.pl/faktoring-cichy.html"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="/" class="logo"><span class="logo-mark">F</span> FINMACH</a>
+    <a href="/#wizard" class="nav-cta">Znajdź finansowanie →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/">Strona główna</a> › Faktoring cichy</div>
+    <h1>Faktoring cichy - kiedy ma sens i dla kogo jest realnie dostępny</h1>
+    <p class="lead">Finansowanie faktur bez informowania kontrahenta brzmi atrakcyjnie. W praktyce faktor zgadza się na nie rzadziej, niż się wydaje - i prawie zawsze pod warunkami. Tłumaczę, kiedy cichy faktoring jest możliwy, a kiedy lepiej wybrać jawny.</p>
+    <div class="byline">
+      <div class="av">MB</div>
+      <div>Autor: <b><a href="/o-nas.html" style="color:inherit">Małgorzata Bakuła</a></b> · broker finansowy, 20 lat w finansowaniu firm</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<article>
+
+  <div class="tldr">
+    <h2>W skrócie</h2>
+    <p>W faktoringu cichym kontrahent nie jest informowany o finansowaniu i płaci na Twoje konto - Ty rozliczasz się z faktorem. Jest droższy i trudniej dostępny niż jawny, bo faktor ponosi większe ryzyko. W praktyce faktorzy oferują go najczęściej <strong>pod dodatkowe zabezpieczenie</strong> (np. hipotekę), a „czyste" konto cichy bez twardego zabezpieczenia jest realne głównie dla <strong>większych, stabilnych firm (zwykle od ok. 1 mln zł obrotu)</strong>.</p>
+  </div>
+
+  <h2>Czym jest faktoring cichy</h2>
+  <p>Faktoring cichy (nazywany też tajnym lub niejawnym) to forma finansowania faktur, w której Twój kontrahent <strong>nie dostaje informacji</strong>, że wierzytelność została przekazana firmie faktoringowej. Z jego perspektywy nic się nie zmienia - płaci tę samą kwotę, na to samo konto, w tym samym terminie. Różnica jest po Twojej stronie: środki za fakturę dostajesz od faktora od razu, a gdy kontrahent zapłaci, rozliczasz się z faktorem zgodnie z umową.</p>
+  <p>To odróżnia go od faktoringu jawnego, w którym kontrahent jest zawiadamiany o cesji i często płaci bezpośrednio na rachunek faktora.</p>
+
+  <h2>Cichy a jawny - najważniejsze różnice</h2>
+  <table>
+    <tr><th>&nbsp;</th><th>Faktoring jawny</th><th>Faktoring cichy</th></tr>
+    <tr><td>Kontrahent wie o finansowaniu</td><td>Tak</td><td>Nie</td></tr>
+    <tr><td>Kto pilnuje płatności</td><td>Faktor</td><td>Ty (płatność idzie na Twoje konto)</td></tr>
+    <tr><td>Koszt</td><td>Niższy</td><td>Wyższy</td></tr>
+    <tr><td>Dostępność</td><td>Szeroka</td><td>Ograniczona, zwykle pod warunkami</td></tr>
+    <tr><td>Ryzyko dla faktora</td><td>Mniejsze</td><td>Większe</td></tr>
+  </table>
+
+  <h2>Dlaczego faktor niechętnie daje cichy</h2>
+  <p>Powód jest prosty: w cichym faktoringu pieniądze od kontrahenta trafiają najpierw <strong>do Ciebie</strong>, a dopiero potem do faktora. Faktor nie ma bezpośredniej kontroli nad spłatą - polega na Twojej dyscyplinie w przekazaniu środków. To większe ryzyko niż w jawnym, gdzie płatność idzie prosto do niego.</p>
+  <p>Dlatego faktorzy albo podnoszą cenę, albo - częściej - proszą o <strong>dodatkowe zabezpieczenie</strong>. I tu dochodzimy do tego, co w praktyce widzę najczęściej.</p>
+
+  <div class="callout">
+    <b>Z praktyki brokera:</b> faktoring cichy rzadko jest produktem „z półki". Najczęściej pojawia się jako element większej konstrukcji - np. finansowanie zabezpieczone hipoteką, gdzie cichy faktoring wchodzi jako rozwiązanie na drugim miejscu. „Czyste" konto cichy, bez twardego zabezpieczenia, faktorzy otwierają zwykle dla firm większych i stabilnych - orientacyjnie od około 1 mln zł obrotu. Mniejsza firma częściej dostanie propozycję faktoringu jawnego.
+  </div>
+
+  <h2>Dla kogo cichy faktoring ma sens</h2>
+  <ul>
+    <li><strong>Firmy, którym zależy na dyskrecji</strong> - nie chcą, by kontrahent wiedział o korzystaniu z finansowania.</li>
+    <li><strong>Stabilne firmy o wyższych obrotach</strong> - łatwiej uzyskają „czyste" konto cichy bez dodatkowego zabezpieczenia.</li>
+    <li><strong>Firmy dysponujące zabezpieczeniem</strong> (np. nieruchomością) - wtedy cichy bywa możliwy nawet przy mniejszej skali.</li>
+  </ul>
+
+  <h2>Ile kosztuje faktoring cichy</h2>
+  <p>Cichy jest zauważalnie droższy od jawnego - to „cena" za dyskrecję i wyższe ryzyko faktora. Konkretna stawka zależy od branży, kontrahentów, terminów płatności i tego, czy jest dodatkowe zabezpieczenie. Pełną strukturę kosztu faktoringu, w tym opłaty dodatkowe, o które trzeba dopytać przed podpisaniem, rozkładam w <a href="/koszt-faktoringu.html">osobnym omówieniu kosztów faktoringu</a>. Zamiast sugerować się tabelami z internetu, warto policzyć ofertę pod konkretną fakturę i firmę - różnice potrafią być spore.</p>
+
+  <h2>O czym pamiętać - zakaz cesji i dyscyplina</h2>
+  <p>Dwie rzeczy, które w praktyce najczęściej decydują:</p>
+  <ul>
+    <li><strong>Zakaz cesji w umowie z kontrahentem.</strong> Jeśli kontrakt zabrania przenoszenia wierzytelności, „cichość" tego nie obchodzi - naruszenie zakazu pozostaje naruszeniem, niezależnie od tego, czy kontrahent o tym wie. To trzeba sprawdzić przed podpisaniem.</li>
+    <li><strong>Dyscyplina w przekazywaniu środków.</strong> Skoro płatność wpływa na Twoje konto, musisz w terminie przekazać ją faktorowi. Opóźnienia mogą skończyć się wypowiedzeniem umowy i regresem.</li>
+  </ul>
+
+  <div class="cta">
+    <h2>Nie wiesz, czy cichy jest dla Ciebie?</h2>
+    <p>Sprawdzę, czy w Twojej sytuacji faktor zgodzi się na cichy, czy lepszy będzie jawny. Bezpłatnie i bez zobowiązań.</p>
+    <a href="/#wizard">Znajdź finansowanie →</a>
+  </div>
+
+  <h2>Najczęstsze pytania</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-q" type="button">Czy kontrahent na pewno się nie dowie? <span class="ico">+</span></button>
+      <div class="faq-a"><p>W standardowym przebiegu - nie, bo nie dostaje powiadomienia o cesji i płaci jak zawsze. Ale w niektórych sytuacjach (np. dłuższe opóźnienie w spłacie) umowa może przewidywać ujawnienie cesji. Dyskrecja jest więc warunkowa, nie absolutna.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Czym cichy różni się od jawnego w praktyce? <span class="ico">+</span></button>
+      <div class="faq-a"><p>W jawnym kontrahent płaci bezpośrednio faktorowi i to faktor pilnuje płatności. W cichym płatność wpływa na Twoje konto, a Ty rozliczasz się z faktorem - więcej kontroli, ale i więcej odpowiedzialności po Twojej stronie.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Dlaczego cichy jest trudniej dostępny? <span class="ico">+</span></button>
+      <div class="faq-a"><p>Bo faktor nie kontroluje bezpośrednio spłaty - pieniądze idą najpierw do Ciebie. To większe ryzyko, dlatego faktorzy częściej wymagają zabezpieczenia albo oferują cichy głównie większym, stabilnym firmom.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Czy mała firma lub JDG dostanie cichy faktoring? <span class="ico">+</span></button>
+      <div class="faq-a"><p>Bywa trudniej. „Czyste" konto cichy faktorzy otwierają zwykle dla firm o wyższych obrotach (orientacyjnie od ok. 1 mln zł). Mniejsza firma częściej dostanie ofertę jawną - albo cichy, jeśli ma dodatkowe zabezpieczenie.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Czy faktoring cichy obchodzi zakaz cesji? <span class="ico">+</span></button>
+      <div class="faq-a"><p>Nie. Jeśli umowa z kontrahentem zakazuje cesji wierzytelności, to obowiązuje niezależnie od tego, czy kontrahent wie o finansowaniu. Zakaz cesji trzeba sprawdzić przed podpisaniem umowy faktoringowej.</p></div>
+    </div>
+  </div>
+
+</article>
+
+<div class="related">
+  <h2>Powiązane tematy</h2>
+  <a href="/ranking-faktoringu.html">Ranking faktoringu - jak wybrać faktora →</a>
+  <a href="/mikrofaktoring-online.html">Mikrofaktoring online - finansowanie pojedynczych faktur →</a>
+  <a href="/pozyczka-faktoringowa-pod-hipoteke.html">Pożyczka faktoringowa pod hipotekę →</a>
+  <a href="/faktoring-dla-spolek.html">Faktoring dla spółek →</a>
+  <a href="/faktoring-dla-jdg.html">Faktoring dla JDG →</a>
+</div>
+
+<div class="disclaimer">
+  Materiał ma charakter informacyjny i nie stanowi oferty w rozumieniu Kodeksu cywilnego ani porady prawnej czy inwestycyjnej. Warunki, koszty i dostępność faktoringu cichego zależą od indywidualnej oceny firmy faktoringowej. FINMACH (Pay Flow Sp. z o.o.) działa jako pośrednik i pomaga dobrać finansowanie do sytuacji firmy.
+</div>
+
+</div>
+
+<footer>
+  <div>FINMACH · Pay Flow Sp. z o.o. · Al. Jerozolimskie 85/21, 02-001 Warszawa · NIP 7011230351</div>
+  <div><a href="/regulamin.html">Regulamin</a> · <a href="/polityka-prywatnosci.html">Polityka prywatności</a> · <a href="/ai.html">Zasady AI</a> · <a href="mailto:kontakt@finmach.pl">kontakt@finmach.pl</a></div>
+</footer>
+
+<script>
+// FAQ accordion - działający (klik rozwija/zwija)
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.parentElement;
+    item.classList.toggle('open');
+  });
+});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy kontrahent na pewno się nie dowie?","acceptedAnswer":{"@type":"Answer","text":"W standardowym przebiegu nie, bo nie dostaje powiadomienia o cesji i płaci jak zawsze. Ale w niektórych sytuacjach, np. przy dłuższym opóźnieniu w spłacie, umowa może przewidywać ujawnienie cesji. Dyskrecja jest warunkowa, nie absolutna."}},
+    {"@type":"Question","name":"Czym cichy różni się od jawnego w praktyce?","acceptedAnswer":{"@type":"Answer","text":"W jawnym kontrahent płaci bezpośrednio faktorowi i to faktor pilnuje płatności. W cichym płatność wpływa na konto faktoranta, który rozlicza się z faktorem. Więcej kontroli, ale i więcej odpowiedzialności po stronie firmy."}},
+    {"@type":"Question","name":"Dlaczego cichy jest trudniej dostępny?","acceptedAnswer":{"@type":"Answer","text":"Faktor nie kontroluje bezpośrednio spłaty, bo pieniądze trafiają najpierw do firmy. To większe ryzyko, dlatego faktorzy częściej wymagają zabezpieczenia albo oferują cichy głównie większym, stabilnym firmom."}},
+    {"@type":"Question","name":"Czy mała firma lub JDG dostanie cichy faktoring?","acceptedAnswer":{"@type":"Answer","text":"Bywa trudniej. Czyste konto cichy faktorzy otwierają zwykle dla firm o wyższych obrotach, orientacyjnie od około 1 mln zł. Mniejsza firma częściej dostanie ofertę jawną albo cichy pod dodatkowe zabezpieczenie."}},
+    {"@type":"Question","name":"Czy faktoring cichy obchodzi zakaz cesji?","acceptedAnswer":{"@type":"Answer","text":"Nie. Jeśli umowa z kontrahentem zakazuje cesji wierzytelności, obowiązuje to niezależnie od tego, czy kontrahent wie o finansowaniu. Zakaz cesji trzeba sprawdzić przed podpisaniem umowy faktoringowej."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Faktoring cichy - kiedy ma sens i dla kogo jest realnie dostępny",
+  "author":{"@type":"Person","name":"Małgorzata Bakuła","jobTitle":"Broker finansowy, specjalistka ds. faktoringu i finansowania firm","url":"https://finmach.pl/o-nas.html"},"datePublished":"2026-06-01T08:00:00+02:00","dateModified":"2026-07-06T08:00:00+02:00",
+  "publisher":{"@type":"Organization","name":"FINMACH","legalName":"Pay Flow Sp. z o.o."},
+  "mainEntityOfPage":"https://finmach.pl/faktoring-cichy.html",
+  "inLanguage":"pl-PL"
+}
+</script>
+
+</body>
+</html>

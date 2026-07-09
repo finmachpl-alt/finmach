@@ -1,0 +1,318 @@
+/* ═══════════════════════════════════════════════════
+   FINMACH — Finn Chat Widget
+   ═══════════════════════════════════════════════════ */
+
+/* ── Floating button ─────────────────────────── */
+#finn-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 1000;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #173B8F 0%, #1a4aad 100%);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(23,59,143,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+#finn-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(23,59,143,0.45);
+}
+
+#finn-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#finn-btn .finn-close-icon { display: none; }
+#finn-btn.open .finn-chat-icon { display: none; }
+#finn-btn.open .finn-close-icon { display: block; }
+
+/* Notification dot */
+#finn-btn .finn-dot {
+  position: absolute;
+  top: 3px; right: 3px;
+  width: 10px; height: 10px;
+  background: #D9B85E;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  animation: finn-pulse 2s ease-in-out infinite;
+}
+
+@keyframes finn-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.8); opacity: 0.6; }
+}
+
+/* ── Chat window ──────────────────────────────── */
+#finn-window {
+  position: fixed;
+  bottom: 92px;
+  right: 24px;
+  z-index: 999;
+  width: 340px;
+  max-height: 520px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(23,59,143,0.16), 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid rgba(23,59,143,0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.92) translateY(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s ease;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+#finn-window.open {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Header ──────────────────────────────────── */
+.finn-header {
+  background: linear-gradient(135deg, #173B8F 0%, #1a4aad 100%);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.finn-avatar {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.finn-header-info { flex: 1; }
+
+.finn-header-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.finn-header-status {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 1px;
+}
+
+.finn-header-status::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #4ade80;
+  display: inline-block;
+}
+
+/* ── Messages ────────────────────────────────── */
+.finn-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 14px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scroll-behavior: smooth;
+}
+
+.finn-messages::-webkit-scrollbar { width: 3px; }
+.finn-messages::-webkit-scrollbar-thumb { background: #e2dfd9; border-radius: 2px; }
+
+.finn-msg {
+  max-width: 86%;
+  font-size: 0.83rem;
+  line-height: 1.55;
+  border-radius: 14px;
+  padding: 9px 13px;
+  animation: finn-msg-in 0.25s ease both;
+}
+
+@keyframes finn-msg-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.finn-msg-bot {
+  background: #f3f4f8;
+  color: #111827;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.finn-msg-user {
+  background: #173B8F;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+/* Typing indicator */
+.finn-typing {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 11px 14px;
+  background: #f3f4f8;
+  border-radius: 14px;
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+  width: 52px;
+}
+
+.finn-typing span {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #8b93a1;
+  animation: finn-bounce 1.2s ease infinite;
+}
+.finn-typing span:nth-child(2) { animation-delay: 0.2s; }
+.finn-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes finn-bounce {
+  0%,80%,100% { transform: scale(0.7); opacity: 0.5; }
+  40%         { transform: scale(1);   opacity: 1; }
+}
+
+/* ── Quick replies / chips ───────────────────── */
+.finn-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0 14px 10px;
+  flex-shrink: 0;
+}
+
+.finn-chip {
+  font-size: 0.73rem;
+  padding: 5px 11px;
+  border-radius: 99px;
+  border: 1px solid #e2dfd9;
+  background: #f5f3ef;
+  color: #5a5750;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+.finn-chip:hover {
+  border-color: #173B8F;
+  color: #173B8F;
+  background: #eaeffa;
+}
+
+/* ── Input area ───────────────────────────────── */
+.finn-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px 12px;
+  border-top: 1px solid #f0eeea;
+  flex-shrink: 0;
+  align-items: flex-end;
+}
+
+.finn-input {
+  flex: 1;
+  border: 1.5px solid #e2dfd9;
+  border-radius: 12px;
+  padding: 9px 12px;
+  font-size: 0.83rem;
+  font-family: 'Inter', sans-serif;
+  color: #111827;
+  background: #f9f8f6;
+  outline: none;
+  resize: none;
+  line-height: 1.4;
+  max-height: 80px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.finn-input:focus {
+  border-color: #173B8F;
+  background: #fff;
+}
+
+.finn-input::placeholder { color: #b4b2a9; }
+
+.finn-send {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: #173B8F;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, transform 0.1s;
+  align-self: flex-end;
+}
+
+.finn-send:hover { background: #1a4aad; transform: scale(1.05); }
+.finn-send:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+.finn-send svg {
+  width: 16px; height: 16px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── GDPR note ──────────────────────────────── */
+.finn-gdpr {
+  font-size: 0.65rem;
+  color: #b4b2a9;
+  text-align: center;
+  padding: 0 12px 10px;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+/* ── Mobile ─────────────────────────────────── */
+@media (max-width: 480px) {
+  #finn-window {
+    width: calc(100vw - 24px);
+    right: 12px;
+    bottom: 80px;
+    max-height: 70vh;
+    border-radius: 16px;
+  }
+  #finn-btn {
+    right: 16px;
+    bottom: 16px;
+  }
+}

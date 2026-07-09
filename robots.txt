@@ -1,0 +1,44 @@
+# FINMACH robots.txt — SEO + AI bots
+# Ostatnia aktualizacja: 2026-05-29
+
+# Wszystkie boty — wpuszczamy
+User-agent: *
+Allow: /
+Disallow: /nip.php
+Disallow: /chat.js
+
+# Google (wyszukiwarka + Gemini AI)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+# Microsoft (Bing + Copilot)
+User-agent: Bingbot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Apple (Siri)
+User-agent: Applebot
+Allow: /
+
+# Sitemap
+Sitemap: https://finmach.pl/sitemap.xml

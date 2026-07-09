@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kredyt dla spółki - bezpłatna analiza | FINMACH</title>
+<meta name="description" content="Kredyt obrotowy i inwestycyjny dla spółek. Bezpłatna analiza, bez odpytywania BIK. Porównujemy oferty kilkunastu instytucji. Umów rozmowę z doradcą FINMACH.">
+<style>
+:root{
+  --navy:#0a1f44;
+  --navy-2:#0d2654;
+  --mint:#1fd1a3;
+  --mint-dark:#13b88c;
+  --ink:#0a1f44;
+  --slate:#5a6b85;
+  --line:#e3e8f0;
+  --bg:#f6f9fc;
+  --white:#ffffff;
+  --gold:#f5c451;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+body{
+  font-family:'Plus Jakarta Sans','Segoe UI',-apple-system,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  background:var(--navy);
+  color:#fff;
+  font-size:.84rem;
+  padding:.55rem 0;
+}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.topbar a{color:#cfe9ff;text-decoration:none}
+.topbar .phone{font-weight:700;color:#fff}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+@media (max-width: 640px) {
+  .partner-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .partner-grid > div { max-width: none !important; }
+}
+@media (min-width: 641px) {
+  .partner-grid { grid-template-columns: repeat(4, 1fr) !important; }
+  .partner-grid > div { max-width: 240px !important; }
+}
+
+/* ---------- HEADER ---------- */
+.site-head{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--navy);text-decoration:none}
+.logo .mark{
+  width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,var(--mint),var(--navy));
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:1rem;
+}
+.logo .sub{font-size:.66rem;font-weight:600;color:var(--slate);letter-spacing:.12em;text-transform:uppercase;display:block;line-height:1}
+.nav-cta{
+  background:var(--mint);color:var(--navy);font-weight:700;
+  padding:.6rem 1.2rem;border-radius:10px;text-decoration:none;font-size:.9rem;
+  transition:transform .15s,box-shadow .15s;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(31,209,163,.35)}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(1200px 500px at 85% -10%,rgba(31,209,163,.18),transparent 60%),
+    linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 60%,#0b2a5e 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:22px 22px;opacity:.5;
+}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;padding-top:64px;padding-bottom:72px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(31,209,163,.15);border:1px solid rgba(31,209,163,.4);
+  color:#9af3d8;font-weight:600;font-size:.8rem;letter-spacing:.04em;
+  padding:.4rem .85rem;border-radius:999px;margin-bottom:22px;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(31,209,163,.25)}
+.hero h1{
+  font-family:'Fraunces',serif;font-weight:600;
+  font-size:clamp(2.1rem,4.4vw,3.3rem);line-height:1.1;letter-spacing:-.01em;margin-bottom:18px;
+}
+.hero h1 em{font-style:italic;color:var(--mint)}
+.hero p.lead{font-size:1.12rem;color:#c9d6ea;max-width:33ch;margin-bottom:28px}
+.hero-points{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.hero-points li{display:flex;align-items:flex-start;gap:11px;font-size:1rem;color:#e6eefb}
+.hero-points .ck{
+  flex:none;width:22px;height:22px;border-radius:50%;background:rgba(31,209,163,.2);
+  display:grid;place-items:center;margin-top:2px;
+}
+.hero-points .ck svg{width:13px;height:13px;stroke:var(--mint);stroke-width:3;fill:none}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--mint);color:var(--navy);font-weight:700;font-size:1rem;
+  padding:.95rem 1.7rem;border-radius:12px;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .15s,box-shadow .15s;box-shadow:0 10px 26px rgba(31,209,163,.32);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(31,209,163,.45)}
+.btn-ghost{
+  background:rgba(255,255,255,.08);color:#fff;font-weight:600;font-size:1rem;
+  padding:.95rem 1.5rem;border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,.22);
+  transition:background .15s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+
+/* hero card */
+.hero-card{
+  background:rgba(255,255,255,.05);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:28px;
+}
+.hero-card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;color:#fff}
+.hero-card .muted{color:#a9bcd9;font-size:.9rem;margin-bottom:20px}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px}
+.stat .num{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;color:var(--mint);line-height:1}
+.stat .lbl{font-size:.8rem;color:#bccde6;margin-top:6px}
+
+/* ---------- TRUST STRIP ---------- */
+.trust{background:#fff;border-bottom:1px solid var(--line)}
+.trust .wrap{display:flex;gap:38px;justify-content:center;flex-wrap:wrap;padding:22px 24px;align-items:center}
+.trust .item{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--slate);font-weight:500}
+.trust .item svg{width:20px;height:20px;stroke:var(--mint-dark);stroke-width:2.2;fill:none;flex:none}
+
+/* ---------- SECTION ---------- */
+section.block{padding:72px 0}
+.sec-head{max-width:640px;margin:0 auto 48px;text-align:center}
+.sec-head .kicker{color:var(--mint-dark);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.sec-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.15;color:var(--navy);margin-bottom:14px}
+.sec-head p{color:var(--slate);font-size:1.06rem}
+
+/* why us cards */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.why-card{
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 26px;
+  transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.why-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(10,31,68,.1);border-color:transparent}
+.why-card .ic{
+  width:50px;height:50px;border-radius:13px;display:grid;place-items:center;margin-bottom:18px;
+  background:linear-gradient(135deg,rgba(31,209,163,.18),rgba(10,31,68,.08));
+}
+.why-card .ic svg{width:26px;height:26px;stroke:var(--mint-dark);stroke-width:2;fill:none}
+.why-card h3{font-size:1.18rem;font-weight:700;color:var(--navy);margin-bottom:10px}
+.why-card p{color:var(--slate);font-size:.97rem}
+
+/* ---------- HOW (broker explain) ---------- */
+.how{background:linear-gradient(180deg,#fff,var(--bg))}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 22px}
+.step .n{
+  counter-increment:step;
+  font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:#fff;
+  width:38px;height:38px;border-radius:50%;background:var(--navy);display:grid;place-items:center;margin-bottom:16px;
+}
+.step .n::before{content:counter(step)}
+.step h4{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.step p{font-size:.92rem;color:var(--slate)}
+
+/* ---------- DOCS ---------- */
+.docs{background:var(--navy);color:#fff}
+.docs .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.docs .kicker{color:var(--mint);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.docs h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:16px;line-height:1.15}
+.docs p.intro{color:#bccde6;font-size:1.05rem;margin-bottom:8px}
+.doc-list{list-style:none;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:10px}
+.doc-list li{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:12px}
+.doc-list li:not(:last-child){border-bottom:1px solid rgba(255,255,255,.08)}
+.doc-list .di{flex:none;width:40px;height:40px;border-radius:11px;background:rgba(31,209,163,.16);display:grid;place-items:center}
+.doc-list .di svg{width:21px;height:21px;stroke:var(--mint);stroke-width:2;fill:none}
+.doc-list .dt strong{display:block;font-size:1rem;font-weight:700;color:#fff}
+.doc-list .dt span{font-size:.86rem;color:#a9bcd9}
+.docs .note{margin-top:18px;font-size:.9rem;color:#a9bcd9}
+.docs .note b{color:var(--mint)}
+
+/* ---------- BOOKING ---------- */
+.booking{background:var(--bg)}
+.book-card{
+  background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(10,31,68,.08);max-width:880px;margin:0 auto;
+}
+.book-card .bhead{padding:34px 36px 26px;border-bottom:1px solid var(--line);text-align:center}
+.book-card .bhead .kicker{color:var(--mint-dark);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.book-card .bhead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.9rem;color:var(--navy);margin-bottom:8px}
+.book-card .bhead p{color:var(--slate)}
+.cal-frame{width:100%;min-height:720px;border:0;display:block}
+.book-fallback{padding:30px 36px;text-align:center;color:var(--slate);font-size:.95rem}
+.book-fallback a{color:var(--mint-dark);font-weight:700}
+
+/* ---------- FAQ ---------- */
+.faq-grid{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:20px 24px;font-size:1.04rem;font-weight:700;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:inherit}
+.faq-q .pm{flex:none;width:24px;height:24px;border-radius:50%;background:rgba(31,209,163,.15);display:grid;place-items:center;color:var(--mint-dark);font-weight:700;transition:transform .2s}
+.faq-item.open .faq-q .pm{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .28s ease;color:var(--slate)}
+.faq-a div{padding:0 24px 20px}
+.faq-item.open .faq-a{max-height:320px}
+
+/* ---------- FINAL CTA ---------- */
+.final{
+  background:linear-gradient(135deg,var(--navy),#0b2a5e);color:#fff;text-align:center;
+}
+.final h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:14px}
+.final p{color:#bccde6;font-size:1.08rem;max-width:48ch;margin:0 auto 26px}
+
+/* ---------- FOOTER ---------- */
+footer{background:#071a3a;color:#8ba3c7;font-size:.88rem;padding:40px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer a{color:#bcd4f0;text-decoration:none}
+footer .fnav{display:flex;gap:22px;flex-wrap:wrap}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .why-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .docs .wrap{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:560px){
+  .steps{grid-template-columns:1fr}
+  .topbar .wrap{justify-content:center;text-align:center}
+  section.block{padding:52px 0}
+}
+
+/* === POPRAWKA MOBILE (10.06.2026) - tekst nie wystaje === */
+html,body{max-width:100%;overflow-x:hidden}
+img,table,pre{max-width:100%}
+*{overflow-wrap:break-word;word-wrap:break-word}
+@media(max-width:600px){
+  .wrap{padding-left:16px !important;padding-right:16px !important}
+  table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+</style>
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZB46WM9SE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BZB46WM9SE');
+</script>
+<!-- End Google Analytics -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '355236980833207');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=355236980833207&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <span>📞 Doradca oddzwoni w godz. <b>pon–pt 9:00–18:00</b></span>
+    <span>Kontakt: <a class="phone" href="tel:+48508242599">508 242 599</a> &nbsp;·&nbsp; <a href="mailto:kontakt@finmach.pl">kontakt@finmach.pl</a></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="https://finmach.pl">
+      <span class="mark">F</span>
+      <span>FINMACH<span class="sub">by Payflow</span></span>
+    </a>
+    <a class="nav-cta" href="#umow">Umów rozmowę</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Kredyt dla spółki · obrotowy i inwestycyjny</span>
+      <h1>Finansowanie dla Twojej spółki - <em>dobrane przez ekspertów</em>, nie przez algorytm banku.</h1>
+      <p class="lead">Jesteśmy brokerem. Porównujemy oferty kilkunastu instytucji i prowadzimy Cię przez cały proces - bezpłatnie.</p>
+      <ul class="hero-points">
+        <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span> Bezpłatna analiza zdolności kredytowej spółki</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span> Nie odpytujemy BIK bez Twojej zgody</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span> Jedna rozmowa zamiast obchodzenia banków</li>
+      </ul>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#umow">Sprawdź możliwości finansowania</a>
+        <a class="btn-ghost" href="#jak">Jak to działa?</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Dlaczego warto z nami?</h3>
+      <p class="muted">Zamiast jednej oferty z jednego banku - dostęp do całego rynku.</p>
+      <div class="statgrid">
+        <div class="stat"><div class="num">5000+</div><div class="lbl">obsłużonych firm</div></div>
+        <div class="stat"><div class="num">100M zł</div><div class="lbl">pozyskanego finansowania</div></div>
+        <div class="stat"><div class="num">20 lat</div><div class="lbl">doświadczenia na rynku</div></div>
+        <div class="stat"><div class="num">14+</div><div class="lbl">instytucji w porównaniu</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap">
+    <div class="item"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg> Bez wpływu na BIK</div>
+    <div class="item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Analiza w 100% bezpłatna</div>
+    <div class="item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Odpowiedź do 24 h</div>
+    <div class="item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg> Dedykowany doradca</div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Dlaczego broker, a nie bank wprost</div>
+      <h2>Jeden bank pokaże Ci jedną ofertę. My pokażemy Ci rynek.</h2>
+      <p>Składając wniosek samodzielnie w kilku bankach, generujesz zapytania, które obniżają scoring. Z nami robisz to raz - mądrze.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Dostęp do całego rynku</h3>
+        <p>Współpracujemy z bankami i instytucjami pozabankowymi. Dobieramy ofertę pod profil Twojej spółki - nie odwrotnie.</p>
+      </div>
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div>
+        <h3>Chronimy Twój scoring</h3>
+        <p>Nie rozsyłamy wniosków na oślep. Najpierw bezpłatna analiza, a zapytanie do BIK dopiero po Twojej akceptacji konkretnej oferty.</p>
+      </div>
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3>Jeden kontakt, zero biegania</h3>
+        <p>Dedykowany doradca prowadzi sprawę od analizy po podpisanie. Ty zajmujesz się firmą, my papierami.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="block" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Dla kogo</div>
+      <h2>Finansujemy spółki z każdego sektora</h2>
+      <p>Niezależnie od branży czy wielkości - jeśli szukasz finansowania, mamy ofertę dla Ciebie.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;max-width:900px;margin:0 auto">
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;min-height:180px;max-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto">
+        <div style="font-size:1.4rem;margin-bottom:10px">🏢</div>
+        <h4 style="font-size:1.04rem;font-weight:700;color:var(--navy);margin-bottom:6px">Spółki z o.o.</h4>
+        <p style="font-size:.92rem;color:var(--slate)">Niezależnie od stażu i wielkości</p>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;min-height:180px;max-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto">
+        <div style="font-size:1.4rem;margin-bottom:10px">🏗️</div>
+        <h4 style="font-size:1.04rem;font-weight:700;color:var(--navy);margin-bottom:6px">Branża budowlana</h4>
+        <p style="font-size:.92rem;color:var(--slate)">Finansowanie inwestycji i materiałów</p>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;min-height:180px;max-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto">
+        <div style="font-size:1.4rem;margin-bottom:10px">🚚</div>
+        <h4 style="font-size:1.04rem;font-weight:700;color:var(--navy);margin-bottom:6px">Transport</h4>
+        <p style="font-size:.92rem;color:var(--slate)">Kredyt na pojazdy i flotę</p>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;min-height:180px;max-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto">
+        <div style="font-size:1.4rem;margin-bottom:10px">📦</div>
+        <h4 style="font-size:1.04rem;font-weight:700;color:var(--navy);margin-bottom:6px">E-commerce</h4>
+        <p style="font-size:.92rem;color:var(--slate)">Kapitał na rozwój sprzedaży</p>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;min-height:180px;max-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto">
+        <div style="font-size:1.4rem;margin-bottom:10px">⚙️</div>
+        <h4 style="font-size:1.04rem;font-weight:700;color:var(--navy);margin-bottom:6px">Produkcja</h4>
+        <p style="font-size:.92rem;color:var(--slate)">Finansowanie maszyn i linii</p>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;min-height:180px;max-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto">
+        <div style="font-size:1.4rem;margin-bottom:10px">⏰</div>
+        <h4 style="font-size:1.04rem;font-weight:700;color:var(--navy);margin-bottom:6px">Krótki staż</h4>
+        <p style="font-size:.92rem;color:var(--slate)">Nawet nowe firmy mogą liczyć na kredyt</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="block" style="background:#f0f4f9;padding:52px 0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:36px">
+      <div style="color:var(--mint-dark);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Zaufanie sektora finansowego</div>
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:2rem;color:var(--navy);margin-bottom:8px">Współpracujemy z czołowymi instytucjami finansowymi</h2>
+    </div>
+    <div class="partner-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:center;margin-bottom:48px;max-width:1000px;margin-left:auto;margin-right:auto">
+      <div style="background:#fff;border-radius:14px;padding:20px;text-align:center;border:1px solid var(--line);flex: 1;min-height: 260px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <div style="font-size:2.2rem;margin-bottom:12px">🏦</div>
+        <h4 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px">Banki komercyjne</h4>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:20px;text-align:center;border:1px solid var(--line);flex: 1;min-height: 260px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <div style="font-size:2.2rem;margin-bottom:12px">💼</div>
+        <h4 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px">Instytucje pozabankowe</h4>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:20px;text-align:center;border:1px solid var(--line);flex: 1;min-height: 260px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <div style="font-size:2.2rem;margin-bottom:12px">📊</div>
+        <h4 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px">Fundusze inwestycyjne</h4>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:20px;text-align:center;border:1px solid var(--line);flex: 1;min-height: 260px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <div style="font-size:2.2rem;margin-bottom:12px">🤝</div>
+        <h4 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px">Leasingi</h4>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:18px;padding:32px;border:1px solid var(--line);text-align:center">
+      <div style="margin-bottom:20px">
+        <div style="display:inline-block;background:#fff8e1;border-radius:50%;width:50px;height:50px;display:grid;place-items:center;font-size:1.8rem">⭐</div>
+      </div>
+      <h3 style="font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:8px">4.9/5 na podstawie 200+ opinii</h3>
+      <p style="color:var(--slate);font-size:.95rem">Klienci potwierdzają: profesjonalizm, szybkość i rezultaty</p>
+    </div>
+  </div>
+</section>
+<section class="block how" id="jak">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Jak to działa</div>
+      <h2>Od rozmowy do decyzji w 4 krokach</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n"></div><h4>Umawiasz rozmowę</h4><p>Wybierasz dogodny termin w kalendarzu poniżej. Rozmowa jest bezpłatna i niezobowiązująca.</p></div>
+      <div class="step"><div class="n"></div><h4>Bezpłatna analiza</h4><p>Doradca analizuje sytuację spółki i dobiera realne oferty z rynku - bez odpytywania BIK.</p></div>
+      <div class="step"><div class="n"></div><h4>Wybierasz ofertę</h4><p>Pokazujemy najlepsze dopasowane propozycje. Decyzję podejmujesz Ty, bez presji.</p></div>
+      <div class="step"><div class="n"></div><h4>Prowadzimy do końca</h4><p>Kompletujemy wniosek i wspieramy aż do wypłaty środków.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCS -->
+<section class="block docs">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Przygotuj się do rozmowy</div>
+      <h2>Co warto mieć pod ręką</h2>
+      <p class="intro">Nie musisz nic wysyłać przed rozmową. Te dokumenty przyspieszą analizę - możesz je przygotować na spotkanie z doradcą lub wysłać na <b>kontakt@finmach.pl</b>.</p>
+      <p class="note">📎 Dokumenty prześlemy Ci również mailem po umówieniu terminu - z dokładną listą i adresem.</p>
+    </div>
+    <ul class="doc-list">
+      <li>
+        <span class="di"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></span>
+        <span class="dt"><strong>Bilans</strong><span>za 2025 r. oraz za bieżący okres</span></span>
+      </li>
+      <li>
+        <span class="di"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+        <span class="dt"><strong>Rachunek zysków i strat (RZiS)</strong><span>za 2025 r. oraz za bieżący okres</span></span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="block booking" id="umow">
+  <div class="wrap">
+    <div class="book-card">
+      <div class="bhead">
+        <div class="kicker">Bezpłatna konsultacja</div>
+        <h2>Wybierz dogodny termin rozmowy</h2>
+        <p>Doradca FINMACH oddzwoni w wybranym terminie. Rozmowa jest bezpłatna i niezobowiązująca.</p>
+      </div>
+      <!-- KOALENDAR INLINE EMBED -->
+      <iframe
+        class="cal-frame"
+        src="https://koalendar.com/e/bezplatna-rozmowa-o-finansowaniu-firmy?embed=true"
+        width="100%" height="720" frameborder="0"
+        title="Umów rozmowę z doradcą FINMACH"
+        loading="lazy"></iframe>
+      <div class="book-fallback">
+        Kalendarz się nie ładuje? Zadzwoń: <a href="tel:+48508242599">508 242 599</a>
+        lub umów się tutaj: <a href="https://koalendar.com/e/bezplatna-rozmowa-o-finansowaniu-firmy" target="_blank" rel="noopener">otwórz kalendarz →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Najczęstsze pytania</div>
+      <h2>Dobrze wiedzieć</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-q">Czy analiza naprawdę jest bezpłatna? <span class="pm">+</span></button>
+        <div class="faq-a"><div>Tak. Analiza zdolności kredytowej spółki i dobór ofert są w 100% bezpłatne i niezobowiązujące. Zarabiamy od instytucji finansowych, nie od Ciebie.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Czy będziecie odpytywać BIK? <span class="pm">+</span></button>
+        <div class="faq-a"><div>Nie bez Twojej zgody. Wstępną analizę robimy na podstawie dokumentów i rozmowy. Zapytanie do BIK następuje dopiero, gdy zaakceptujesz konkretną ofertę.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Z jakimi instytucjami współpracujecie? <span class="pm">+</span></button>
+        <div class="faq-a"><div>Z bankami (m.in. PKO BP, BNP Paribas, Erste, UniCredit) oraz innymi bankami i instytucjami pozabankowymi zapewniającymi finansowanie. Dzięki temu porównujemy oferty z całego rynku w jednym miejscu.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Ile trwa cały proces? <span class="pm">+</span></button>
+        <div class="faq-a"><div>Wstępną odpowiedź zwykle przekazujemy w ciągu 24 godzin od rozmowy. Czas do wypłaty zależy od instytucji i kompletności dokumentów.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="block final">
+  <div class="wrap">
+    <h2>Gotów do wsparcia finansowego dla swojej spółki?</h2>
+    <p>Sprawdź możliwości finansowania bez zobowiązań. Analiza bezpłatna, bez wpływu na BIK.</p>
+    <a class="btn-primary" href="#umow">Sprawdź możliwości finansowania</a>
+  </div>
+</section>
+
+<section style="background:#fff;padding:48px 0;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div style="max-width:800px;margin:0 auto;color:var(--slate);font-size:.95rem;line-height:1.7">
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:var(--navy);margin-bottom:16px">Kredyt dla spółki z o.o. - finansowanie obrotowe i inwestycyjne</h2>
+      <p style="margin-bottom:12px">
+        Szukasz kredytu dla spółki z o.o.? FINMACH to platforma porównywająca finansowanie spółek z ofert czołowych banków i instytucji finansowych. Specjalizujemy się w kredytach obrotowych, kredytach inwestycyjnych oraz finansowaniu rozwoju firmy.
+      </p>
+      <p style="margin-bottom:12px">
+        Przez 20 lat obsłużyliśmy ponad 5000 spółek, pozyskując dla nich 100 milionów złotych finansowania. Nasi doradcy wiedzą, na co banki zwracają uwagę: bilans, RZiS, scoring, historię kredytową. Nie rozsyłamy wniosków na oślep - analizujemy najpierw bezpłatnie, a dopiero wtedy kierujemy Cię tam, gdzie masz szansę na tak.
+      </p>
+      <p style="margin-bottom:12px">
+        Współpracujemy z PKO BP, BNP Paribas, Erste Bank, UniCredit i innymi bankami oraz instytucjami finansowymi. Dzięki temu porównujemy rzeczywiste oferty, a nie teorie. Kredyt dla spółki - bez zbędnych zapytań do BIK, bez wpływu na scoring.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yr"></span> FINMACH by Payflow · Wszelkie prawa zastrzeżone</div>
+    <div class="fnav">
+      <a href="tel:+48508242599">508 242 599</a>
+      <a href="mailto:kontakt@finmach.pl">kontakt@finmach.pl</a>
+      <a href="https://finmach.pl">finmach.pl</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.querySelectorAll('.faq-q').forEach(function(b){
+  b.addEventListener('click',function(){
+    var item=b.parentElement;
+    var wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
