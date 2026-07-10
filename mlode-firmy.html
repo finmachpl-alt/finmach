@@ -452,6 +452,12 @@ footer .fine{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.4)}
             <div class="err">Wpisz poprawny numer telefonu (9 cyfr).</div>
           </div>
 
+          <div class="field" id="f-email">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" inputmode="email" autocomplete="email" placeholder="np. biuro@twojafirma.pl" maxlength="120">
+            <div class="err">Wpisz poprawny adres e-mail.</div>
+          </div>
+
           <div class="field" id="f-kwota">
             <label for="kwota">Jaka kwota Cię interesuje?</label>
             <select id="kwota" name="kwota">
@@ -536,7 +542,7 @@ footer .fine{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.4)}
     <div class="steps-grid">
       <div class="step">
         <h3>Wypełniasz krótki formularz</h3>
-        <p>NIP, telefon, kwota i cel. Mniej niż minuta. Sprawdzenie nie obciąża Twojej zdolności kredytowej.</p>
+        <p>NIP, telefon, e-mail, kwota i cel. Mniej niż minuta. Sprawdzenie nie obciąża Twojej zdolności kredytowej.</p>
       </div>
       <div class="step">
         <h3>Rozmawiasz z ekspertem</h3>
@@ -642,6 +648,7 @@ footer .fine{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.4)}
 
   var nip = document.getElementById('nip');
   var tel = document.getElementById('tel');
+  var email = document.getElementById('email');
   var kwota = document.getElementById('kwota');
   var cel = document.getElementById('cel');
   var rodo = document.getElementById('rodo');
@@ -682,6 +689,17 @@ footer .fine{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.4)}
           stazTxt = 'działa od ' + (lata >= 2 ? lata + ' lat' : m + ' mies.');
         }
         var meta = [d.forma || '', stazTxt].filter(Boolean).join(' · ');
+
+        /* Spółka? Ta oferta jest dla JDG - pokaż furtkę do głównego wizarda */
+        if(d.typ === 'spolka'){
+          nipLive.className = 'nip-live nl-warn';
+          nipLive.innerHTML =
+            '<div class="nl-firma">✓ ' + escapeHtml(d.nazwa) + '</div>' +
+            (meta ? '<div class="nl-meta">' + escapeHtml(meta) + '</div>' : '') +
+            '<span class="nl-badge">Ta oferta jest dla JDG, ale dla spółek też mamy finansowanie - zostaw zgłoszenie, a dobierzemy inną opcję, albo <a href="https://finmach.pl/?utm_source=lp_mlode_firmy&utm_medium=redirect" style="color:inherit;font-weight:700;text-decoration:underline">sprawdź oferty dla spółek →</a></span>';
+          return;
+        }
+
         var badge = '';
         var cls = 'nip-live';
         if(m != null && m >= 6){
@@ -725,6 +743,9 @@ footer .fine{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.4)}
     if(n.length === 11 && n.indexOf('48') === 0) n = n.slice(2);
     return n.length === 9;
   }
+  function validEmail(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(v||'').trim());
+  }
   function mark(id, bad){
     document.getElementById(id).classList.toggle('invalid', bad);
   }
@@ -733,15 +754,17 @@ footer .fine{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.4)}
     globalErr.style.display = 'none';
     var badNip = !validNip(nip.value);
     var badTel = !validTel(tel.value);
+    var badEmail = !validEmail(email.value);
     var badKwota = !kwota.value;
     var badCel = !cel.value;
     var badRodo = !rodo.checked;
     mark('f-nip', badNip);
     mark('f-tel', badTel);
+    mark('f-email', badEmail);
     mark('f-kwota', badKwota);
     mark('f-cel', badCel);
     document.getElementById('f-rodo').classList.toggle('invalid', badRodo);
-    if(badNip||badTel||badKwota||badCel||badRodo) return;
+    if(badNip||badTel||badEmail||badKwota||badCel||badRodo) return;
 
     btn.disabled = true;
     btn.textContent = 'Wysyłanie…';
@@ -750,6 +773,7 @@ footer .fine{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.4)}
       source: 'LP_MLODE_FIRMY',
       nip: digits(nip.value),
       telefon: digits(tel.value),
+      email: String(email.value || '').trim(),
       kwota: kwota.value,
       cel: cel.value,
       rodo: true,
