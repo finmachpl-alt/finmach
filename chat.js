@@ -110,9 +110,22 @@
     if (!msgs) return;
     const div = document.createElement('div');
     div.className = 'finn-msg finn-msg-bot';
-    div.innerHTML = escapeHtml(text).replace(/\n/g, '<br>');
+    div.innerHTML = linkifyFinmach(escapeHtml(text)).replace(/\n/g, '<br>');
     msgs.appendChild(div);
     scrollToBottom();
+  }
+
+  // Zamienia adresy finmach.pl na klikalne linki.
+  // Celowo TYLKO nasza domena — obcych adresów nie linkujemy.
+  // Nie łapie adresów e-mail (kontakt@finmach.pl zostaje tekstem).
+  function linkifyFinmach (html) {
+    return html.replace(
+      /(^|[\s>(])((https?:\/\/)?(www\.)?finmach\.pl(\/[^\s<)]*)?)/g,
+      function (m, prefix, url) {
+        const href = url.indexOf('http') === 0 ? url : 'https://' + url;
+        return prefix + '<a href="' + href + '" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-decoration:underline">' + url + '</a>';
+      }
+    );
   }
 
   function addUserMsg (text) {
@@ -150,6 +163,15 @@
       btn.textContent = text;
       btn.addEventListener('click', () => {
         container.innerHTML = '';
+        if (text === 'Sprawdź mój profil →') {
+          if (typeof window.startWizardWith === 'function') {
+            toggleFinn();
+            window.startWizardWith('faktoring');
+          } else {
+            window.location.href = 'https://finmach.pl/?start=1';
+          }
+          return;
+        }
         handleUserInput(text);
       });
       container.appendChild(btn);

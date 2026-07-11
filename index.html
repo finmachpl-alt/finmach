@@ -2120,125 +2120,7 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
 </div>
 
 <script>
-// ════════════════════════════════════════════════════════════════
-// PARTNER DATABASE
-// ════════════════════════════════════════════════════════════════
-const PARTNERS = [
-  { id:"pragmago",     name:"PragmaGO",           products:["factoring","full","reverse"],  min_age:6,  max_dso:90,  industries:["ecommerce","handel","uslugi_b2b","tsl","gastro","eksport"],  blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:50000,  advance:[80,100], docs:"low",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 0,9%", url:"https://online.pragmago.pl/faktoring-online/krok1?recommendation_code=952143", contact_email:null, notes:"Silny w online, faktury do 100k" },
-  { id:"bibby",        name:"Bibby Financial",    products:["factoring","contract","full"], min_age:12, max_dso:90,  industries:["budowlanka","energetyka","eksport"],                        blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:100000, advance:[80,90],  docs:"med",  speed:48, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,2%", url:"https://app.kalypso.pl/bibby/onboard/channel/promo_email/PCPR30461", contact_email:null, notes:"Kontrakty / sektor publiczny / eksport" },
-  { id:"efaktor",      name:"E Faktor",           products:["factoring","full"],           min_age:12, max_dso:90,  industries:["produkcja","handel","tsl","eksport"],                       blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:100000, advance:[80,90],  docs:"med",  speed:48, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,1%", url:"https://app.kalypso.pl/efaktor/onboard/channel/promo_sms/PCPR79004", contact_email:null, notes:"Klasyczny limit faktoringowy" },
-  { id:"finea",        name:"FINEA",              products:["factoring","micro"],          min_age:6,  max_dso:60,  industries:["uslugi_b2b","handel"],                                     blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[80,100], docs:"low",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,5%", url:"https://app.kalypso.pl/finea/onboard/channel/promo_sms/PCPR59847", contact_email:null, notes:"Mikro, do 30k PLN / faktura" },
-  { id:"smeo",         name:"SMEO Faktoring",     products:["factoring","micro","full"],   min_age:6,  max_dso:60,  industries:["uslugi_b2b","ecommerce","gastro"],                         blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[80,90],  docs:"low",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,3%", url:"https://smeo24.pl/seller?utm_source=275", contact_email:null, notes:"Szybki mikrofaktoring online" },
-  { id:"nfg",          name:"NFG",                products:["factoring","express","full"], min_age:6,  max_dso:60,  industries:["ecommerce","uslugi_b2b","handel","eksport"],                blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[80,85],  docs:"low",  speed:12, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,4%", url:"https://sof.nfg.pl/Logowanie?partnerCode=payflow_o", contact_email:null, notes:"Full online, decyzja 12h" },
-  { id:"faktoria",     name:"Faktoria",           products:["factoring","full","reverse"], min_age:12, max_dso:90,  industries:["handel","produkcja","tsl","eksport"],                      blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:100000, advance:[80,90],  docs:"med",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,0%", url:"https://oferta.faktoria.pl/payflow?hs_preview=RIrEYeAl-372309924045", contact_email:null, notes:"API, dobre procesy, faktoring odwrotny" },
-  { id:"faktorone",    name:"Faktor One",         products:["factoring","full","contract"],min_age:6,  max_dso:90,  industries:["budowlanka","tsl","gastro"],                               blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:100000, advance:[80,90],  docs:"med",  speed:36, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,1%", url:"http://payflow.faktorone.pl/", contact_email:null, notes:"Kontrakty, publiczne, elastyczny" },
-  { id:"indos-jawny",  name:"INDOS Jawny",        products:["factoring","full"],           min_age:12, max_dso:90,  industries:["handel","produkcja","tsl"],                                blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:100000, advance:[80,90],  docs:"high", speed:48, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,2%", url:"https://indos.pl/pm-faktoring-jawny/", contact_email:null, notes:"Faktoring jawny" },
-  { id:"indos-cichy",  name:"INDOS Cichy",        products:["factoring","silent"],        min_age:12, max_dso:90,  industries:["handel","produkcja","tsl"],                                blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:100000, advance:[80,90],  docs:"high", speed:48, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,3%", url:"https://indos.pl/pm-faktoring-cichy/", contact_email:null, notes:"Faktoring cichy" },
-  { id:"monevia",      name:"Monevia",            products:["factoring","full"],           min_age:6,  max_dso:90,  industries:["uslugi_b2b","handel","ecommerce","eksport"],               blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[80,90],  docs:"low",  speed:24, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,2%", url:"https://www.monevia.pl/faktoring-pro/", contact_email:null, notes:"Faktoring online dla MŚP" },
-  { id:"abs",          name:"ABS Factoring",      products:["factoring","full"],           min_age:12, max_dso:90,  industries:["handel","tsl","produkcja"],                                blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:100000, advance:[80,90],  docs:"med",  speed:36, komisja_mikro:"od 2%",   komisja_klasyk:"od 1,2%", url:null, contact_email:"kontakt@finmach.pl", notes:"Kontakt przez doradcę" },
-  { id:"youlend",      name:"Youlend",            products:["terminal","loan"],            min_age:0,  max_dso:999, industries:["handel","ecommerce","gastro"],                             blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:10000,  advance:[100,100],docs:"low",  speed:24, komisja_mikro:null,      komisja_klasyk:null,      url:null, contact_email:"kontakt@finmach.pl", notes:"Finansowanie pod obroty terminala" },
-  { id:"pragma-term",  name:"Pragma Terminale",   products:["terminal"],                  min_age:0,  max_dso:999, industries:["handel","ecommerce","gastro","uslugi_b2b"],                 blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:20000,  advance:[100,100],docs:"low",  speed:24, komisja_mikro:null,      komisja_klasyk:null,      url:"https://online.pragmago.pl/faktoring-online/krok1?recommendation_code=244226", contact_email:null, notes:"Min. obrót 20k PLN/mies." },
-  { id:"wealthon",     name:"Wealthon",           products:["terminal","loan"],            min_age:0,  max_dso:999, industries:["handel","gastro","ecommerce"],                             blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:20000,  advance:[100,100],docs:"low",  speed:24, komisja_mikro:null,      komisja_klasyk:null,      url:"https://rejestracja.wealthon.com/nowy-wniosek/rejestracja?utm_source=PF_MB", contact_email:null, notes:"Finansowanie pod terminal" },
-  { id:"smeo-loan",    name:"SMEO Pożyczka",      products:["loan","credit"],             min_age:0,  max_dso:999, industries:["mikro","uslugi_b2b"],                                      blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[100,100],docs:"low",  speed:24, komisja_mikro:null,      komisja_klasyk:null,      url:"https://pozyczka.smeo24.pl/?utm_source=275", contact_email:null, notes:"Pożyczka obrotowa do 300k" },
-  { id:"novalend",     name:"NovaLend",           products:["loan","credit"],             min_age:6,  max_dso:999, industries:["handel","produkcja","uslugi_b2b"],                          blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[100,100],docs:"med",  speed:48, komisja_mikro:null,      komisja_klasyk:null,      url:"https://novalend.pl/landing-long/?id=PCPR19108&channel=KALYPSO_BROKER_MARKETING", contact_email:null, notes:"Pożyczka dla firm" },
-  { id:"indos-loan",   name:"INDOS Pożyczka",     products:["loan","credit"],             min_age:12, max_dso:999, industries:["produkcja","handel","uslugi_b2b"],                          blocked:["hazard","crypto"], forms:["jdg","spzoo","sa"], min_rev:0,      advance:[100,100],docs:"high", speed:72, komisja_mikro:null,      komisja_klasyk:null,      url:"https://indos.pl/pm-pozyczka/", contact_email:null, notes:"Do 10 mln, hipoteka" },
-  { id:"finbee",       name:"Finbee",             products:["loan","credit"],             min_age:6,  max_dso:999, industries:["uslugi_b2b","handel","mikro"],                              blocked:["hazard","crypto"], forms:["jdg","spzoo"],      min_rev:0,      advance:[100,100],docs:"low",  speed:48, komisja_mikro:null,      komisja_klasyk:null,      url:null, contact_email:"kontakt@finmach.pl", notes:"Kontakt przez doradcę" },
-];
-
-// ════════════════════════════════════════════════════════════════
-// SCORING ENGINE
-// ════════════════════════════════════════════════════════════════
-function scorePartners(answers) {
-  const { product, legal_form, industry, age_months, monthly_rev,
-          invoice_term, priority, single_invoice } = answers;
-
-  const neededProducts =
-      product === "faktoring"  ? ["factoring","full","silent"]
-    : product === "mikro"      ? ["micro","express","factoring","full"]
-    : product === "kontrakt"   ? ["contract","full","factoring"]
-    : product === "terminal"   ? ["terminal"]
-    : product === "pozyczka"   ? ["loan","credit"]
-    : ["factoring","full","micro","express","contract","loan","credit"];
-
-  const results = [];
-
-  for (const p of PARTNERS) {
-    const hasProduct = p.products.some(pr => neededProducts.includes(pr));
-    if (!hasProduct) continue;
-    if (product === "terminal" && !p.products.includes("terminal")) continue;
-    if (product !== "terminal" && p.products.includes("terminal")) continue;
-
-    if (age_months < p.min_age) continue;
-    const formMap = { jdg:"jdg", spzoo:"spzoo", sa:"sa", inna:"spzoo" };
-    if (!p.forms.includes(formMap[legal_form] || "jdg")) continue;
-    if (p.blocked.some(b => industry && industry.includes(b))) continue;
-    if ((invoice_term || 0) > p.max_dso) continue;
-    if ((monthly_rev || 0) < p.min_rev) continue;
-
-    if (p.id === "pragma-rev") continue;
-
-    let score = 50;
-
-    if (p.industries.includes(industry)) score += 20;
-    if (industry === "eksport" && p.industries.includes("eksport")) score += 15;
-
-    if (priority === "speed") {
-      if (p.speed <= 24) score += 15;
-      else if (p.speed <= 48) score += 5;
-    }
-    if (priority === "cost") {
-      if (p.docs === "low") score += 12;
-      else if (p.docs === "med") score += 6;
-    }
-    if (priority === "limit") {
-      if (p.min_rev === 0) score += 8;
-      if (p.advance[1] >= 100) score += 6;
-    }
-    if (priority === "docs") {
-      if (p.docs === "low") score += 15;
-    }
-
-    if (product === "mikro") {
-      if (p.products.includes("micro")) score += 18;
-      if (p.products.includes("express")) score += 12;
-    }
-    if (product === "kontrakt") {
-      if (p.products.includes("contract")) score += 20;
-      if (["budowlanka","energetyka"].includes(industry)) score += 10;
-    }
-    if (product === "nie_wiem") {
-      if (p.speed <= 24) score += 8;
-      if (p.docs === "low") score += 6;
-    }
-
-    if (p.min_rev > 0 && (monthly_rev || 0) >= p.min_rev * 2) score += 8;
-    score += (p.advance[1] - 80) / 2;
-
-    const whyParts = [];
-    if (p.industries.includes(industry)) whyParts.push("branża preferowana");
-    if (p.speed <= 24) whyParts.push(`decyzja ${p.speed}h`);
-    if (p.docs === "low") whyParts.push("min. dokumenty");
-    if (product === "mikro" && p.products.includes("micro")) whyParts.push("jednorazowe faktury ✓");
-    if (product === "kontrakt" && p.products.includes("contract")) whyParts.push("specjalista od kontraktów ✓");
-
-    const rawScore = Math.round(score);
-    results.push({ ...p, score: rawScore, why: whyParts.join(" · ") || p.notes });
-  }
-
-  results.sort((a, b) => b.score - a.score);
-  const top = results.slice(0, 3);
-
-  // POPRAWKA: score 103 → ocena 10/10 (gwiazdki/punkty czytelne dla klienta)
-  // Mapujemy surowy score (zwykle 50-115) na skalę 1-10
-  top.forEach(p => {
-    let s10 = Math.round((p.score - 50) / 6.5);   // 50→0, ~115→10
-    if (s10 > 10) s10 = 10;
-    if (s10 < 6)  s10 = 6;                          // top 3 zawsze min. 6/10
-    p.score10 = s10;
-  });
-
-  return top;
-}
+// (baza partnerów i scoring przeniesione w całości do silnika GAS — Kod_v6)
 
 // ════════════════════════════════════════════════════════════════
 // WIZARD STATE
@@ -2248,16 +2130,18 @@ let stepIdx = 0;
 let selectedPartners = new Set();
 
 function getStepsForProduct(p) {
-  const s = [{ id:"product", render: renderProduct }];
-  const e = [{ id:"nip", render: renderNIP }, { id:"results", render: renderResults }];
+  const s = [{ id:"product", render: renderProduct }, { id:"nip", render: renderNIP }];
+  const e = [{ id:"results", render: renderResults }];
   const paths = {
     faktoring: [
       { id:"legal_form", render: renderLegalForm },
       { id:"industry", render: renderIndustry },
+      { id:"kontrahent", render: renderKontrahent },
       { id:"age", render: renderAge },
       { id:"revenue", render: renderRevenue },
       { id:"kwota_finansowania", render: renderKwotaFinansowania },
       { id:"invoice_detail", render: renderInvoiceDetail },
+      { id:"zaleglosci", render: renderZaleglosci },
       { id:"priority", render: renderPriority },
     ],
     mikro: [
@@ -2293,7 +2177,6 @@ function getStepsForProduct(p) {
       { id:"legal_form", render: renderLegalForm },
       { id:"revenue", render: renderRevenue },
       { id:"age", render: renderAge },
-      { id:"invoice_detail", render: renderInvoiceDetail },
       { id:"typ_fin", render: renderTypFinansowania },
       { id:"priority_kredyt", render: renderPriorityKredyt },
       { id:"zaleglosci", render: renderZaleglosci },
@@ -2317,21 +2200,50 @@ function getStepsForProduct(p) {
       { id:"priority", render: renderPriority },
     ],
   };
-  return [...s, ...(paths[p] || paths.nie_wiem), ...e];
+  let path = [...(paths[p] || paths.nie_wiem)];
+  // Rejestr potwierdził formę prawną i staż — nie pytamy o to, co już wiemy
+  if (answers.registry_confirmed) {
+    path = path.filter(st => st.id !== "legal_form" && st.id !== "age");
+  }
+  return [...s, ...path, ...e];
 }
+
+// Przejście z kroku NIP: przebudowa ścieżki (z pominięciami) i skok na pierwsze pytanie
+function nipNext() {
+  STEPS = getStepsForProduct(answers.product);
+  TOTAL_STEPS = STEPS.length - 1;
+  stepIdx = 2;
+  render();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+window.nipNext = nipNext;
+
+// Pominięcie NIP — wymaga zgody RODO, komunikat inline zamiast alert()
+function skipNip() {
+  const rodo = document.getElementById("rodoCheck");
+  if (rodo && rodo.checked) {
+    answers.nip = "";
+    answers.registry_confirmed = false;
+    nipNext();
+  } else {
+    const w = document.getElementById("nipRodoWarn");
+    if (w) { w.style.display = "flex"; w.scrollIntoView({behavior:"smooth", block:"center"}); }
+  }
+}
+window.skipNip = skipNip;
 let STEPS = [
   { id:"product",        render: renderProduct },
+  { id:"nip",            render: renderNIP },
   { id:"legal_form",     render: renderLegalForm },
   { id:"industry",       render: renderIndustry },
   { id:"age",            render: renderAge },
   { id:"revenue",        render: renderRevenue },
   { id:"invoice_detail", render: renderInvoiceDetail },
   { id:"priority",       render: renderPriority },
-  { id:"nip",            render: renderNIP },
   { id:"results",        render: renderResults },
 ];
 
-let TOTAL_STEPS = STEPS.length - 2;
+let TOTAL_STEPS = STEPS.length - 1;
 
 function startWizard() {
   try { if (window.fbq) fbq('track', 'InitiateCheckout', { content_name: 'wizard_start' }); } catch(e) {}
@@ -2375,7 +2287,7 @@ function startWizardWith(product) {
   sessionStorage.removeItem("fm_pinged");
   answers.product = product;
   STEPS = getStepsForProduct(product);
-  TOTAL_STEPS = STEPS.length - 2;
+  TOTAL_STEPS = STEPS.length - 1;
   document.getElementById("landingPage").style.display = "none";
   document.getElementById("wizardPage").style.display = "flex";
   document.body.classList.add("wizard-active");
@@ -2452,7 +2364,7 @@ function selectAndNext(field, value) {
   }
   if (field === "product") {
     STEPS = getStepsForProduct(value);
-    TOTAL_STEPS = STEPS.length - 2;
+    TOTAL_STEPS = STEPS.length - 1;
   }
   if (field === "product" && PRODUCT_FEEDBACK[value]) {
     const card = document.getElementById("mainCard");
@@ -2478,7 +2390,7 @@ function progressiveSave() {
   sessionStorage.setItem("finmach_progress", JSON.stringify(data));
   if (answers.priority && !sessionStorage.getItem("fm_pinged")) {
     sessionStorage.setItem("fm_pinged", "1");
-    const p = new URLSearchParams({ action:"anonPing", ...data });
+    const p = new URLSearchParams({ action:"anonPing", ...data, ...getAttribution() });
     fetch(GAS_URL + "?" + p).catch(()=>{});
   }
 }
@@ -2807,6 +2719,20 @@ function renderIndustryTerminal() {
     </div>`;
 }
 
+function renderKontrahent() {
+  return `
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Kto jest Twoim głównym kontrahentem?</div>
+    <p class="step-hint">Faktor ocenia przede wszystkim tego, kto płaci Twoje faktury - to pytanie mocno wpływa na dopasowanie.</p>
+    <div class="tiles">
+      ${tile("🏢","Duże firmy","Korporacje, sieci, spółki","duza_firma","kontrahent_typ")}
+      ${tile("🏛️","Sektor publiczny","Gminy, szpitale, JST","jst","kontrahent_typ")}
+      ${tile("🏪","Małe i średnie firmy","MŚP, lokalni odbiorcy","msp","kontrahent_typ")}
+      ${tile("🌍","Zagranica","Eksport, klienci z UE i spoza","zagranica","kontrahent_typ")}
+      ${tile("🔀","Różni odbiorcy","Mieszany portfel","mix","kontrahent_typ")}
+    </div>`;
+}
+
 function renderZaleglosci() {
   return `
     <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
@@ -3116,8 +3042,9 @@ function renderKwotaHipoteka() {
 function renderNIP() {
   const nipVal = answers.nip || "";
   return `
-    <div class="step-question">NIP firmy <span style="font-weight:400;font-size:0.85em;color:var(--ink2)">(opcjonalnie)</span></div>
-    <p class="step-hint" style="margin-bottom:16px">Podaj NIP żeby zobaczyć dane firmy. Możesz też pominąć.</p>
+    <div class="step-num">Krok ${stepIdx+1} z ${TOTAL_STEPS}</div>
+    <div class="step-question">Zacznijmy od NIP-u <span style="font-weight:400;font-size:0.85em;color:var(--ink2)">(opcjonalnie)</span></div>
+    <p class="step-hint" style="margin-bottom:16px">Podaj NIP, a formę prawną i staż firmy pobierzemy z rejestrów - pominiesz część pytań. Możesz też pominąć ten krok i odpowiedzieć samodzielnie.</p>
     <div class="nip-row">
       <input class="inp" id="nipInput" type="text" inputmode="numeric" maxlength="13"
         placeholder="np. 5272647926" value="${nipVal}"
@@ -3137,15 +3064,18 @@ function renderNIP() {
     </div>
     <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;padding:12px 14px;background:var(--bg);border-radius:10px;border:1px solid var(--border)">
       <input type="checkbox" id="rodoCheck" style="margin-top:3px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent)"
-        onchange="document.getElementById('btnNipNext').disabled = !this.checked">
+        onchange="document.getElementById('btnNipNext').disabled = !this.checked; if(this.checked){var w=document.getElementById('nipRodoWarn'); if(w) w.style.display='none';}">
       <label for="rodoCheck" style="font-size:0.75rem;color:var(--ink2);line-height:1.5;cursor:pointer">
         Wyrażam zgodę na przetwarzanie danych osobowych przez FINMACH / Payflow w celu analizy profilu firmy i przedstawienia ofert finansowania. <a href="/polityka-prywatnosci.html" style="color:var(--accent)">Polityka prywatności</a>.
       </label>
     </div>
-    <button class="btn-next" id="btnNipNext" onclick="next()" style="margin-bottom:10px" disabled>
-      Pokaż moje oferty →
+    <div class="warn-box" id="nipRodoWarn" style="display:none">
+      <span class="warn-icon">☝️</span><span>Zaznacz proszę zgodę powyżej - bez niej nie możemy przygotować dopasowania.</span>
+    </div>
+    <button class="btn-next" id="btnNipNext" onclick="nipNext()" style="margin-bottom:10px" disabled>
+      Dalej →
     </button>
-    <button class="btn-skip" onclick="document.getElementById('rodoCheck').checked ? (answers.nip='',next()) : alert('Zaznacz zgodę RODO, aby zobaczyć oferty.')">Pomiń NIP - pokaż oferty</button>`;
+    <button class="btn-skip" onclick="skipNip()">Pomiń NIP - odpowiem na pytania</button>`;
 }
 
 async function verifyNIP() {
@@ -3205,8 +3135,11 @@ async function verifyNIP() {
       }
       if (data.dataStart) answers.data_start = data.dataStart;
       if (data.krs) answers.krs = data.krs;
+      answers.registry_confirmed = !!(data.legalForm && data.wiekMiesiecy != null);
       document.getElementById("firmaKorekta").textContent =
-        korekty.length ? "✓ Zaktualizowaliśmy " + korekty.join(" i ") + " na podstawie rejestrów - oferty będą trafniejsze" : "";
+        answers.registry_confirmed
+          ? "✓ Mamy dane z rejestrów - pominiemy pytania o formę prawną i staż firmy"
+          : (korekty.length ? "✓ Zaktualizowaliśmy " + korekty.join(" i ") + " na podstawie rejestrów - oferty będą trafniejsze" : "");
 
       document.getElementById("nipResult").classList.add("show");
       checkKRZ(nip);
@@ -3261,62 +3194,53 @@ function renderResults() {
 }
 
 
+const FINN_REASONS_URL = "https://finn.finmachpl.workers.dev/reasons";
+
 async function enhanceWithAI(offers) {
   try {
-    const product = answers.product || "";
-    const legalForm = answers.legal_form || "";
-    const industry = answers.industry || "";
-    const priority = (answers.priorities || [])[0] || answers.priority || "";
-    
-    const offerList = offers.slice(0, 3).map((o, i) => 
-      `${i+1}. ${o.name}: ${(o.reasons||[]).join(", ")}`
-    ).join("\n");
-    
-    const prompt = `Jesteś ekspertem finansowym FINMACH. Klient szuka: ${product}. Forma prawna: ${legalForm}. Branża: ${industry||"nieznana"}. Priorytet: ${priority||"nieznany"}.
+    const branzaLabel = {
+      handel:"handel", budowlanka:"budownictwo", tsl:"transport/TSL",
+      ecommerce:"e-commerce", produkcja:"produkcja", uslugi_b2b:"usługi B2B",
+      energetyka:"energetyka", eksport:"eksport/import", gastro:"gastronomia/handel", inne:"inna"
+    }[answers.industry] || answers.industry || "";
+    const stazLabel = {
+      3:"poniżej 6 miesięcy", 9:"6-12 miesięcy", 18:"1-2 lata", 30:"ponad 2 lata"
+    }[answers.age_months] || "";
 
-Oto dopasowane oferty:
-${offerList}
+    const payload = {
+      offers: offers.slice(0, 3).map(o => ({
+        nazwa:   o.name,
+        czas:    o.speed || "",
+        advance: (o.advance && o.advance[1]) || ""
+      })),
+      branza:     branzaLabel,
+      obroty:     parseFloat(answers.monthly_rev) || 0,
+      dso:        answers.invoice_term || 30,
+      legal_form: answers.legal_form || "",
+      staz:       stazLabel,
+      priorytet:  (answers.priorities || [])[0] || answers.priority || "",
+      produkt:    answers.product || "",
+    };
 
-Dla każdej z ${Math.min(3, offers.length)} ofert napisz JEDNO krótkie zdanie (max 100 znaków) - konkretne uzasadnienie dlaczego jest dobra dla tego klienta. Pisz po polsku, naturalnie jak ekspert.
-Odpowiedz TYLKO w JSON: {"reasons": ["zdanie1", "zdanie2", "zdanie3"]}`;
-
-    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const res = await fetch(FINN_REASONS_URL, {
       method: "POST",
-      headers: {
-        "Authorization": "Bearer " + OPENROUTER_KEY,
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://finmach.pl"
-      },
-      body: JSON.stringify({
-        model: "meta-llama/llama-3.3-70b-instruct:free",
-        messages: [{ role: "user", content: prompt }],
-        max_tokens: 300,
-        temperature: 0.3
-      })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
     });
-    
+    if (!res.ok) return;
+
     const data = await res.json();
-    const content = data?.choices?.[0]?.message?.content || "";
-    const jsonMatch = content.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) return;
-    
-    const parsed = JSON.parse(jsonMatch[0]);
-    const aiReasons = parsed.reasons || [];
-    
-    // Podmień opisy pod kartami AI opisem
+    const aiReasons = data.reasons || [];
+
     offers.slice(0, 3).forEach((offer, i) => {
       if (aiReasons[i]) {
         const card = document.getElementById("card-" + offer.id);
         if (card) {
           const reasonDiv = card.querySelector("div[style*='f8f9ff']");
-          if (reasonDiv) {
-            reasonDiv.innerHTML = "🤖 " + aiReasons[i];
-          }
+          if (reasonDiv) reasonDiv.innerHTML = "💡 " + aiReasons[i];
         }
       }
     });
-    
-    console.log("✅ AI opisy załadowane!");
   } catch(e) {
     console.log("AI opisy skip:", e.message);
   }
@@ -3456,11 +3380,7 @@ async function fetchGASOffers() {
     
   } catch(e) {
     console.error("FINMACH GAS fetch error:", e.message, e);
-    // Fallback - pokaż kontakt zamiast pustego ekranu
-    const top3 = scorePartners(answers);
-    if (top3.length === 0) {
-      document.getElementById("mainCard").innerHTML = '<div class="blocked-screen"><div class="blocked-icon">⚠️</div><div class="blocked-title">Błąd połączenia</div><p class="blocked-text">Nie udało się pobrać ofert. Spróbuj ponownie.</p><button class="btn-next" onclick="render()" style="max-width:280px;margin:0 auto">🔄 Spróbuj ponownie</button></div>';
-    }
+    document.getElementById("mainCard").innerHTML = '<div class="blocked-screen"><div class="blocked-icon">⚠️</div><div class="blocked-title">Błąd połączenia</div><p class="blocked-text">Nie udało się pobrać ofert. Spróbuj ponownie za chwilę.</p><button class="btn-next" onclick="render()" style="max-width:280px;margin:0 auto">🔄 Spróbuj ponownie</button><a href="mailto:kontakt@finmach.pl" style="display:block;text-align:center;margin-top:12px;font-size:0.82rem;color:var(--accent)">albo napisz: kontakt@finmach.pl</a></div>';
   }
 }
 
@@ -3491,7 +3411,7 @@ window.togglePartner = togglePartner;
 // POPRAWKA 3 - odporne na chat.js, z try/catch
 function submitMultiApply() {
   try {
-    const top3 = window._gasOffers || scorePartners(answers);
+    const top3 = window._gasOffers || [];
     const chosen = top3.filter(p => selectedPartners.has(String(p.id)));
     if (chosen.length === 0) {
       alert("Najpierw zaznacz przynajmniej jedną ofertę (kliknij w kartę oferty).");
@@ -3521,7 +3441,7 @@ function selectAndApply(id) {
         if (cnt) cnt.textContent = selectedPartners.size + (selectedPartners.size === 1 ? " oferta" : " oferty");
       }
     }
-    const top3 = window._gasOffers || scorePartners(answers);
+    const top3 = window._gasOffers || [];
     const chosen = top3.filter(p => selectedPartners.has(String(p.id)));
     if (chosen.length === 0) { alert("Nie udało się wybrać oferty. Spróbuj ponownie."); return; }
     // główną zrób tę klikniętą, reszta jako dodatkowe
@@ -3537,63 +3457,6 @@ window.selectAndApply = selectAndApply;
 
 // ════════════════════════════════════════════════════════════════
 // AI UZASADNIENIA przez GAS
-// ════════════════════════════════════════════════════════════════
-async function fetchReasoningsFromGAS(offers, answers) {
-  // Mapowanie nazw branż na czytelne dla AI
-  const branzaLabel = {
-    handel:"handel", budowlanka:"budownictwo", tsl:"transport/TSL",
-    ecommerce:"e-commerce", produkcja:"produkcja", uslugi_b2b:"usługi B2B",
-    energetyka:"energetyka", eksport:"eksport/import", gastro:"gastronomia/handel", inne:"inna"
-  }[answers.industry] || answers.industry || "";
-  const stazLabel = {
-    3:"poniżej 6 miesięcy", 9:"6-12 miesięcy", 18:"1-2 lata", 30:"ponad 2 lata"
-  }[answers.age_months] || "";
-
-  try {
-    // Wysyłamy DOKŁADNIE te oferty które strona pokazuje (offersJSON)
-    const offersPayload = offers.map(o => ({
-      nazwa: o.name,
-      czas:  o.speed,
-      advance: o.advance ? o.advance[1] : 90
-    }));
-    const params = new URLSearchParams({
-      action:     "reasonsFor",
-      offersJSON: JSON.stringify(offersPayload),
-      branza:     branzaLabel,
-      obroty:     answers.monthly_rev || "",
-      dso:        answers.invoice_term || 30,
-      legal_form: answers.legal_form   || "",
-      staz:       stazLabel,
-      priorytet:  answers.priority     || "",
-      produkt:    answers.product      || "",
-    });
-    const res  = await fetch(GAS_URL + "?" + params);
-    const data = await res.json();
-
-    if (data.reasons && data.reasons.length) {
-      // Przypinamy po KOLEJNOŚCI (index), nie po id - zawsze trafia
-      offers.forEach((p, i) => {
-        const el = document.getElementById("why-" + p.id);
-        if (el && data.reasons[i]) {
-          el.innerHTML = '<div style="font-size:0.8rem;color:var(--ink2);line-height:1.6;padding:8px 10px;background:#f8f9ff;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;margin-top:4px">💡 ' + data.reasons[i] + '</div>';
-        } else if (el) {
-          el.innerHTML = '<div style="font-size:0.8rem;color:var(--ink2);line-height:1.6;padding:8px 10px;background:#f8f9ff;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;margin-top:4px">💡 ' + (p.why || p.notes || "") + '</div>';
-        }
-      });
-    } else {
-      offers.forEach(p => {
-        const el = document.getElementById("why-" + p.id);
-        if (el) el.innerHTML = '<div style="font-size:0.8rem;color:var(--ink2);line-height:1.6;padding:8px 10px;background:#f8f9ff;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;margin-top:4px">💡 ' + (p.why || p.notes || "") + '</div>';
-      });
-    }
-  } catch(e) {
-    offers.forEach(p => {
-      const el = document.getElementById("why-" + p.id);
-      if (el) el.innerHTML = '<div style="font-size:0.8rem;color:var(--ink2);line-height:1.6;padding:8px 10px;background:#f8f9ff;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;margin-top:4px">💡 ' + (p.why || p.notes || "") + '</div>';
-    });
-  }
-}
-
 async function sendResultsEmail() {
   const email = document.getElementById("resultsEmail")?.value.trim() || "";
   if (!email || !email.includes("@")) {
@@ -3658,10 +3521,13 @@ function openModal(partner, additionals = []) {
         </div>`}
         <div style="display:flex;align-items:flex-start;gap:10px;margin:6px 0 12px;padding:12px 14px;background:var(--bg);border-radius:10px;border:1px solid var(--border)">
           <input type="checkbox" id="m_rodo" style="margin-top:2px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent);flex:none"
-            onchange="document.getElementById('modalSubmit').disabled = !this.checked">
+            onchange="document.getElementById('modalSubmit').disabled = !this.checked; if(this.checked){var w=document.getElementById('mRodoWarn'); if(w) w.style.display='none';}">
           <label for="m_rodo" style="font-size:0.72rem;color:var(--ink2);line-height:1.5;cursor:pointer">
             Wyrażam zgodę na przekazanie moich danych wybranym partnerom finansowym w celu przedstawienia oferty oraz na ich przetwarzanie przez FINMACH / Pay Flow Sp. z o.o. <a href="/polityka-prywatnosci.html" style="color:var(--accent)">Polityka prywatności</a>.
           </label>
+        </div>
+        <div class="warn-box" id="mRodoWarn" style="display:none">
+          <span class="warn-icon">☝️</span><span>Zaznacz proszę zgodę powyżej, aby złożyć wniosek.</span>
         </div>
         <button class="modal-submit" id="modalSubmit" onclick="submitModal()" disabled>
           Złóż wniosek${additionals.length > 0 ? 'i' : ''} i przejdź do ${partner.name} →
@@ -3711,7 +3577,8 @@ function showTick(field) {
 async function submitModal() {
   const rodo = document.getElementById("m_rodo");
   if (rodo && !rodo.checked) {
-    alert("Zaznacz zgodę na przetwarzanie danych, aby złożyć wniosek.");
+    const w = document.getElementById("mRodoWarn");
+    if (w) { w.style.display = "flex"; w.scrollIntoView({behavior:"smooth", block:"center"}); }
     return;
   }
   const imie  = document.getElementById("m_imie")?.value.trim()  || "";
@@ -3874,6 +3741,7 @@ function buildLead() {
     krz:        answers.krz_flag    || false,
     dso:        answers.invoice_term || "",
     ts:         new Date().toISOString(),
+    ...getAttribution(),
   };
 }
 
@@ -3912,8 +3780,42 @@ function caseGoTo(i) { _caseIdx = i; caseRender(); }
 window.caseSlide = caseSlide;
 window.caseGoTo = caseGoTo;
 
-const OPENROUTER_KEY = "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";
 const GAS_URL = "https://script.google.com/macros/s/AKfycbyaasM9qm0_uUCDPaM6ZZT9-8tyeCbIVmF9HlflyYEADEDzDq9tdhN-Q6th63aM-ao/exec";
+
+// ════════════════════════════════════════════════════════════════
+// ATRYBUCJA — partner + UTM z adresu URL (do arkusza z leadami)
+// ════════════════════════════════════════════════════════════════
+(function() {
+  try {
+    const q = new URLSearchParams(window.location.search);
+    const attr = JSON.parse(localStorage.getItem('fm_attr') || '{}');
+    const now = Date.now();
+    if (q.get('partner')) { attr.partner = q.get('partner').slice(0, 40); attr.partner_ts = now; }
+    // kod partnera wygasa po 90 dniach
+    if (attr.partner_ts && now - attr.partner_ts > 90 * 24 * 3600 * 1000) { delete attr.partner; delete attr.partner_ts; }
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => {
+      if (q.get(k)) attr[k] = q.get(k).slice(0, 80);
+    });
+    if (q.get('fbclid')) attr.fbclid = q.get('fbclid').slice(0, 120);
+    localStorage.setItem('fm_attr', JSON.stringify(attr));
+  } catch(e) {}
+})();
+
+function getAttribution() {
+  try {
+    const a = JSON.parse(localStorage.getItem('fm_attr') || '{}');
+    return {
+      partner_kod:  a.partner      || '',
+      utm_source:   a.utm_source   || '',
+      utm_medium:   a.utm_medium   || '',
+      utm_campaign: a.utm_campaign || '',
+      utm_content:  a.utm_content  || '',
+      utm_term:     a.utm_term     || '',
+    };
+  } catch(e) {
+    return { partner_kod:'', utm_source:'', utm_medium:'', utm_campaign:'', utm_content:'', utm_term:'' };
+  }
+}
 
 // ════════════════════════════════════════════════════════════════
 // INIT
