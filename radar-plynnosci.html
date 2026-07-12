@@ -96,6 +96,8 @@ ul{list-style:none}
 .uwaga{padding:11px 13px;background:#faf7f0;border-left:3px solid var(--gold);
   border-radius:0 8px 8px 0;margin-bottom:8px;font-size:14px;color:var(--ink2)}
 
+.mon{margin-top:18px;background:#faf7f0;border:1px solid var(--line);border-radius:14px;padding:18px}
+.mon .row{margin-top:4px}
 .cta{margin-top:20px;background:var(--navy);border-radius:14px;padding:22px;text-align:center;color:#fff}
 .cta h3{color:#fff;font-size:17px;border:none;text-transform:none;letter-spacing:0;margin-bottom:6px}
 .cta p{font-size:14.5px;color:#cfd6e6;margin-bottom:16px}
@@ -162,6 +164,16 @@ footer a{color:var(--gold);text-decoration:none}
       <div class="sec" id="uwagiSec" style="display:none">
         <h3>Na co zwrócić uwagę</h3>
         <div id="uwagi"></div>
+      </div>
+
+      <div class="mon" id="mon">
+        <h3 style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:5px;margin-bottom:10px">Pilnujemy za Ciebie</h3>
+        <p style="font-size:14.5px;color:var(--ink2);margin-bottom:12px">Sprawdziłeś raz. A jeśli za miesiąc coś się zmieni — firma zawiesi działalność albo zniknie z białej listy? Zostaw e-mail, a raz w tygodniu sprawdzimy tego kontrahenta ponownie. Napiszemy tylko wtedy, gdy coś się zmieni.</p>
+        <div class="row">
+          <input type="text" id="monEmail" inputmode="email" autocomplete="email" placeholder="twoj@email.pl">
+          <button id="monBtn" style="background:var(--gold);color:var(--navy)">Włącz monitoring</button>
+        </div>
+        <p class="hint" id="monInfo">Bez spamu. Możesz wyłączyć w każdej chwili, odpisując STOP.</p>
       </div>
 
       <div class="cta" id="cta">
@@ -289,6 +301,7 @@ async function sprawdz() {
 
 function pokaz(d) {
   const kropki = { zielone: '🟢', zolte: '🟡', czerwone: '🔴' };
+  biezacyNip = d.nip;
   $('light').className = 'light ' + d.swiatlo;
   $('dot').textContent = kropki[d.swiatlo] || '⚪';
   $('naglowek').textContent = d.naglowek;
@@ -329,6 +342,39 @@ function pokaz(d) {
   $('result').style.display = 'block';
   $('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+
+// ─── Monitoring: klient zostawia e-mail, my pilnujemy zmian ───
+let biezacyNip = '';
+
+$('monBtn').addEventListener('click', async () => {
+  const email = $('monEmail').value.trim();
+  const info = $('monInfo');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    info.textContent = 'Podaj poprawny adres e-mail.';
+    info.style.color = 'var(--red)';
+    return;
+  }
+  $('monBtn').disabled = true;
+  info.textContent = 'Włączam monitoring…';
+  info.style.color = 'var(--ink2)';
+  try {
+    const p = new URLSearchParams({ action: 'radarMonitor', nip: biezacyNip, email: email, ...attr() });
+    const res = await fetch(GAS_URL + '?' + p.toString());
+    const d = await res.json();
+    if (d.ok) {
+      $('mon').innerHTML = '<p style="font-size:15px;color:var(--green);font-weight:700;margin:0">✅ ' +
+        (d.juz ? 'Ten kontrahent jest już monitorowany na tym adresie.' : 'Monitoring włączony. Sprawdzenie potwierdzające poszło na Twój e-mail.') + '</p>';
+    } else {
+      info.textContent = d.error || 'Nie udało się włączyć monitoringu.';
+      info.style.color = 'var(--red)';
+      $('monBtn').disabled = false;
+    }
+  } catch (e) {
+    info.textContent = 'Brak połączenia. Spróbuj za chwilę.';
+    info.style.color = 'var(--red)';
+    $('monBtn').disabled = false;
+  }
+});
 
 function esc(s) {
   return String(s == null ? '' : s)
