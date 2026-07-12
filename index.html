@@ -1516,6 +1516,7 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
     <div class="nav-links" id="navLinks">
       <a href="#jak-dziala" class="nav-link" onclick="smoothScroll('howItWorks');closeNav();return false">Jak działa</a>
       <a href="#kalkulator" class="nav-link" onclick="smoothScroll('kalkulator');closeNav();return false">Kalkulator</a>
+      <a href="/radar-plynnosci.html" class="nav-link">Radar Płynności</a>
       <a href="#" class="nav-link" onclick="showPage('about');closeNav();return false">O nas</a>
       <a href="#" class="nav-link" onclick="showPage('knowledge');closeNav();return false">Baza wiedzy</a>
       <a href="#" class="nav-link" onclick="showPage('contact');closeNav();return false">Kontakt</a>
@@ -1882,6 +1883,24 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
     }
   })();
   </script>
+
+  <!-- Radar Płynności -->
+  <section class="section" style="padding-top:0">
+    <div style="background:linear-gradient(135deg,#0d1e42 0%,#173B8F 100%);border-radius:var(--radius);padding:32px 26px;color:#fff;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-30px;right:-20px;font-size:150px;opacity:.07;line-height:1">🚦</div>
+      <div style="position:relative;max-width:660px">
+        <div style="display:inline-block;background:rgba(217,184,94,.18);color:var(--gold);font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:12px">Darmowe narzędzie</div>
+        <h2 style="font-size:1.65rem;line-height:1.25;margin:0 0 10px;font-weight:800">Sprawdź kontrahenta, zanim wystawisz fakturę</h2>
+        <p style="color:#cfd8ea;font-size:0.97rem;line-height:1.6;margin:0 0 18px">Dając komuś sześćdziesiąt dni na zapłatę, udzielasz mu kredytu. Wpisz NIP odbiorcy, a Radar Płynności sprawdzi go w rejestrach publicznych i powie, na co zwrócić uwagę. Bez rejestracji, bez opłat, w kilka sekund.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;font-size:0.85rem;color:#cfd8ea">
+          <span>🟢 Biała lista VAT</span>
+          <span>🟡 Wiek i forma prawna</span>
+          <span>🔴 Krajowy Rejestr Zadłużonych</span>
+        </div>
+        <a href="/radar-plynnosci.html" style="display:inline-block;background:var(--gold);color:#0d1e42;text-decoration:none;font-weight:800;padding:14px 28px;border-radius:12px;font-size:0.95rem">Sprawdź kontrahenta za darmo →</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Why us -->
   <section class="section" style="padding-top:0">
