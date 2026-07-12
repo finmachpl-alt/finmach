@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar Płynności — sprawdź kontrahenta przed wystawieniem faktury | FINMACH</title>
+<meta name="description" content="Darmowe narzędzie: wpisz NIP kontrahenta i sprawdź, co mówią o nim rejestry publiczne — biała lista VAT, KRS, Krajowy Rejestr Zadłużonych. Zanim wystawisz fakturę z odroczonym terminem.">
+<link rel="canonical" href="https://finmach.pl/radar-plynnosci.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finmach.pl/radar-plynnosci.html">
+<meta property="og:title" content="Radar Płynności — sprawdź kontrahenta zanim wystawisz fakturę">
+<meta property="og:description" content="Wpisz NIP i sprawdź, co mówią rejestry publiczne o Twoim odbiorcy. Darmowe narzędzie FINMACH.">
+<meta property="og:site_name" content="FINMACH">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Radar Płynności FINMACH",
+  "url": "https://finmach.pl/radar-plynnosci.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" },
+  "description": "Darmowe narzędzie do sprawdzania kontrahenta w rejestrach publicznych przed wystawieniem faktury z odroczonym terminem płatności.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "FINMACH",
+    "url": "https://finmach.pl"
+  }
+}
+</script>
+
+<style>
+:root{
+  --navy:#0d1e42; --gold:#c9a84c; --ink:#1a1814; --ink2:#5a5750;
+  --bg:#f5f3ef; --card:#ffffff; --line:#e3ded3;
+  --green:#0f7b4f; --amber:#b46b04; --red:#b3261e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+header{background:var(--navy);padding:14px 20px}
+.hwrap{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{color:#fff;font-weight:800;letter-spacing:2px;font-size:15px;text-decoration:none}
+.logo span{color:var(--gold)}
+.hlink{color:#cfd6e6;text-decoration:none;font-size:14px}
+.hlink:hover{color:#fff}
+
+.hero{max-width:760px;margin:0 auto;padding:48px 20px 8px;text-align:center}
+.eyebrow{color:var(--gold);font-size:12px;letter-spacing:3px;font-weight:700;text-transform:uppercase}
+h1{font-size:clamp(26px,5vw,40px);line-height:1.2;margin:12px 0 14px;font-weight:800;color:var(--navy)}
+.lead{font-size:17px;color:var(--ink2);max-width:600px;margin:0 auto}
+
+.tool{max-width:640px;margin:28px auto;padding:0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 22px;
+  box-shadow:0 6px 24px rgba(13,30,66,.06)}
+label{display:block;font-weight:700;font-size:14px;margin-bottom:8px;color:var(--navy)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+input[type=text]{flex:1;min-width:200px;padding:15px 16px;font-size:17px;letter-spacing:1px;
+  border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);outline:none;transition:border-color .15s}
+input[type=text]:focus{border-color:var(--navy)}
+button{padding:15px 26px;font-size:16px;font-weight:700;border:none;border-radius:12px;
+  background:var(--navy);color:#fff;cursor:pointer;transition:transform .08s,opacity .15s}
+button:hover{opacity:.92}
+button:active{transform:translateY(1px)}
+button:disabled{opacity:.55;cursor:default}
+.hint{font-size:13px;color:var(--ink2);margin-top:10px}
+
+.err{display:none;margin-top:12px;padding:11px 14px;border-radius:10px;
+  background:#fdecea;border:1px solid #f5c6c2;color:var(--red);font-size:14px}
+
+.loading{display:none;margin-top:22px;text-align:center;color:var(--ink2);font-size:14px}
+.spin{width:26px;height:26px;margin:0 auto 10px;border:3px solid var(--line);
+  border-top-color:var(--navy);border-radius:50%;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+.result{display:none;margin-top:22px}
+.light{border-radius:14px;padding:20px;margin-bottom:16px;border:1px solid;text-align:left}
+.light.zielone{background:#eaf6f0;border-color:#bfe3d1;color:var(--green)}
+.light.zolte{background:#fdf3e3;border-color:#f0dcb4;color:var(--amber)}
+.light.czerwone{background:#fdecea;border-color:#f5c6c2;color:var(--red)}
+.light .dot{font-size:26px;line-height:1}
+.light h2{font-size:19px;margin:6px 0 6px;font-weight:800}
+.light p{font-size:14.5px;color:var(--ink2)}
+.firm{font-size:13px;color:var(--ink2);margin-top:10px}
+.firm strong{color:var(--ink)}
+
+.sec{margin-top:16px}
+.sec h3{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);
+  border-bottom:2px solid var(--gold);padding-bottom:5px;margin-bottom:10px}
+ul{list-style:none}
+.fakt{display:flex;gap:9px;padding:6px 0;font-size:14.5px;border-bottom:1px solid #f0ede6}
+.fakt:last-child{border-bottom:none}
+.uwaga{padding:11px 13px;background:#faf7f0;border-left:3px solid var(--gold);
+  border-radius:0 8px 8px 0;margin-bottom:8px;font-size:14px;color:var(--ink2)}
+
+.cta{margin-top:20px;background:var(--navy);border-radius:14px;padding:22px;text-align:center;color:#fff}
+.cta h3{color:#fff;font-size:17px;border:none;text-transform:none;letter-spacing:0;margin-bottom:6px}
+.cta p{font-size:14.5px;color:#cfd6e6;margin-bottom:16px}
+.btn-gold{display:inline-block;background:var(--gold);color:var(--navy);text-decoration:none;
+  font-weight:800;padding:14px 28px;border-radius:12px;font-size:15px}
+.btn-gold:hover{opacity:.92}
+
+.src{font-size:11.5px;color:#8a857c;margin-top:14px;text-align:center;line-height:1.5}
+
+.info{max-width:760px;margin:40px auto 0;padding:0 20px}
+.info h2{font-size:22px;color:var(--navy);margin-bottom:14px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.box h3{font-size:15px;color:var(--navy);margin-bottom:6px;border:none;text-transform:none;letter-spacing:0}
+.box p{font-size:14px;color:var(--ink2)}
+
+footer{margin-top:56px;padding:26px 20px;background:var(--navy);color:#9fb0cc;text-align:center;font-size:13px}
+footer a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <a class="logo" href="/">FIN<span>MACH</span></a>
+    <a class="hlink" href="/?start=1">Porównaj finansowanie →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Darmowe narzędzie</div>
+  <h1>Sprawdź kontrahenta, zanim wystawisz fakturę</h1>
+  <p class="lead">Wpisz NIP odbiorcy i zobacz, co mówią o nim rejestry publiczne. Zanim dasz komuś sześćdziesiąt dni na zapłatę, warto wiedzieć, komu je dajesz.</p>
+</section>
+
+<section class="tool">
+  <div class="card">
+    <label for="nip">NIP kontrahenta</label>
+    <div class="row">
+      <input type="text" id="nip" inputmode="numeric" autocomplete="off" placeholder="np. 7011230351" maxlength="13">
+      <button id="btn">Sprawdź</button>
+    </div>
+    <p class="hint">Sprawdzenie jest darmowe i nie wymaga podawania danych. Nie informujemy sprawdzanej firmy.</p>
+    <div class="err" id="err"></div>
+
+    <div class="loading" id="loading">
+      <div class="spin"></div>
+      Pytamy rejestry publiczne…
+    </div>
+
+    <div class="result" id="result">
+      <div class="light" id="light">
+        <div class="dot" id="dot">●</div>
+        <h2 id="naglowek"></h2>
+        <p id="opis"></p>
+        <div class="firm" id="firm"></div>
+      </div>
+
+      <div class="sec" id="faktySec">
+        <h3>Co mówią rejestry</h3>
+        <ul id="fakty"></ul>
+      </div>
+
+      <div class="sec" id="uwagiSec" style="display:none">
+        <h3>Na co zwrócić uwagę</h3>
+        <div id="uwagi"></div>
+      </div>
+
+      <div class="cta" id="cta">
+        <h3 id="ctaTytul"></h3>
+        <p id="ctaTekst"></p>
+        <a class="btn-gold" id="ctaBtn" href="/?start=1">Sprawdź finansowanie →</a>
+      </div>
+
+      <p class="src" id="src"></p>
+    </div>
+  </div>
+</section>
+
+<section class="info">
+  <h2>Dlaczego to ma znaczenie</h2>
+  <div class="grid">
+    <div class="box">
+      <h3>Faktura to kredyt</h3>
+      <p>Wystawiając fakturę z terminem trzydziestu czy sześćdziesięciu dni, udzielasz kontrahentowi kredytu. Bez odsetek, bez zabezpieczenia i najczęściej bez sprawdzenia.</p>
+    </div>
+    <div class="box">
+      <h3>Biała lista to Twój problem</h3>
+      <p>Przelew na rachunek spoza wykazu podatników VAT powyżej piętnastu tysięcy złotych oznacza ryzyko podatkowe po Twojej stronie, nie po stronie odbiorcy.</p>
+    </div>
+    <div class="box">
+      <h3>Rejestry mówią dużo</h3>
+      <p>Brak wpisu na białej liście, świeżo założona działalność albo wpis w Krajowym Rejestrze Zadłużonych to sygnały, które widać, zanim pojawi się problem z zapłatą.</p>
+    </div>
+    <div class="box">
+      <h3>Sprawdzenie nie chroni przed zatorem</h3>
+      <p>Nawet rzetelny kontrahent może zapłacić z opóźnieniem, bo sam czeka na swoje pieniądze. Wtedy pomaga faktoring — finansowanie faktury, zanim odbiorca zapłaci.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong style="color:#fff">FINMACH</strong> · Pay Flow Sp. z o.o. · finansowanie dla firm, bez naciągania</p>
+  <p style="margin-top:8px">Radar Płynności prezentuje dane z rejestrów publicznych i nie stanowi oceny wiarygodności ani rekomendacji. Decyzję o współpracy podejmujesz samodzielnie.</p>
+  <p style="margin-top:8px"><a href="/">Strona główna</a> · <a href="/?start=1">Porównaj finansowanie</a> · <a href="mailto:kontakt@finmach.pl">kontakt@finmach.pl</a></p>
+</footer>
+
+<script>
+// ─── Adres webhooka GAS (ten sam co kreator) ───
+const GAS_URL = "https://script.google.com/macros/s/AKfycbxOV06dRgk-1uiltOu6pTp1d-qUMdmopIkRLuRqqj38kSsoVPLlfPIigTMbuZh_X_o/exec";
+
+// Atrybucja: łapiemy partnera i UTM-y, tak jak w kreatorze (90 dni)
+(function () {
+  try {
+    const q = new URLSearchParams(location.search);
+    const a = JSON.parse(localStorage.getItem('fm_attr') || '{}');
+    const now = Date.now();
+    if (q.get('partner')) { a.partner = q.get('partner').slice(0, 40); a.partner_ts = now; }
+    if (a.partner_ts && now - a.partner_ts > 90 * 24 * 3600 * 1000) { delete a.partner; delete a.partner_ts; }
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => {
+      if (q.get(k)) a[k] = q.get(k).slice(0, 80);
+    });
+    localStorage.setItem('fm_attr', JSON.stringify(a));
+  } catch (e) {}
+})();
+
+function attr() {
+  try {
+    const a = JSON.parse(localStorage.getItem('fm_attr') || '{}');
+    return { partner_kod: a.partner || '', utm_source: a.utm_source || '', utm_campaign: a.utm_campaign || '' };
+  } catch (e) { return { partner_kod: '', utm_source: '', utm_campaign: '' }; }
+}
+
+const $ = id => document.getElementById(id);
+
+// Formatowanie NIP w trakcie pisania: 123-456-78-90
+$('nip').addEventListener('input', function () {
+  const c = this.value.replace(/\D/g, '').slice(0, 10);
+  this.value = c.length > 8 ? c.slice(0,3)+'-'+c.slice(3,6)+'-'+c.slice(6,8)+'-'+c.slice(8)
+             : c.length > 6 ? c.slice(0,3)+'-'+c.slice(3,6)+'-'+c.slice(6)
+             : c.length > 3 ? c.slice(0,3)+'-'+c.slice(3) : c;
+  $('err').style.display = 'none';
+});
+$('nip').addEventListener('keydown', e => { if (e.key === 'Enter') sprawdz(); });
+$('btn').addEventListener('click', sprawdz);
+
+// Suma kontrolna NIP — nie zawracamy głowy urzędom przy literówce
+function poprawnyNip(n) {
+  if (n.length !== 10) return false;
+  const w = [6,5,7,2,3,4,5,6,7];
+  let s = 0;
+  for (let i = 0; i < 9; i++) s += parseInt(n[i], 10) * w[i];
+  return (s % 11) === parseInt(n[9], 10);
+}
+
+function bladInfo(msg) {
+  $('err').textContent = msg;
+  $('err').style.display = 'block';
+}
+
+async function sprawdz() {
+  const nip = $('nip').value.replace(/\D/g, '');
+  $('err').style.display = 'none';
+  $('result').style.display = 'none';
+
+  if (!poprawnyNip(nip)) {
+    bladInfo(nip.length !== 10
+      ? 'NIP musi mieć dziesięć cyfr.'
+      : 'Ten NIP jest niepoprawny — sprawdź, czy nie ma literówki.');
+    return;
+  }
+
+  $('loading').style.display = 'block';
+  $('btn').disabled = true;
+
+  try {
+    const p = new URLSearchParams({ action: 'radar', nip: nip, ...attr() });
+    const res = await fetch(GAS_URL + '?' + p.toString());
+    const d = await res.json();
+    $('loading').style.display = 'none';
+    $('btn').disabled = false;
+
+    if (!d.ok) { bladInfo(d.error || 'Nie udało się sprawdzić. Spróbuj ponownie za chwilę.'); return; }
+    pokaz(d);
+  } catch (e) {
+    $('loading').style.display = 'none';
+    $('btn').disabled = false;
+    bladInfo('Brak połączenia z serwerem. Spróbuj ponownie za chwilę.');
+  }
+}
+
+function pokaz(d) {
+  const kropki = { zielone: '🟢', zolte: '🟡', czerwone: '🔴' };
+  $('light').className = 'light ' + d.swiatlo;
+  $('dot').textContent = kropki[d.swiatlo] || '⚪';
+  $('naglowek').textContent = d.naglowek;
+  $('opis').textContent = d.opis;
+  $('firm').innerHTML = d.nazwa
+    ? '<strong>' + esc(d.nazwa) + '</strong> · NIP ' + esc(d.nip)
+    : 'NIP ' + esc(d.nip);
+
+  $('fakty').innerHTML = (d.fakty || []).map(f =>
+    '<li class="fakt"><span>' + esc(f.ikona) + '</span><span>' + esc(f.tekst) + '</span></li>'
+  ).join('');
+
+  if ((d.uwagi || []).length) {
+    $('uwagiSec').style.display = 'block';
+    $('uwagi').innerHTML = d.uwagi.map(u => '<div class="uwaga">' + esc(u) + '</div>').join('');
+  } else {
+    $('uwagiSec').style.display = 'none';
+  }
+
+  // CTA dopasowane do światła — inny problem, inna rozmowa
+  if (d.swiatlo === 'czerwone') {
+    $('ctaTytul').textContent = 'Ryzykowny odbiorca? Nie finansuj go z własnej kieszeni';
+    $('ctaTekst').textContent = 'Faktoring pełny przenosi ryzyko braku zapłaty na faktora. Ty dostajesz pieniądze, on ściąga należność.';
+    $('ctaBtn').textContent = 'Sprawdź faktoring pełny →';
+  } else if (d.swiatlo === 'zolte') {
+    $('ctaTytul').textContent = 'Nie czekaj sześćdziesiąt dni na swoje pieniądze';
+    $('ctaTekst').textContent = 'Faktoring wypłaca zaliczkę od razu po wystawieniu faktury. Porównanie zajmuje dwie minuty.';
+    $('ctaBtn').textContent = 'Porównaj oferty faktoringu →';
+  } else {
+    $('ctaTytul').textContent = 'Solidny kontrahent, ale pieniądze i tak przyjdą za miesiąc';
+    $('ctaTekst').textContent = 'Jeśli długie terminy płatności blokują Ci gotówkę, faktoring uwalnia ją od razu.';
+    $('ctaBtn').textContent = 'Porównaj finansowanie →';
+  }
+
+  $('src').textContent = 'Źródła: ' + d.zrodla + ' · sprawdzono ' + d.data +
+    '. Dane pochodzą z rejestrów publicznych i mogą być nieaktualne. To nie jest ocena wiarygodności firmy.';
+
+  $('result').style.display = 'block';
+  $('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// Można podlinkować gotowe sprawdzenie: radar-plynnosci.html?nip=7011230351
+(function () {
+  const q = new URLSearchParams(location.search).get('nip');
+  if (q) { $('nip').value = q; sprawdz(); }
+})();
+</script>
+
+</body>
+</html>
