@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   FINMACH — SEO Components JS v1.2
+   FINMACH — SEO Components JS v1.3 (fix: konflikt podwojnego klikniecia FAQ)
    ═══════════════════════════════════════════════════════════════ */
 
 // ── FAQ Accordion ─────────────────────────────
@@ -29,7 +29,11 @@ function initFaqKeyboard() {
     btn.setAttribute('role', 'button');
     btn.setAttribute('tabindex', '0');
 
-    btn.addEventListener('click', () => toggleFaq(btn));
+    // v1.3 FIX: nie doklejaj klikniecia, gdy HTML ma juz onclick="toggleFaq(this)"
+    // (podwojny listener = otworz+zamknij w jednym kliku, FAQ wyglada na zepsute)
+    if (!btn.hasAttribute('onclick')) {
+      btn.addEventListener('click', () => toggleFaq(btn));
+    }
     btn.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
