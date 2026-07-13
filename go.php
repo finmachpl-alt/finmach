@@ -1,89 +1,130 @@
 <?php
-/* ════════════════════════════════════════════════════════════════
-   FINMACH — go.php  (maskowanie linków afiliacyjnych)
-   Użycie:  https://finmach.pl/go.php?p=faktoria
-   Prawdziwe linki są ukryte tutaj na serwerze — w mailach i na stronie
-   widać tylko go.php?p=KOD, więc nikt nie podejrzy ani nie podmieni linku.
-   Zmiana linku partnera = edycja tylko tego pliku.
-   ════════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════
+   FINMACH — go.php v2 · CENTRALNY HUB LINKÓW AFILIACYJNYCH
+   ───────────────────────────────────────────────────────────────────
+   Użycie:  /go.php?p=pragma&s=finmach&c=blog-transport
+     p = partner (wymagany)
+     s = serwis/źródło (opcjonalny, domyślnie: finmach)
+     c = kampania/miejsce na stronie (opcjonalny)
 
-// Awaryjny adres, gdy partner nie ma jeszcze linku (kierujemy na nasz LP)
-$LP_JDG    = "https://finmach.pl/kredyt-jdg.html";
-$LP_SPOLKA = "https://finmach.pl/kredyt-spolka.html";
+   Stare linki ?p=partner działają bez zmian.
 
-$links = array(
+   Logowanie kliknięć:
+     1) lokalny plik kliki.csv (natychmiast, zawsze działa)
+     2) Google Sheets przez webhook GAS "FINMACH Kliki"
+        — wpisz URL w GAS_KLIKI_URL poniżej po wdrożeniu Kliki.gs
+   ═══════════════════════════════════════════════════════════════════ */
 
-  // ── Faktoring ──────────────────────────────────────────────
-  "faktoria"        => "https://oferta.faktoria.pl/payflow?hs_preview=RIrEYeAl-372309924045",
-  "pragma"          => "https://online.pragmago.pl/faktoring-online/krok1?recommendation_code=952143",
-  "bibby"           => "https://app.kalypso.pl/bibby/onboard/channel/promo_email/PCPR30461",
-  "efaktor"         => "https://app.kalypso.pl/efaktor/onboard/channel/promo_sms/PCPR79004",
-  "finea"           => "https://app.kalypso.pl/finea/onboard/channel/promo_sms/PCPR59847",
-  "monevia"         => "https://www.monevia.pl/faktoring-pro/",
-  "nfg"             => "https://sof.nfg.pl/Logowanie?partnerCode=payflow_o",
-  "faktorone"       => "http://payflow.faktorone.pl/",
+// ── KONFIGURACJA ────────────────────────────────────────────────────
+// URL webhooka GAS "FINMACH Kliki" (zostaw pusty, jeśli jeszcze nie wdrożony)
+const GAS_KLIKI_URL = '';
 
-  // ── Indos (3 warianty) ─────────────────────────────────────
-  "indos"           => "https://indos.pl/pm-faktoring-cichy/",
-  "indos-jawny"     => "https://indos.pl/pm-faktoring-jawny/",
-  "indos-pozyczka"  => "https://indos.pl/pm-pozyczka/",
+// Domyślny cel, gdy partner nieznany
+const FALLBACK_URL = 'https://finmach.pl/';
 
-  // ── SMEO ───────────────────────────────────────────────────
-  "smeo"            => "https://smeo24.pl/seller?utm_source=275",
-  "smeo-pozyczka"   => "https://pozyczka.smeo24.pl/?utm_source=275",
+// ── MAPA LINKÓW AFILIACYJNYCH ───────────────────────────────────────
+$links = [
+    // FAKTORING
+    'faktoria'    => 'https://oferta.faktoria.pl/payflow?hs_preview=RIrEYeAl-372309924045',
+    'pragma'      => 'https://online.pragmago.pl/faktoring-online/krok1?recommendation_code=952143',
+    'pragmago'    => 'https://online.pragmago.pl/faktoring-online/krok1?recommendation_code=952143',
+    'bibby'       => 'https://www.bibbyfinancialservices.pl/kontakt/?utm_source=finmach&utm_medium=broker',
+    'efaktor'     => 'https://www.efaktor.pl/?utm_source=finmach&utm_medium=broker',
+    'indos'       => 'https://www.indos.pl/kontakt/?utm_source=finmach',
+    'teylor'      => 'https://app.teylor.io/pl/?utm_source=finmach',
+    'abs'         => 'https://www.abs-faktoring.pl/?utm_source=finmach',
 
-  // ── Pożyczki / inne ────────────────────────────────────────
-  "wealthon"        => "https://rejestracja.wealthon.com/nowy-wniosek/rejestracja?utm_source=PF_MB&utm_medium=offline&utm_campaign=POSCASH",
-  "novalend"        => "https://novalend.pl/landing-long/?id=PCPR19108&channel=KALYPSO_BROKER_MARKETING",
+    // POJEDYNCZA FAKTURA / MIKRO
+    'monevia'     => 'https://app.monevia.pl/?utm_source=finmach&utm_medium=broker',
+    'finea'       => 'https://finea.pl/?utm_source=finmach&utm_medium=broker',
+    'wecfina'     => 'https://wecfina.pl/?utm_source=finmach&utm_medium=broker',
+    'nfg'         => 'https://sof.nfg.pl/Logowanie?partnerCode=payflow_o',
 
-  // ── WEC ────────────────────────────────────────────────────
-  "wec-pozyczka"            => "https://wecfina.pl/gotowka/?partner=profimax",
-  "wec-faktury-zakupowe"    => "https://wecfina.pl/wniosek-raty/?partner=profimax",
-  "wec-faktury-sprzedazowe" => "https://wecfina.pl/wniosek-faktoring/?partner=profimax",
-  "wecfina"                 => "https://wecfina.pl/wniosek-faktoring/?partner=profimax",
+    // KONTRAKTY
+    'faktorone'   => 'https://www.faktor.one/?utm_source=finmach&utm_medium=broker',
 
-  // ── Terminale ──────────────────────────────────────────────
-  "pragma-terminale" => "https://online.pragmago.pl/faktoring-online/krok1?utm_source=strefapartnera&utm_medium=link&utm_campaign=faktoringonline&utm_term=b-244226&utm_content=url&recommendation_code=244226",
-  "pragma-odwrotny"  => "https://online.pragmago.pl/faktoring-online/krok1?utm_source=strefapartnera&utm_medium=link&utm_campaign=faktoringonline&utm_term=b-244226&utm_content=url&recommendation_code=244226",
+    // TERMINALE / MCA
+    'wealthon'    => 'https://rejestracja.wealthon.com/nowy-wniosek/rejestracja?utm_source=PF_MB&utm_medium=offline&utm_campaign=POSCASH',
+    'fiserv'      => 'https://www.fiserv.com/pl-pl/?utm_source=finmach',
 
-  // ── Gotówka bankowa (Comperia) ─────────────────────────────
-  "pko"             => "https://www.comperialead.pl/a/pp.php?link=23b37e48418ac8149267595a49c34573&etykieta_=pay",
-  "bnp"             => "https://www.comperialead.pl/a/pp.php?link=d8700881ab1b8b0a79a7c61b8d589231&etykieta_=pay",
+    // KREDYTY / POŻYCZKI
+    'smeo'        => 'https://smeo24.pl/seller?utm_source=275&utm_medium=broker',
+    'novalend'    => 'https://novalend.pl/landing-long/?id=PCPR19108&channel=KALYPSO_BROKER_MARKETING',
+    'pko'         => 'https://www.pkobp.pl/klienci-indywidualni/kredyty/?utm_source=finmach',
+    'bnp'         => 'https://www.bnpparibas.pl/dla-firm/?utm_source=finmach',
 
-  // ── Doradca FINMACH / nasze LP ─────────────────────────────
-  "doradca-jdg"     => $LP_JDG,
-  "doradca-spolka"  => $LP_SPOLKA,
-  "lp-jdg"          => $LP_JDG,
-  "lp-spolka"       => $LP_SPOLKA,
+    // NASZE LP / KONSULTACJE
+    'doradca-jdg'    => 'https://finmach.pl/kredyt-jdg.html',
+    'doradca-spolka' => 'https://finmach.pl/kredyt-spolka.html',
+    'doradca'        => 'https://koalendar.com/e/bezplatna-rozmowa-o-finansowaniu-firmy',
+];
 
-  // ── Partnerzy bez własnego linku → kierujemy na nasz LP ─────
-  // (kontakt przez doradcę: IFIS, ABS, ING, PKO Faktoring, PEKAO,
-  //  BNP Faktoring, Taylor, Fiserv, Finbee, Inne)
-  "abs"             => $LP_JDG,
-  "ifis"            => $LP_JDG,
-  "ing"             => $LP_JDG,
-  "ing-faktoring"   => $LP_JDG,
-  "pko-faktoring"   => $LP_JDG,
-  "pekao"           => $LP_JDG,
-  "bnp-faktoring"   => $LP_JDG,
-  "teylor"          => $LP_JDG,
-  "taylor"          => $LP_JDG,
-  "fiserv"          => $LP_JDG,
-  "finbee"          => $LP_JDG,
-  "inne"            => $LP_JDG,
-);
+// ── ODCZYT PARAMETRÓW ───────────────────────────────────────────────
+$partner  = strtolower(trim($_GET['p'] ?? ''));
+$serwis   = strtolower(trim($_GET['s'] ?? 'finmach'));
+$kampania = strtolower(trim($_GET['c'] ?? ''));
 
-// Pobierz kod partnera
-$p = isset($_GET["p"]) ? strtolower(trim($_GET["p"])) : "";
+// Sanityzacja: tylko litery, cyfry, myślnik, podkreślnik (max 60 znaków)
+$czysc = function ($v) {
+    return substr(preg_replace('/[^a-z0-9_\-]/', '', $v), 0, 60);
+};
+$partner  = $czysc($partner);
+$serwis   = $czysc($serwis);
+$kampania = $czysc($kampania);
 
-// Znajdź link albo użyj awaryjnego LP
-if ($p !== "" && isset($links[$p])) {
-  $target = $links[$p];
+$znany = isset($links[$partner]);
+$cel   = $znany ? $links[$partner] : FALLBACK_URL;
+
+// ── PRZEKIEROWANIE (najpierw user, potem logowanie) ─────────────────
+header('Location: ' . $cel, true, 302);
+header('Cache-Control: no-store');
+
+// Domknij odpowiedź do przeglądarki — logowanie już nie opóźnia usera
+if (function_exists('fastcgi_finish_request')) {
+    fastcgi_finish_request();
 } else {
-  $target = $LP_JDG; // nieznany kod → bezpieczny fallback na nasz LP
+    // Fallback: wypchnij bufor
+    if (ob_get_level() > 0) { @ob_end_flush(); }
+    @flush();
 }
 
-// Przekieruj (302) i zakończ
-header("Location: " . $target, true, 302);
+// ── LOGOWANIE 1: lokalny CSV (zawsze) ───────────────────────────────
+$wiersz = [
+    date('Y-m-d H:i:s'),
+    $partner ?: '(brak)',
+    $serwis,
+    $kampania,
+    $znany ? 'ok' : 'nieznany-partner',
+    substr($_SERVER['HTTP_REFERER'] ?? '', 0, 200),
+];
+$fh = @fopen(__DIR__ . '/kliki.csv', 'a');
+if ($fh) {
+    @fputcsv($fh, $wiersz, ';');
+    @fclose($fh);
+}
+
+// ── LOGOWANIE 2: Google Sheets przez GAS (jeśli skonfigurowany) ─────
+if (GAS_KLIKI_URL !== '') {
+    $url = GAS_KLIKI_URL
+         . '?partner='  . urlencode($partner)
+         . '&serwis='   . urlencode($serwis)
+         . '&kampania=' . urlencode($kampania)
+         . '&status='   . ($znany ? 'ok' : 'nieznany')
+         . '&ref='      . urlencode(substr($_SERVER['HTTP_REFERER'] ?? '', 0, 200));
+
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,   // GAS zawsze robi redirect 302
+            CURLOPT_TIMEOUT        => 5,
+            CURLOPT_CONNECTTIMEOUT => 3,
+        ]);
+        @curl_exec($ch);
+        @curl_close($ch);
+    } else {
+        $ctx = stream_context_create(['http' => ['timeout' => 5]]);
+        @file_get_contents($url, false, $ctx);
+    }
+}
 exit;
-?>
