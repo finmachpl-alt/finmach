@@ -341,10 +341,41 @@
             <div class="typ" onclick="setLata(this)">5+ lat</div>
           </div>
         </div>
-        <div class="wynik">
-          <div class="lbl">Warunki sprzed lat często odbiegają od dzisiejszych</div>
-          <div class="widelki" style="font-size:19px;line-height:1.35">Sprawdzimy, czy da się<br>obniżyć Twoje koszty</div>
-          <div class="note">Refinans liczy się indywidualnie. Ocena w rozmowie, bez zobowiązań.</div>
+        <div class="wynik" id="refiBox">
+          <div class="lbl">Potencjał refinansowania</div>
+          <div class="widelki" id="refiEtykieta" style="font-size:21px;line-height:1.3">Umiarkowany–wysoki</div>
+          <div style="max-width:260px;margin:12px auto 0;height:8px;border-radius:10px;background:rgba(255,255,255,.14);overflow:hidden;position:relative;">
+            <div id="refiPasek" style="height:100%;width:65%;border-radius:10px;background:linear-gradient(90deg,#c9a84c,#e3c877);transition:width .45s cubic-bezier(.2,.7,.2,1);"></div>
+          </div>
+          <div class="note" id="refiOpis" style="margin-top:10px">Zobowiązania z tego okresu często mają warunki odbiegające od dzisiejszych. Ocena w rozmowie, bez zobowiązań.</div>
+        </div>
+      </div>
+
+      <!-- ŚCIEŻKA FINANSOWANIA: bank / fundusz / kapitał prywatny -->
+      <div style="margin-top:18px">
+        <div style="font-size:12.5px;color:var(--szary);font-weight:600;margin-bottom:9px">Którą ścieżką chcesz iść? <span style="font-weight:400">(opcjonalnie, pomożemy wybrać)</span></div>
+        <div id="sciezki" style="display:grid;gap:8px">
+          <div class="sciezka-opt" data-s="bank" onclick="setSciezka(this)" style="border:1.5px solid var(--linia);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .15s">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+              <span style="font-size:13.5px;font-weight:800;color:var(--granat)">🏛️ Bank</span>
+              <span style="font-size:10.5px;color:var(--szary)">zwykle 3–6 tyg.</span>
+            </div>
+            <div style="font-size:11.5px;color:var(--szary);line-height:1.4">Koszt najniższy. Liczy się zdolność i komplet dokumentów. Dla firm z uporządkowaną sytuacją.</div>
+          </div>
+          <div class="sciezka-opt" data-s="fundusz" onclick="setSciezka(this)" style="border:1.5px solid var(--linia);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .15s">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+              <span style="font-size:13.5px;font-weight:800;color:var(--granat)">🏦 Fundusz</span>
+              <span style="font-size:10.5px;color:var(--szary)">zwykle 1–3 tyg.</span>
+            </div>
+            <div style="font-size:11.5px;color:var(--szary);line-height:1.4">Koszt wyższy niż w banku. Liczy się nieruchomość i kondycja biznesu. Gdy bank odpada albo liczy się czas.</div>
+          </div>
+          <div class="sciezka-opt" data-s="prywatny" onclick="setSciezka(this)" style="border:1.5px solid var(--linia);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .15s">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+              <span style="font-size:13.5px;font-weight:800;color:var(--granat)">🤝 Kapitał prywatny</span>
+              <span style="font-size:10.5px;color:var(--szary)">nawet kilka dni</span>
+            </div>
+            <div style="font-size:11.5px;color:var(--szary);line-height:1.4">Najszybszy i najdroższy. Liczy się głównie zabezpieczenie. Rozwiązanie pomostowe, najlepiej z planem refinansowania.</div>
+          </div>
         </div>
       </div>
 
@@ -509,6 +540,7 @@
       ev.preventDefault();
       var params=new URLSearchParams();
       params.set('produkt',prod);
+      if(sciezka) params.set('sciezka',sciezka);
       if(prod!=='refi'){
         params.set('wartosc_tys',pos2kwota(+document.getElementById('sW').value));
         params.set('dlug_tys',pos2dlug(+document.getElementById('sZ').value));
@@ -594,7 +626,7 @@
     el.classList.add('on'); prod=el.dataset.p;
     const std=document.getElementById('modeStd'), refi=document.getElementById('modeRefi');
     const lbl=document.getElementById('wynikLbl'), wlbl=document.getElementById('lblWartosc');
-    if(prod==='refi'){ std.style.display='none'; refi.style.display='block'; document.getElementById('ctaBtn').textContent='Sprawdź, czy da się obniżyć koszty → umów rozmowę'; }
+    if(prod==='refi'){ std.style.display='none'; refi.style.display='block'; document.getElementById('ctaBtn').textContent='Sprawdź, czy da się obniżyć koszty → umów rozmowę'; ocenRefi(); }
     else{
       std.style.display='block'; refi.style.display='none'; document.getElementById('ctaBtn').textContent='Poznaj dokładną kwotę → umów rozmowę';
       if(prod==='inwest'){ lbl.textContent='Orientacyjny budżet inwestycji z finansowaniem'; wlbl.textContent='Wartość nieruchomości, którą kupujesz/budujesz'; }
@@ -603,15 +635,64 @@
     }
   }
 
+  let sciezka='';
+  function setSciezka(el){
+    const był = el.classList.contains('sciezka-on');
+    document.querySelectorAll('#sciezki .sciezka-opt').forEach(o=>{
+      o.classList.remove('sciezka-on');
+      o.style.borderColor='var(--linia)'; o.style.background='';
+    });
+    if(!był){
+      el.classList.add('sciezka-on');
+      el.style.borderColor='var(--zloto)'; el.style.background='#fdfbf4';
+      sciezka=el.dataset.s;
+      trackEvent('PathSelected',{content_name:'hipoteka-dla-firm',path:sciezka});
+    } else { sciezka=''; }
+  }
+
+  function ocenRefi(){
+    // Jakościowy wskaźnik potencjału: staż zobowiązania + kwota. Zero zmyślonych liczb.
+    const k=pos2kwota(+document.getElementById('sR').value); // tys.
+    const lataEl=document.querySelector('#lata .typ.on');
+    const staz=lataEl?lataEl.textContent.trim():'2–5 lat';
+    let etykieta, procent, opis;
+    if(k>20000){
+      etykieta='Skala korporacyjna'; procent=100;
+      opis='Tematy tej wielkości prowadzimy indywidualnie. Porozmawiajmy bezpośrednio.';
+    } else if(staz==='5+ lat'){
+      etykieta='Wysoki'; procent=88;
+      opis='Zobowiązania sprzed pięciu i więcej lat często mają warunki znacząco odbiegające od dzisiejszych. Warto to sprawdzić.';
+    } else if(staz==='2–5 lat'){
+      if(k>=1000){ etykieta='Umiarkowany–wysoki'; procent=65;
+        opis='Przy tej kwocie i stażu różnica warunków bywa odczuwalna. Sprawdzimy, czy da się obniżyć koszty.'; }
+      else { etykieta='Umiarkowany'; procent=48;
+        opis='Warunki mogły się zmienić od podpisania umowy. Ocena w rozmowie, bez zobowiązań.'; }
+    } else {
+      etykieta='Do sprawdzenia indywidualnie'; procent=30;
+      opis='Świeże zobowiązania rzadziej opłaca się refinansować, ale bywają wyjątki. Powiemy wprost, czy to Twój przypadek.';
+    }
+    document.getElementById('refiEtykieta').textContent=etykieta;
+    document.getElementById('refiPasek').style.width=procent+'%';
+    document.getElementById('refiOpis').textContent=opis;
+    const box=document.getElementById('refiBox');
+    box.classList.remove('puls');void box.offsetWidth;box.classList.add('puls');
+  }
   function calcRefi(){
+    if(window.__calcReady && !window.__calcFired){
+      window.__calcFired=true;
+      trackEvent('CalculatorUsed',{content_name:'hipoteka-dla-firm',product:'refi'});
+    }
     const k=pos2kwota(+document.getElementById('sR').value);
     document.getElementById('vR').innerHTML=(k>20000)?'20+ mln zł':fmtKwota(k).replace(/<\/?em>/g,'');
+    ocenRefi();
   }
   function setLata(el){
     document.querySelectorAll('#lata .typ').forEach(t=>t.classList.remove('on'));
     el.classList.add('on');
+    ocenRefi();
   }
   calc();
+  ocenRefi();
   window.__calcReady=true;
 </script>
 </body>
