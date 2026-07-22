@@ -9,7 +9,7 @@
 <meta name="description" content="Hipoteka dla firm bez tabelek-fikcji: uwolnij kapitał z nieruchomości, refinansuj drogie zobowiązanie lub sfinansuj inwestycję. Kalkulator w 60 sekund, konkrety w rozmowie. Tematy od 200 tys. do 20 mln+.">
 <link rel="canonical" href="https://finmach.pl/hipoteka-dla-firm.html">
 <meta property="og:title" content="Hipoteka dla firm | FINMACH">
-<meta property="og:description" content="Jaki potencjał drzemie w Twojej nieruchomości? Sprawdź w 60 sekund. Specjalizacja: tylko firmy.">
+<meta property="og:description" content="Ile kapitału śpi w Twojej nieruchomości? Sprawdź w 60 sekund. Specjalizacja: tylko firmy.">
 <meta property="og:url" content="https://finmach.pl/hipoteka-dla-firm.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
@@ -65,7 +65,7 @@
 <!-- ===== KONFIGURACJA: UZUPELNIJ PRZED WGRANIEM ===== -->
 <script>
   // Link do rezerwacji rozmowy (Koalendar / Cal.com). Podmień na działający:
-  const BOOKING_URL = ""; // PUSTE = tryb mailto (lead na kontakt@finmach.pl). Po zalozeniu Cal.com wklej tu link.
+  const BOOKING_URL = "https://koalendar.com/e/UZUPELNIJ-LINK";
   const PHONE = "+48508242599";
 </script>
 
@@ -285,7 +285,7 @@
   <div class="hero">
     <div class="hero-head">
       <div class="eyebrow r d1">◆ Specjalizacja: tylko firmy</div>
-      <h1 class="r d1">Jaki potencjał drzemie w Twojej <span class="hl">nieruchomości?</span></h1>
+      <h1 class="r d1">Ile kapitału śpi w Twojej <span class="hl">nieruchomości?</span></h1>
       <p class="r d2">Sprawdź w 60 sekund. Konkrety potwierdzimy w rozmowie.</p>
       <div class="no-data r d2">🔒 <b>Bez podawania danych.</b> Licz anonimowo.</div>
     </div>
@@ -317,7 +317,6 @@
             <div class="typ" data-ltv-lo="0.5" data-ltv-hi="0.7" onclick="setTyp(this)"><span class="ti">🏡</span>Dom</div>
             <div class="typ" data-ltv-lo="0.35" data-ltv-hi="0.55" onclick="setTyp(this)"><span class="ti">🏗️</span>Działka budowlana</div>
             <div class="typ" data-ltv-lo="0.30" data-ltv-hi="0.50" onclick="setTyp(this)"><span class="ti">🌾</span>Grunt rolny</div>
-            <div class="typ" data-ltv-lo="0.35" data-ltv-hi="0.55" onclick="setTyp(this)"><span class="ti">🏞️</span>Grunt inwestycyjny</div>
           </div>
         </div>
 
@@ -551,18 +550,8 @@
         var l=document.querySelector('#lata .typ.on'); if(l) params.set('splaca_od',l.textContent.trim());
       }
       trackEvent('Lead',{content_name:'hipoteka-dla-firm',source:a.dataset.source||'inne',product:prod});
-      if(BOOKING_URL){
-        var opis=[];
-        params.forEach(function(v,k){ opis.push(k+': '+v); });
-        params.set('notes', opis.join(' | '));
-        var sep=BOOKING_URL.indexOf('?')>-1?'&':'?';
-        window.location.href=BOOKING_URL+sep+params.toString();
-      } else {
-        var linie=['Dzien dobry, prosze o kontakt w sprawie hipoteki dla firmy.',''];
-        params.forEach(function(v,k){ linie.push(k+': '+v); });
-        linie.push('','Najlepszy termin na rozmowe: ');
-        window.location.href='mailto:kontakt@finmach.pl?subject='+encodeURIComponent('Hipoteka dla firm - prosba o rozmowe')+'&body='+encodeURIComponent(linie.join('\n'));
-      }
+      var sep=BOOKING_URL.indexOf('?')>-1?'&':'?';
+      window.location.href=BOOKING_URL+sep+params.toString();
     });
   });
 </script>
